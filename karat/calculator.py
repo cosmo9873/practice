@@ -3,30 +3,42 @@ class Solution:
         result=0
         sign=1
         num="0"
-        for i in exp:
-            print('flag0',i, result, int(num))
-            if i == '(' or i == ')':
-                continue
-            if i != '-' and i != '+':
-                num=num+i
-                continue
-            if i == '+':
+        stack=[]
+        i=0
+        while i < len(exp):
+            print('flag0', i, result, int(num), stack, sign)
+            
+            if exp[i].isnumeric():
+                while i < len(exp) and exp[i].isnumeric():
+                    num=num+exp[i]
+                    print('flag1', i, result, int(num), stack, sign)
+                    i=i+1
+                i=i-1
                 result=result+sign*(int(num))
+                num='0'
+            
+            elif exp[i] == '(':
+                stack.append(result)
+                stack.append(sign)
+                result=0
+                sign=1             
+            elif exp[i] == ')':
+                result=result*stack.pop()+stack.pop()
+            elif exp[i] == '+':
                 sign=1
-                num='0'
-            if i == '-':
-                result=result+sign*(int(num))
+            elif exp[i] == '-':
                 sign=-1
-                num='0'
+            
+            i=i+1
 
-        if num != '0':
-            result=result+sign*(int(num))
+        print('flag2',i, result, int(num), stack)
+        # if num != '0':
+        #     result=result+sign*(int(num))
 
         print(result)     
 
-
-
 exp="100+2+3-99+87"
-exp="2+((8+2)+(3-999))"
+exp2="2+((8+3)+(3-999))"
+exp3='22+8+3+3-999'
 a=Solution()
-a.calculator(exp)
+a.calculator(exp2)

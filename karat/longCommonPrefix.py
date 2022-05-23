@@ -7,10 +7,10 @@ class Solution:
         s1 = min(m)
         s2 = max(m)
         #m.sort()
-        print(list(enumerate(s1)))
-        print(s1[:1])
+        # print(list(enumerate(s1)))
+        # print(s1[:1])
         for i, c in enumerate(s1):
-         if c != s2[i]:
+         if s1[i] != s2[i]:
             return s1[:i]
         return s1
 

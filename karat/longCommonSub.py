@@ -24,11 +24,11 @@ class Solution:
 
 
 
-h2=["3234.html", "xys.html", "7hsaa.html" ]
-h1=["3234.html", "saasa.html","xys.html", "7hsaa.html" ]
+# h2=["3234.html", "xys.html", "7hsaa.html" ]
+# h1=["3234.html", "saasa.html","xys.html", "7hsaa.html" ]
 
 
-# h2='abcde'
-# h1='ace'
+h2='abcde'
+h1='ace'
 a=Solution()
 print(a.lcs(h1,h2))

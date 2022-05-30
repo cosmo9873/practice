@@ -60,14 +60,25 @@
 
 # mylist = [int(i) for i in mylist]
 # print(mylist)
-import operator
-import decimal
+# import operator
+# import decimal
 
-decimal.getcontext().prec = 150
-e_from_decimal = decimal.Decimal(1).exp().to_eng_string()[2:]
-for i in range(len(e_from_decimal)-10):
-    x = int(reduce(operator.add,e_from_decimal[i:i+10]))
-    if isprime(x):
-        print (x)
-        print (i)
-        break  
+# decimal.getcontext().prec = 150
+# e_from_decimal = decimal.Decimal(1).exp().to_eng_string()[2:]
+# for i in range(len(e_from_decimal)-10):
+#     x = int(reduce(operator.add,e_from_decimal[i:i+10]))
+#     if isprime(x):
+#         print (x)
+#         print (i)
+#         break  
+
+# s="abcdefghi"
+# new_s=""
+# for i in range(len(s)-1,-1,-1):
+#     new_s+=s[i]
+# print(new_s)
+
+nums = [1,1,1,2,2,5,5,3,5,5,5]
+k = 2
+a=Solution()
+print(a.topk(nums,k))

@@ -26,7 +26,7 @@ class Solution():
         return str(result)
 
 
-num1 = "99"
+num1 = "98"
 num2 = "153"
 
 a=Solution()

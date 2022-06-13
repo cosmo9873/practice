@@ -3,19 +3,36 @@
 class Solution():
     def isValidNonogram(self, matrix, row, col):
 
-        for i in range(len(row)):
-            print (row[i], matrix[i])
-            if row[i] == []:
-                if 0 not in matrix[i]:
-                 pass
-                 print ('pass')
-            else:
-                for j in range(len(row[i])):
-                    print(row[i][j])
+
+        def isValidVect(vect, meta):
+            new_meta=[]
+            zcount=0
+            # print(vect)
+            for i in vect:
+                if i == 1 and zcount != 0:
+                        new_meta.append(zcount) 
+                        zcount=0
+                if i == 0:
+                    zcount+=1
+            if zcount != 0:
+                new_meta.append(zcount) 
+            # print(meta,new_meta)
+            return meta == new_meta
 
 
+        # print(isValidVect([0,1,1,0], [1,1]))
 
+        for i in range(len(matrix)):
+            # print(isValidVect(matrix[i],row[i]))
+            if isValidVect(matrix[i],row[i]) == False:
+                return False
 
+        
+        for i in range(len(matrix[0])):
+            if isValidVect([sub[i] for sub in matrix],col[i]) == False:
+                return False
+        
+        return True
 
 
 matrix1 = [[1,1,1,1],
@@ -26,15 +43,19 @@ matrix1 = [[1,1,1,1],
 rows1_1    =  [[], [1], [1,2], [1], [2]]
 columns1_1 =  [[2,1], [1], [2], [1]]
 
-
+matrix2 = [
+    [1,1],
+    [0,0],
+    [0,0],
+    [1,0]
+]
+# False
+rows2_1 = [[],[2],[2],[1]]
+columns2_1 = [[1,1],[3]]
 
 a=Solution()
 print(a.isValidNonogram(matrix1,rows1_1,columns1_1))
-
-
-
-
-
+print(a.isValidNonogram(matrix2,rows2_1,columns2_1))
 
 
 

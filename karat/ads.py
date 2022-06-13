@@ -29,6 +29,10 @@ class Solution:
         return str
 
 
+
+       
+
+
 completed_purchase_user_ids = ["3123122444","234111110", "8321125440", "99911063"]
 
 # And our ops team provided us with some raw log data from our ad server showing every time a
@@ -53,6 +57,16 @@ all_user_ips = [
  "8321125440,82.1.106.8",
  "99911063,92.130.6.144"
  ]
+# // Write a function to parse this data, determine how many times each ad was clicked,
+# //then return the ad text, that ad's number of clicks, and how many of those ad clicks
+# //were from users who made a purchase.
+
+
+# // Expected output:
+# // Bought Clicked Ad Text
+# // 1 of 2  2017 Pet Mittens
+# // 0 of 1  The Best Hollywood Coats
+# // 3 of 3  Buy wool coats for your pets
 
 a=Solution()
 print (a.adConversationRate(completed_purchase_user_ids,ad_clicks,all_user_ips))

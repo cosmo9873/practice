@@ -3,7 +3,7 @@ class Solution:
         if not h1 or not h2: return 0
 
         s=[]
-        count=-1
+        count=0
 
         dp = [[ 0 for _ in range(len(h2)+1) ] for _ in range(len(h1)+1)]
         # print(dp)
@@ -17,15 +17,16 @@ class Solution:
 
         print(s)
 
-        return dp[0][0]
+        # return dp
 
 
 
-# h2=["3234.html", "xys.html", "7hsaa.html","asdf" ]
-# h1=["3234.html", "saasa.html","xys.html", "7hsaa.html","asdf" ]
+h2=["3234.html", "xys.html", "7hsaa.html","asdf" ]
+h1=["3234.html", "saasa.html","xys.html", "7hsaa.html","asdf" ]
 
 
-h2='abcdee'
-h1='acecdecdee'
+# h2='abdecdee'
+# h2='cdeea'
+# h1='acecdecdee'
 a=Solution()
 print(a.lcs(h1,h2))

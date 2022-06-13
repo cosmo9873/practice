@@ -51,4 +51,4 @@ board2=[["8","3",".",".","7",".",".",".","."]
 ,[".",".",".",".","8",".",".","7","9"]]
 
 a=Solution()
-print(a.isSudokuValid(board2))
+print(a.isSudokuValid(board))

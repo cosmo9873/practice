@@ -4,89 +4,118 @@ from zlib import Z_BEST_SPEED
 
 class Solution:
 
-    def find01Parent(self,pairset):
-        map={}
-        zeroset=[]
-        oneset=[]
-        # print(pairset)
-        for p,c in pairset:
-            if c not in map:
-                map[c]=1
+    # def find01Parent(self,pairset):
+    #     map={}
+    #     zeroset=[]
+    #     oneset=[]
+    #     # print(pairset)
+    #     for p,c in pairset:
+    #         if c not in map:
+    #             map[c]=1
+    #         else:
+    #             map[c]+=1
+
+    #         if p not in map:
+    #             map[p]=0
+    #     # print(map)
+
+    #     for i in map:
+    #         if map[i] == 0:
+    #             zeroset.append(i)
+    #         elif map[i] == 1:
+    #             oneset.append(i)
+    #     print(zeroset,oneset)
+
+    def find01Parent(self, pairs):
+        pmap={}
+        for p,c in pairs:
+            if c not in pmap:
+                pmap[c]=[p]
             else:
-                map[c]+=1
+                pmap[c].append(p)
+            if p not in pmap:
+                pmap[p]=[]
+        
+        for i in pmap:
+            if len(pmap[i]) == 0 or len(pmap[i]) == 1:
+                print (i, ": ", pmap[i])
 
-            if p not in map:
-                map[p]=0
-        # print(map)
+    # def commonParent(self,pairset,n1, n2):
+    #         pmap={}
+    #         # print(pairset)
+    #         for p,c in pairset:
+    #             if c not in pmap:
+    #                 pmap[c]={p}
+    #             else:
+    #                 print('flag0',c,p,pmap)
+    #                 pmap[c].add(p)
 
-        for i in map:
-            if map[i] == 0:
-                zeroset.append(i)
-            elif map[i] == 1:
-                oneset.append(i)
-        print(zeroset,oneset)
-
-    def commonParent(self,pairset,n1, n2):
-            pmap={}
-            # print(pairset)
-            for p,c in pairset:
-                if c not in pmap:
-                    pmap[c]={p}
-                else:
-                    print('flag0',c,p,pmap)
-                    pmap[c].add(p)
-
-                if p not in pmap:
-                    print("flag1",c,p, pmap)
-                    pmap[p]=set()
+    #             if p not in pmap:
+    #                 print("flag1",c,p, pmap)
+    #                 pmap[p]=set()
 
 
-            for i in pmap:
-                if pmap[i] != set():
-                    seta=pmap[i].copy()
-                    for p in seta:
-                        for a in pmap[p]:
-                            pmap[i].add(a)
+    #         for i in pmap:
+    #             if pmap[i] != set():
+    #                 seta=pmap[i].copy()
+    #                 for p in seta:
+    #                     for a in pmap[p]:
+    #                         pmap[i].add(a)
 
 
-            print(pmap)
-            return pmap[n1].intersection(pmap[n2]) != set()
+    #         print(pmap)
+    #         return pmap[n1].intersection(pmap[n2]) != set()
+
+
+    def commonParent(self,pairs,x,y):
+        pmap={}
+        for p,c in pairs:
+            if c not in pmap:
+                pmap[c]=[p]
+            else:
+                pmap[c].append(p)
+            if p not in pmap:
+                pmap[p]=[]
+                
+        print(pmap[x],pmap[y])
+        
+        return set(pmap[x]).intersection(pmap[y]) != set()
             
 
     def earliestParent(self,pairset,n):
-            pmap={}
-            # print(pairset)
-            for p,c in pairset:
-                if c not in pmap:
-                    pmap[c]={p}
-                else:
-                    print('flag0',c,p,pmap)
-                    pmap[c].add(p)
 
-                if p not in pmap:
-                    print("flag1",c,p, pmap)
-                    pmap[p]=set()
-            print(pmap)
-            
-            def returnEP(pmap,x,layer):
-                if pmap[x] == set():
-                    print('flag2',x, layer)
-                    return x,layer
-                else: 
-                    for i in pmap[x]:
-                        __depth=0
-                        # print('flag3',__c,x,i,pmap[x])
-                        a,b=returnEP(pmap,i,layer+1)
-                        # depthmap[i]=b
-                        print('flag4',a,b)
-                        if b > __depth:
-                            result=a
-                            __depth=b
-                        
-                    return result, layer
-            depthmap={}
-            print(returnEP(pmap,n,0))
+        def returnTop(x,count):
+            count+=1
+            if pmap[x] == []:
+                print("top",x,count)
+                cmap[x]=count
+            else:
+                for i in pmap[x]:
+                    returnTop(i,count)
+        cmap={}
+        count=0
+        pmap={}
+        for p,c in pairset:
+            if c not in pmap:
+                pmap[c]=[p]
+            else:
+                pmap[c].append(p)
+            if p not in pmap:
+                pmap[p]=[]
 
+        print(pmap)
+        
+        returnTop(n,count)
+        print(cmap)
+        count=0
+        for i in cmap:
+            if cmap[i] > count:
+                p=i
+                count=cmap[i]
+
+        print(p)
+
+        
            
 
 

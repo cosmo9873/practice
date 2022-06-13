@@ -5,7 +5,7 @@ class Solution():
     def bookMeeting(self,MR,new):
         start_new,stop_new=new
         for start,stop in MR:
-            if start<=start_new<=stop and start<=stop_new<=stop:
+            if start<=start_new<=stop or start<=stop_new<=stop:
                return False
             else:
                 return True

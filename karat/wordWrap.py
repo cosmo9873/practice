@@ -12,9 +12,7 @@ class Solution():
                     bucket=bucket+l[i]
                 else:
                     bucket=bucket+"-"+l[i]
-                continue
             else:
-
                 result.append(bucket)
                 bucket=l[i]
 
@@ -23,10 +21,11 @@ class Solution():
         print(result)
 
 
+# e.g. ["1p3acres", "is", "a", "good", "place", "for", "communicate"], 12 => {"1p3acres-is", "a-good-place", "for", "communicate"}
 
 wordlist=["1p3acres", "is", "a", "good", "place", "for", "communicate"]
-wordlist=["123", "45", "67", "8901234","5678", "12345", "8", "9", "0", "1", "23"]
-n=15
+wordlist1=["123", "45", "67", "8901234","5678", "12345", "8", "9", "0", "1", "23"]
+n=12
 
 a=Solution()
 a.wordWrap(wordlist, n)

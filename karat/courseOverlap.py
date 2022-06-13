@@ -70,4 +70,4 @@ student_course_pairs_2 = [
 # }
 
 a=Solution()
-a.courseOverlap(student_course_pairs_2)
+a.courseOverlap(student_course_pairs_1)

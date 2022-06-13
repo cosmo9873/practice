@@ -24,7 +24,7 @@ class Solution:
 
     def canExpandDown(self,__rect):
         rect=__rect.copy()
-
+        print("rect", rect)
         for i in range(len(rect[2])):
             if matrix[i][rect[3]] == '1':
                 continue
@@ -39,11 +39,6 @@ class Solution:
                 jpointer=j-1
                 break
 
-    
-
-
-
-
         #print(f'flag2', rect)
         
         # if rect[0]< self.m-1 and matrix[rect[0]+1][rect[1]] == '1' and rect[0]+rect[2]<self.m:
@@ -57,8 +52,11 @@ class Solution:
                   
                   
 
-matrix = [["1","0","1","0","0"],["1","0","1","1","1"],["1","1","1","1","1"],["1","0","0","1","0"]]
-for _ in matrix:
-    print(_)
+matrix = [["1","0","1","0","0"],
+          ["1","0","1","1","1"],
+          ["1","1","1","1","1"],
+          ["1","0","0","1","0"]]
+# for _ in matrix:
+#     print(_)
 a=Solution(matrix)
 a.findRect()

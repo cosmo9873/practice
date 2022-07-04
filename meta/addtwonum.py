@@ -17,24 +17,46 @@ class Solution:
             val2=(l2.val if l2 else 0)
 
             c,out=divmod(val1+val2+c, 10)
+
             tail.next=ListNode(out)
             tail=tail.next
 
-            # l1=(l1.next if l1 else None)
-            # l2=(l2.next if l1 else None)
+            l1=(l1.next if l1 else None)
+            l2=(l2.next if l2 else None)
 
-            l1=l1.next
-            l2=l2.next
 
         return new.next
 
-        
+    def reverse(self, l1):
+        new=l1
+        l1=l1.next
+        new.next=None
+        while l1:
+            print('flag')
+            temp=l1
+            l1=l1.next
+            temp.next=new
+            new=temp
+        return new
+
+    # def reverse(self, l1):
+    #     new=ListNode(l1.val)
+    #     l1=l1.next
+    #     while l1:
+    #         temp=ListNode(l1.val)
+    #         temp.next=new
+    #         new=temp
+    #         l1=l1.next
+    #     return new
+
 
 
 l1=ListNode(3)
+
 temp=ListNode(4)
 temp.next=l1
 l1=temp
+
 temp=ListNode(2)
 temp.next=l1
 l1=temp
@@ -51,6 +73,7 @@ l2=temp
 
 a=Solution()
 ret=a.addTwoNumbers(l1,l2)
+ret=a.reverse(l1)
 while ret:
     print (ret.val)
     ret=ret.next

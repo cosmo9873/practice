@@ -36,7 +36,7 @@ class Solution:
 
         
 
-s="babadabab"
-s1 = "cbbd"
+s="babadababsd"
+s1 = "cdbbdc"
 a=Solution()
-print(a.longestPalindrome(s))
+print(a.longestPalindrome(s1))

@@ -1,35 +1,33 @@
 #链接：https://juejin.cn/post/6844904085913600008
 
+from collections import defaultdict
 
 class Solution():
     def frequentAccess(self,records):
-        map=dict()
+        map=defaultdict(set)
         for name,time in records:
-            if name not in map:
-                map[name]=set()
-                map[name].add(int(time))
-            else:
-                map[name].add(int(time))
+            map[name].add(int(time))
 
-        result=dict()
+        result=defaultdict(set)
         for name in map:
-            print('sorted',name,sorted(map[name]))
+            # print('sorted',name,sorted(map[name]))
             counter=0
+            init=sorted(map[name])[0]
             for i in sorted(map[name]):
-                if name not in result:
-                    init=i
-                    result[name]=set()
+                # if name not in result:
+                #     init=i
+                #     result[name]=set()
+                # else:
+                if i-init < 100:
+                    result[name].add(init)
+                    result[name].add(i)
+                    counter=counter+1
                 else:
-                    if i-init < 100:
-                        result[name].add(init)
-                        result[name].add(i)
-                        counter=counter+1
-                    else:
-                        continue
+                    continue
 
 
 
-        print('map',map)
+        # print('map',map)
         print('result',result)
 
 

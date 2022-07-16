@@ -9,48 +9,52 @@ class ListNode(object):
 class Solution:
     def reverse(self, l1,m,n):
 
-        if m == n: 
+        if m >= n: 
             return l1
 
         mpointer=l1
-        for i in range(1,m-1):
+        for i in range(0,m-2):
             mpointer=mpointer.next
         
-        npointer=mpointer
-        for i in range(m-1,n):
+        npointer=l1
+        for i in range(0, n-1):
             npointer=npointer.next
 
         temp=npointer
         npointer=npointer.next
         temp.next=None
-        
 
-        t1=mpointer.next
-        new=t1
-        t1=t1.next
-        new.next=npointer
-        print('l1',l1.val)
-        print('temp',temp.val)
-        while t1:
-            print('flag')
-            temp=t1
-            t1=t1.next
+        if m != 1:
+            cur=mpointer.next
+        else:
+            cur=mpointer
+        new=npointer
+        while cur:
+            temp=cur
+            cur=cur.next
             temp.next=new
+
             new=temp
         
-        mpointer.next=new
+        if m != 1:
+            mpointer.next=new
+        else:
+            l1=new
+
         return l1
 
 
 
-l1=ListNode(3)
 
-temp=ListNode(2)
+
+l1=ListNode(8)
+
+temp=ListNode(7)
 temp.next=l1
 l1=temp
-temp=ListNode(1)
-temp.next=l1
-l1=temp
+# temp=ListNode(6)
+# temp.next=l1
+# l1=temp
 # temp=ListNode(5)
 # temp.next=l1
 # l1=temp
@@ -68,8 +72,8 @@ l1=temp
 # l1=temp
 
 
-m=2
-n=3
+m=1
+n=2
 
 a=Solution()
 ret=a.reverse(l1,m,n)

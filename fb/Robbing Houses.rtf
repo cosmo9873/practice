@@ -1,0 +1,86 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1671\cocoasubrtf200
+{\fonttbl\f0\fnil\fcharset0 HelveticaNeue-Bold;\f1\fnil\fcharset0 HelveticaNeue;\f2\fmodern\fcharset0 Courier;
+}
+{\colortbl;\red255\green255\blue255;\red22\green25\blue31;\red255\green255\blue255;\red42\green44\blue51;
+\red249\green249\blue249;\red147\green0\blue147;\red133\green85\blue4;}
+{\*\expandedcolortbl;;\cssrgb\c11373\c12941\c16078;\cssrgb\c100000\c100000\c100000;\cssrgb\c21961\c22745\c25882;
+\cssrgb\c98039\c98039\c98039;\cssrgb\c65098\c14902\c64314;\cssrgb\c59608\c40784\c392;}
+{\*\listtable{\list\listtemplateid1\listhybrid{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{disc\}}{\leveltext\leveltemplateid1\'01\uc0\u8226 ;}{\levelnumbers;}\fi-360\li720\lin720 }{\listname ;}\listid1}}
+{\*\listoverridetable{\listoverride\listid1\listoverridecount0\ls1}}
+\margl1440\margr1440\vieww10800\viewh8400\viewkind0
+\deftab720
+\pard\pardeftab720\sl860\partightenfactor0
+
+\f0\b\fs72 \cf2 \cb3 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 Robbing Houses\
+\pard\pardeftab720\sl480\sa200\partightenfactor0
+
+\fs42 \cf2 Question\cb1 \
+\pard\pardeftab720\sl480\partightenfactor0
+
+\f1\b0\fs30 \cf2 \cb3 Originally from: Kevin Der (he asked me this question when I interviewed), others\cb1 \
+\
+\cb3 Written up by: Ben Mathews\cb1 \
+\
+\cb3 Difficulty: Medium? Hard?\cb1 \
+\cb3 You're a robber who is planning to rob some of the houses on a block. You've cased all of the houses, so you know the value of robbing each house. But if you rob a house, the owner will tell his immediate neighbors, and they'll be watching for you \'97 so you can't rob any two adjacent houses. Write a function to find the maximum value you can get from robbing the houses. (Okay, if you want to be accurate, this problem should probably be called 'Burglarizing Houses', but 'Robbing Houses' sounds better...)\cb1 \
+\cb3 Alternatively, you can ditch the whole backstory and get to the heart of the problem: Given a list of integers, return the maximum subset sum, subject to the constraint that the subset does not include any two adjacent elements.\cb1 \
+\pard\pardeftab720\sl480\sa200\partightenfactor0
+
+\f0\b\fs42 \cf2 \cb3 Warning\cb1 \
+\pard\pardeftab720\sl480\partightenfactor0
+
+\fs30 \cf2 \cb3 Note: This is not generally a good interview question. It's a problem that I only throw at really good candidates, e.g., if a candidate finishes my first two problems and I want to see if they're a superstar.
+\f1\b0 \cb1 \
+\pard\pardeftab720\sl480\partightenfactor0
+\cf2 \cb3 Nikolay's note: I find this problem to be easy enough for me to write this comment. Definitely disagree with the previous line. It's a simple recursion that doesn't illustrate proficiency in any data structures, and it's not that hard to work out.\cb1 \
+\cb3 Michal Burger: Yeah, I find this problem rather trivial. That's probably because this is one of the most common problems solved by DP, if you've ever seen anything similar before you'll know the answer immediately.\cb1 \
+\cb3 Ben: Yeah, I think the main thing this problem can tell you is whether the candidate has experience with dynamic programming. I don't think that's a particularly useful signal, though, so I rarely use this problem.\cb1 \
+\pard\pardeftab720\sl480\sa200\partightenfactor0
+
+\f0\b\fs42 \cf2 \cb3 Solution\cb1 \
+\pard\pardeftab720\sl480\partightenfactor0
+
+\f1\b0\fs30 \cf2 \cb3 As with most dynamic programming problems, the solution involves breaking the problem down into smaller subproblems: What's the best that you can do with just the first house? With the first two houses? The first three? etc. At each step, you have two options:\cb1 \
+\pard\tx220\tx720\pardeftab720\li720\fi-720\sl480\partightenfactor0
+\ls1\ilvl0\cf2 \cb3 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\uc0\u8226 	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 Rob the nth house. The best you can do is the value of the nth house plus the best that you could do with the first n-2 houses.\cb1 \
+\ls1\ilvl0\cb3 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\uc0\u8226 	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 Don't rob the nth house. The best you can do is the same as the best you could do with the first n-1 houses.\cb1 \
+\pard\pardeftab720\sl480\partightenfactor0
+\cf2 \cb3 You can express this recursively:\
+\pard\pardeftab720\sl480\partightenfactor0
+
+\f2 \cf4 \cb5 \strokec4 int best(int* values, int n)\
+\{\
+  \cf6 \strokec6 if\cf4 \strokec4  (n <= \cf7 \strokec7 0\cf4 \strokec4 ) \{\
+    \cf6 \strokec6 return\cf4 \strokec4  \cf7 \strokec7 0\cf4 \strokec4 ;\
+  \} \cf6 \strokec6 else\cf4 \strokec4  \{\
+    \cf6 \strokec6 return\cf4 \strokec4  max(best(values, n\cf7 \strokec7 -2\cf4 \strokec4 ) + values[n\cf7 \strokec7 -1\cf4 \strokec4 ], best(values, n\cf7 \strokec7 -1\cf4 \strokec4 ));\
+  \}\
+\}\
+\pard\pardeftab720\sl480\partightenfactor0
+
+\f1 \cf2 \cb3 \strokec2 But of course that solution is exponential. You can memoize it, but the better solution is to solve it iteratively:\
+\pard\pardeftab720\sl480\partightenfactor0
+
+\f2 \cf4 \cb5 \strokec4 int best(int* values, int n)\
+\{\
+  int curBest=\cf7 \strokec7 0\cf4 \strokec4 , prevBest=\cf7 \strokec7 0\cf4 \strokec4 ;\
+  \cf6 \strokec6 for\cf4 \strokec4  (int i=\cf7 \strokec7 0\cf4 \strokec4 ; i<n; i++) \{\
+    int newBest = max(curBest, prevBest + values[i]);\
+    prevBest = curBest;\
+    curBest = newBest;\
+  \}\
+  \cf6 \strokec6 return\cf4 \strokec4  curBest;\
+\}\
+\pard\pardeftab720\sl480\sa200\partightenfactor0
+
+\f0\b\fs42 \cf2 \cb3 \strokec2 2xN Matrix\cb1 \
+\pard\pardeftab720\sl480\partightenfactor0
+
+\f1\b0\fs30 \cf2 \cb3 I've also seen people ask a variant of this question: Given a 2xN matrix, return the maximum subset sum, subject to the constraint that the subset does not include any two adjacent elements. (Here adjacency includes diagonally-adjacent elements.)\cb1 \
+\cb3 This problem can be simplified to the first problem by constructing a new array:\'a0
+\f2 \cb5 new_array[i] = max(input[i][0], input[i][1])
+\f1 \cb3 .\cb1 \
+}

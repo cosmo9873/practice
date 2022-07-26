@@ -1,0 +1,236 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1671\cocoasubrtf200
+{\fonttbl\f0\fnil\fcharset0 HelveticaNeue-Bold;\f1\fnil\fcharset0 HelveticaNeue;\f2\fmodern\fcharset0 Courier;
+\f3\fmodern\fcharset0 Courier-Oblique;}
+{\colortbl;\red255\green255\blue255;\red22\green25\blue31;\red255\green255\blue255;\red42\green44\blue51;
+\red249\green249\blue249;\red133\green85\blue4;\red147\green0\blue147;\red66\green147\blue62;\red143\green144\blue150;
+\red50\green94\blue238;\red178\green113\blue6;}
+{\*\expandedcolortbl;;\cssrgb\c11373\c12941\c16078;\cssrgb\c100000\c100000\c100000;\cssrgb\c21961\c22745\c25882;
+\cssrgb\c98039\c98039\c98039;\cssrgb\c59608\c40784\c392;\cssrgb\c65098\c14902\c64314;\cssrgb\c31373\c63137\c30980;\cssrgb\c62745\c63137\c65490;
+\cssrgb\c25098\c47059\c94902;\cssrgb\c75686\c51765\c392;}
+\margl1440\margr1440\vieww10800\viewh8400\viewkind0
+\deftab720
+\pard\pardeftab720\sl860\partightenfactor0
+
+\f0\b\fs72 \cf2 \cb3 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 Generic Time Series\
+\pard\pardeftab720\sl480\partightenfactor0
+
+\f1\b0\fs30 \cf2 This problem tests the candidate's ability to generalize code. The problem is to produce a time series of a function on the current employees at a company (you can theme this however you want. Events, meetings, pet lifetimes). The function should be easy to change and will probably take the form of an object, class, or closure depending on language. Two easy functions to ask for are the total count of employees and the set of current employees. The way to start the interview is to ask for just one of the functions and then ask them to generalize it. I think this problem is a little harder with statically typed languages since the candidate must be familiar with the tools available for writing generic code (templates, generics, parametric polymorphism, function pointers, etc.).\cb1 \
+\pard\pardeftab720\sl480\sa100\partightenfactor0
+
+\f0\b \cf2 \cb3 INPUT\cb1 \
+\pard\pardeftab720\sl480\partightenfactor0
+
+\f1\b0 \cf2 \cb3 The input is a list of tuples containing the employee id, the employee's start timestamp, and the employee's end timestamp. I'll refer to these as ranges. For example:\cb1 \
+\pard\pardeftab720\sl480\partightenfactor0
+
+\f2 \cf4 \cb5 \strokec4 [(\cf6 \strokec6 3333\cf4 \strokec4 , \cf6 \strokec6 1000\cf4 \strokec4 , \cf6 \strokec6 2000\cf4 \strokec4 ), (\cf6 \strokec6 1234\cf4 \strokec4 , \cf6 \strokec6 1500\cf4 \strokec4 , \cf6 \strokec6 3000\cf4 \strokec4 ), (\cf6 \strokec6 999\cf4 \strokec4 , \cf6 \strokec6 1700\cf4 \strokec4 , \cf6 \strokec6 2100\cf4 \strokec4 )]\
+\pard\pardeftab720\sl480\partightenfactor0
+
+\f1 \cf2 \cb3 \strokec2 Alternatively, the input can be a list of tuples containing the id, a timestamp, and a flag to state whether the employee is joining or leaving. I refer to these as events. This is easier to deal with and typically the ranges must be converted to this form anyway. Give this if you want to focus on the generalization. For example:\cb1 \
+\pard\pardeftab720\sl480\partightenfactor0
+
+\f2 \cf4 \cb5 \strokec4 [(\cf6 \strokec6 3333\cf4 \strokec4 ,\cf6 \strokec6 1000\cf4 \strokec4 ,\cf7 \strokec7 True\cf4 \strokec4 ),(\cf6 \strokec6 1234\cf4 \strokec4 ,\cf6 \strokec6 1500\cf4 \strokec4 ,\cf7 \strokec7 True\cf4 \strokec4 ),(\cf6 \strokec6 999\cf4 \strokec4 ,\cf6 \strokec6 1700\cf4 \strokec4 ,\cf7 \strokec7 True\cf4 \strokec4 ),(\cf6 \strokec6 3333\cf4 \strokec4 ,\cf6 \strokec6 2000\cf4 \strokec4 ,\cf7 \strokec7 False\cf4 \strokec4 ),(\cf6 \strokec6 999\cf4 \strokec4 ,\cf6 \strokec6 2100\cf4 \strokec4 ,\cf7 \strokec7 False\cf4 \strokec4 ),(\cf6 \strokec6 1234\cf4 \strokec4 ,\cf6 \strokec6 3000\cf4 \strokec4 ,\cf7 \strokec7 False\cf4 \strokec4 )]\
+\pard\pardeftab720\sl480\sa100\partightenfactor0
+
+\f0\b \cf2 \cb3 \strokec2 OUTPUT\cb1 \
+\pard\pardeftab720\sl480\partightenfactor0
+
+\f1\b0 \cf2 \cb3 The output is a list of tuples containing a time range and the output of the function over that time range. An example using the employee count function on the above data:\cb1 \
+\pard\pardeftab720\sl480\partightenfactor0
+
+\f2 \cf4 \cb5 \strokec4 [(\cf6 \strokec6 1\cf4 \strokec4 ,\cf6 \strokec6 1000\cf4 \strokec4 ,\cf6 \strokec6 1500\cf4 \strokec4 ),(\cf6 \strokec6 2\cf4 \strokec4 ,\cf6 \strokec6 1500\cf4 \strokec4 ,\cf6 \strokec6 1700\cf4 \strokec4 ),(\cf6 \strokec6 3\cf4 \strokec4 ,\cf6 \strokec6 1700\cf4 \strokec4 ,\cf6 \strokec6 2000\cf4 \strokec4 ),(\cf6 \strokec6 2\cf4 \strokec4 ,\cf6 \strokec6 2000\cf4 \strokec4 ,\cf6 \strokec6 2100\cf4 \strokec4 ),(\cf6 \strokec6 1\cf4 \strokec4 ,\cf6 \strokec6 2100\cf4 \strokec4 ,\cf6 \strokec6 3000\cf4 \strokec4 )]\
+\pard\pardeftab720\sl480\sa100\partightenfactor0
+
+\f0\b \cf2 \cb3 \strokec2 APPROACH\cb1 \
+\pard\pardeftab720\sl480\partightenfactor0
+
+\f1\b0 \cf2 \cb3 The basic idea is to iterate over a list of events sorted by time and maintain a set of current employees while emitting the output of the function on every event. Alternatively, compute the the set of employees for each time range and then map the function over it.\cb1 \
+\pard\pardeftab720\sl480\partightenfactor0
+
+\f2 \cf7 \cb5 \strokec7 If\cf4 \strokec4  you gave ranges, they\cf8 \strokec8 'll have to convert them to sorted events. This is simple to do once the candidate realizes it'\cf4 \strokec4 s necessary, but can be tedious:\
+\pard\pardeftab720\sl480\partightenfactor0
+
+\f1 \cf2 \cb1 \strokec2 \
+\pard\pardeftab720\sl480\partightenfactor0
+
+\f3\i \cf9 \cb5 \strokec9 // C++
+\f2\i0 \cf4 \strokec4 \
+struct EmployedRange \{\
+  int id;\
+  int start;\
+  int end;\
+\};\
+\
+struct Event \{\
+  int id;\
+  int time;\
+  bool starting;\
+\};\
+\
+struct EventSorter \{\
+  bool operator()(\cf7 \strokec7 const\cf4 \strokec4  Event &a, \cf7 \strokec7 const\cf4 \strokec4  Event &b) \{\
+    \cf7 \strokec7 return\cf4 \strokec4  a.time < b.time;\
+  \}\
+\};\
+\
+vector<Event> buildEvents(\cf7 \strokec7 const\cf4 \strokec4  vector<EmployedRange> &ranges) \{\
+  vector<Event> result;\
+  \cf7 \strokec7 for\cf4 \strokec4  (vector<EmployedRange>::const_iterator it = ranges.begin();\
+      it != ranges.end(); ++it) \{\
+    Event start, end;\
+    start.id = end.id = it->id;\
+    start.time = it->start;\
+    end.time = it->end;\
+    start.starting = \cf7 \strokec7 true\cf4 \strokec4 ;\
+    end.starting = \cf7 \strokec7 false\cf4 \strokec4 ;\
+    result.push_back(start);\
+    result.push_back(end);\
+  \}\
+  sort(result.begin(), result.end(), EventSorter());\
+  \cf7 \strokec7 return\cf4 \strokec4  result;\
+\}\
+-- Haskell\
+-- Employee id, start time, end time\
+type Range = (Integer, Integer, Integer)\
+\
+-- Employee id, time, starting?\
+type Event = (Integer, Integer, Bool)\
+\
+-- Convert time ranges to a sorted series of events\
+toEvents :: [Range] -> [Event]\
+toEvents = sortBy (\\(_, t1, _) (_, t2, _) -> compare t1 t2) . concat .\
+  map (\\(id, st, ed) -> [(id, st, \cf7 \strokec7 True\cf4 \strokec4 ), (id, ed, \cf7 \strokec7 False\cf4 \strokec4 )])\
+
+\f3\i \cf9 \strokec9 // PHP
+\f2\i0 \cf4 \strokec4 \
+\pard\pardeftab720\sl480\partightenfactor0
+\cf7 \strokec7 function\cf4 \strokec4  \cf10 \strokec10 eventSort\cf4 \strokec4 ($e1, $e2) \{\
+  \cf7 \strokec7 return\cf4 \strokec4  $e1[\cf6 \strokec6 1\cf4 \strokec4 ] - $e2[\cf6 \strokec6 1\cf4 \strokec4 ];\
+\}\
+\
+\cf7 \strokec7 function\cf4 \strokec4  \cf10 \strokec10 toEvents\cf4 \strokec4 ($ranges) \{\
+  $out = \cf7 \strokec7 array\cf4 \strokec4 ();\
+  \cf7 \strokec7 foreach\cf4 \strokec4 ($ranges \cf7 \strokec7 as\cf4 \strokec4  $range) \{\
+    \cf7 \strokec7 list\cf4 \strokec4 ($id, $st, $ed) = $range;\
+    $out[] = \cf7 \strokec7 array\cf4 \strokec4 ($id, $st, \cf7 \strokec7 true\cf4 \strokec4 );\
+    $out[] = \cf7 \strokec7 array\cf4 \strokec4 ($id, $ed, \cf7 \strokec7 false\cf4 \strokec4 );\
+  \}\
+  usort($out, \cf8 \strokec8 'eventSort'\cf4 \strokec4 );\
+  \cf7 \strokec7 return\cf4 \strokec4  $out;\
+\}\
+\pard\pardeftab720\sl480\partightenfactor0
+
+\f1 \cf2 \cb3 \strokec2 Next, the function to loop over the events. If you asked them for a specific function initially, it should look about the same except without the templates/parameters and with something specific being called instead of the supplied function.\
+\pard\pardeftab720\sl480\partightenfactor0
+
+\f3\i \cf9 \cb5 \strokec9 // C++
+\f2\i0 \cf4 \strokec4 \
+
+\f3\i \cf9 \strokec9 // T is the function output, and F is the function
+\f2\i0 \cf4 \strokec4 \
+template<\cf7 \strokec7 class\cf4 \strokec4  \cf11 \strokec11 T\cf4 \strokec4 , \cf11 \strokec11 class\cf4 \strokec4  \cf11 \strokec11 F\cf4 \strokec4 >\
+\pard\pardeftab720\sl480\partightenfactor0
+\cf11 \strokec11 vector\cf4 \strokec4 <\cf11 \strokec11 pair\cf4 \strokec4 <\cf11 \strokec11 int\cf4 \strokec4 , \cf11 \strokec11 T\cf4 \strokec4 > > \cf11 \strokec11 timeSeries\cf4 \strokec4 (\cf11 \strokec11 const\cf4 \strokec4  \cf11 \strokec11 vector\cf4 \strokec4 <\cf11 \strokec11 EmployedRange\cf4 \strokec4 > &\cf11 \strokec11 ranges\cf4 \strokec4 ) \{\
+  F fn;\
+  vector<pair<int, T> > out;\
+  set<int> curEmps;\
+  vector<Event> evs(buildEvents(ranges));\
+  \cf7 \strokec7 for\cf4 \strokec4  (vector<Event>::const_iterator it = evs.begin(); it != evs.end(); ++it) \{\
+    
+\f3\i \cf9 \strokec9 // Maintain the set of employees
+\f2\i0 \cf4 \strokec4 \
+    \cf7 \strokec7 if\cf4 \strokec4  (it->starting) \{\
+      curEmps.insert(it->id);\
+    \} \cf7 \strokec7 else\cf4 \strokec4  \{\
+      curEmps.erase(it->id);\
+    \}\
+    
+\f3\i \cf9 \strokec9 // Emit the function output
+\f2\i0 \cf4 \strokec4 \
+    out.push_back(pair<int, T>(it->time, fn(curEmps)));\
+  \}\
+  \cf7 \strokec7 return\cf4 \strokec4  out;\
+\}\
+-- Haskell\
+employeeFold_ :: (Set.Set Integer -> a) -> Integer -> Set.Set Integer ->\
+  [Event] -> [(a, Integer, Integer)]\
+employeeFold_ _ _ _ [] = []\
+employeeFold_ f curStart curEmps ((id, tm, starting):rest) =\
+  (f curEmps, curStart, tm) :\
+    (employeeFold_ f tm\
+      ((\cf7 \strokec7 if\cf4 \strokec4  starting then Set.insert \cf7 \strokec7 else\cf4 \strokec4  Set.delete) id curEmps) rest)\
+\
+employeeFold :: (Set.Set Integer -> a) -> [Range] ->\
+  [(a, Integer, Integer)]\
+-- Drop the first because it\cf8 \strokec8 's the range from 0 to the first event\
+employeeFold f inp = drop 1 $ employeeFold_ f 0 Set.empty (toEvents inp)\cf4 \strokec4 \
+\pard\pardeftab720\sl480\partightenfactor0
+
+\f3\i \cf9 \strokec9 // PHP
+\f2\i0 \cf4 \strokec4 \
+\pard\pardeftab720\sl480\partightenfactor0
+\cf7 \strokec7 function\cf4 \strokec4  \cf10 \strokec10 timeSeries\cf4 \strokec4 ($ranges, $fn) \{\
+  $events = toEvents($ranges);\
+  $empSet = \cf7 \strokec7 array\cf4 \strokec4 ();\
+  $out = \cf7 \strokec7 array\cf4 \strokec4 ();\
+  \cf7 \strokec7 foreach\cf4 \strokec4  ($events \cf7 \strokec7 as\cf4 \strokec4  $event) \{\
+    \cf7 \strokec7 if\cf4 \strokec4  ($event[\cf6 \strokec6 2\cf4 \strokec4 ]) \{\
+      $empSet[$event[\cf6 \strokec6 0\cf4 \strokec4 ]] = \cf7 \strokec7 true\cf4 \strokec4 ;\
+    \} \cf7 \strokec7 else\cf4 \strokec4  \{\
+      \cf7 \strokec7 unset\cf4 \strokec4 ($empSet[$event[\cf6 \strokec6 0\cf4 \strokec4 ]]);\
+    \}\
+    $out[] = \cf7 \strokec7 array\cf4 \strokec4 ($fn($empSet), $event[\cf6 \strokec6 1\cf4 \strokec4 ]);\
+  \}\
+  \cf7 \strokec7 return\cf4 \strokec4  $out;\
+\}\
+\pard\pardeftab720\sl480\partightenfactor0
+
+\f1 \cf2 \cb3 \strokec2 Some sample functions:\
+\pard\pardeftab720\sl480\partightenfactor0
+
+\f3\i \cf9 \cb5 \strokec9 // C++
+\f2\i0 \cf4 \strokec4 \
+\
+
+\f3\i \cf9 \strokec9 // e.g. timeSeries<int, CountFn>(ranges);
+\f2\i0 \cf4 \strokec4 \
+struct CountFn \{\
+  int operator()(\cf7 \strokec7 const\cf4 \strokec4  set<int> &curEmps) \{\
+    \cf7 \strokec7 return\cf4 \strokec4  curEmps.size();\
+  \}\
+\};\
+\
+
+\f3\i \cf9 \strokec9 // e.g. timeSeries<set<int>, ListFn>(ranges);
+\f2\i0 \cf4 \strokec4 \
+struct ListFn \{\
+  set<int> operator()(\cf7 \strokec7 const\cf4 \strokec4  set<int> &curEmps) \{\
+    \cf7 \strokec7 return\cf4 \strokec4  curEmps;\
+  \}\
+\};\
+-- Haskell\
+employeeCount :: [Range] -> [(Int, Integer, Integer)]\
+employeeCount = employeeFold Set.size\
+\
+employeeList :: [(Integer, Integer, Integer)] -> [(Set.Set Integer, Integer, Integer)]\
+employeeList = employeeFold id\
+
+\f3\i \cf9 \strokec9 // PHP
+\f2\i0 \cf4 \strokec4 \
+\pard\pardeftab720\sl480\partightenfactor0
+\cf7 \strokec7 function\cf4 \strokec4  \cf10 \strokec10 countFn\cf4 \strokec4 ($emps) \{\
+  \cf7 \strokec7 return\cf4 \strokec4  count($emps);\
+\}\
+\
+\cf7 \strokec7 function\cf4 \strokec4  \cf10 \strokec10 listFn\cf4 \strokec4 ($emps) \{\
+  \cf7 \strokec7 return\cf4 \strokec4  array_keys($emps);\
+\}\
+\pard\pardeftab720\sl480\sa100\partightenfactor0
+
+\f0\b \cf2 \cb3 \strokec2 NOTES\cb1 \
+\pard\pardeftab720\sl480\partightenfactor0
+
+\f1\b0 \cf2 \cb3 They might write the supplied function as an object that adds or removes employees rather than a function over employees. They might argue it will be more efficient if the set of employees is not really necessary, e.g. for the count function.\cb1 \
+\cb3 If they are done really fast you can ask them to produce outputs segmented by year. This can be tricky since ranges can span multiple years.\cb1 \
+}

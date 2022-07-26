@@ -1,0 +1,121 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1671\cocoasubrtf200
+{\fonttbl\f0\fnil\fcharset0 HelveticaNeue-Bold;\f1\fnil\fcharset0 HelveticaNeue;\f2\fmodern\fcharset0 Courier;
+}
+{\colortbl;\red255\green255\blue255;\red22\green25\blue31;\red255\green255\blue255;\red42\green44\blue51;
+\red249\green249\blue249;\red133\green85\blue4;\red147\green0\blue147;\red66\green147\blue62;\red41\green67\blue135;
+}
+{\*\expandedcolortbl;;\cssrgb\c11373\c12941\c16078;\cssrgb\c100000\c100000\c100000;\cssrgb\c21961\c22745\c25882;
+\cssrgb\c98039\c98039\c98039;\cssrgb\c59608\c40784\c392;\cssrgb\c65098\c14902\c64314;\cssrgb\c31373\c63137\c30980;\cssrgb\c21176\c34510\c60000;
+}
+{\*\listtable{\list\listtemplateid1\listhybrid{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{disc\}}{\leveltext\leveltemplateid1\'01\uc0\u8226 ;}{\levelnumbers;}\fi-360\li720\lin720 }{\listname ;}\listid1}
+{\list\listtemplateid2\listhybrid{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{disc\}}{\leveltext\leveltemplateid101\'01\uc0\u8226 ;}{\levelnumbers;}\fi-360\li720\lin720 }{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{circle\}.}{\leveltext\leveltemplateid102\'02\uc0\u9702 .;}{\levelnumbers;}\fi-360\li1440\lin1440 }{\listname ;}\listid2}
+{\list\listtemplateid3\listhybrid{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{disc\}}{\leveltext\leveltemplateid201\'01\uc0\u8226 ;}{\levelnumbers;}\fi-360\li720\lin720 }{\listname ;}\listid3}}
+{\*\listoverridetable{\listoverride\listid1\listoverridecount0\ls1}{\listoverride\listid2\listoverridecount0\ls2}{\listoverride\listid3\listoverridecount0\ls3}}
+\margl1440\margr1440\vieww10800\viewh8400\viewkind0
+\deftab720
+\pard\pardeftab720\sl860\partightenfactor0
+
+\f0\b\fs72 \cf2 \cb3 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 String Remove Duplicate Chars\
+\pard\pardeftab720\sl480\sa200\partightenfactor0
+
+\fs42 \cf2 Question\cb1 \
+\pard\pardeftab720\sl480\partightenfactor0
+
+\fs30 \cf2 \cb3 Author
+\f1\b0 : mcslee\cb1 \
+\
+
+\f0\b \cb3 Difficulty
+\f1\b0 : Easy\cb1 \
+\pard\pardeftab720\sl480\partightenfactor0
+\cf2 \cb3 Implement a function to return uniq bytes from a C str, preserving order. Optimize for speed. Give the candidate this signature:\
+\pard\pardeftab720\sl480\partightenfactor0
+
+\f2 \cf4 \cb5 \strokec4 void uniq_bytes(char* in, char* out);\
+\pard\pardeftab720\sl480\partightenfactor0
+
+\f1 \cf2 \cb3 \strokec2 Example: in: "xyzabcxyaaxyd\\0" out: "xyzabcd\\0"\cb1 \
+\cb3 Assumption is that out is preallocated and at least as large as in and that both are non-NULL (though checking is still good, don't require it since the focus here is on getting how to use a hash).\cb1 \
+\pard\pardeftab720\sl480\sa200\partightenfactor0
+
+\f0\b\fs42 \cf2 \cb3 Basic Code Solution\cb1 \
+\pard\pardeftab720\sl480\partightenfactor0
+
+\f1\b0\fs30 \cf2 \
+\pard\pardeftab720\sl480\partightenfactor0
+
+\f2 \cf4 \cb5 \strokec4 void uniq_bytes(char* in, char* out) \{\
+  uint8_t hash[\cf6 \strokec6 256\cf4 \strokec4 ] = \{\cf6 \strokec6 0\cf4 \strokec4 \};\
+  char ch;\
+  \cf7 \strokec7 if\cf4 \strokec4  (!in || !out) \{\
+    \cf7 \strokec7 return\cf4 \strokec4 ;\
+  \}\
+  \cf7 \strokec7 while\cf4 \strokec4  (ch = *in++) \{\
+    \cf7 \strokec7 if\cf4 \strokec4  (!hash[(int)ch]) \{\
+      *out++ = ch;\
+      hash[(int)ch] = \cf6 \strokec6 1\cf4 \strokec4 ;\
+    \} \
+  \}\
+  *out = \cf8 \strokec8 '\\0'\cf4 \strokec4 ;\
+\}\
+\pard\pardeftab720\sl480\sa200\partightenfactor0
+
+\f0\b\fs42 \cf2 \cb3 \strokec2 For Java Candidates\cb1 \
+\pard\pardeftab720\sl480\partightenfactor0
+
+\f1\b0\fs30 \cf2 \
+\pard\pardeftab720\sl480\partightenfactor0
+
+\f2 \cf7 \cb5 \strokec7 List\cf4 \strokec4 <String> removeDuplicates(\cf7 \strokec7 List\cf4 \strokec4 <String> input) \{\
+  \cf7 \strokec7 if\cf4 \strokec4  (input == \cf7 \strokec7 null\cf4 \strokec4 ) \{\
+    \cf7 \strokec7 return\cf4 \strokec4  \cf7 \strokec7 null\cf4 \strokec4 ;\
+  \}\
+  \cf7 \strokec7 List\cf4 \strokec4 <String> output = \cf7 \strokec7 new\cf4 \strokec4  ArrayList<String>();\
+  Set<String> hash = \cf7 \strokec7 new\cf4 \strokec4  HashSet(input.length());\
+  \cf7 \strokec7 for\cf4 \strokec4  (String s : input) \{\
+    \cf7 \strokec7 if\cf4 \strokec4  (!hash.contains(s)) \{\
+      hash.add(s);\
+      output.add(s);\
+    \}\
+  \}\
+  \cf7 \strokec7 return\cf4 \strokec4  output;\
+\}\
+\pard\pardeftab720\sl480\sa200\partightenfactor0
+
+\f0\b\fs42 \cf2 \cb3 \strokec2 Slightly Different Version (Dedup in C)\cb1 \
+\pard\pardeftab720\sl480\partightenfactor0
+
+\fs30 \cf2 \cb3 Author
+\f1\b0 : eric\cb1 \
+\
+
+\f0\b \cb3 Difficulty
+\f1\b0 : Easy\cb1 \
+\pard\pardeftab720\sl480\partightenfactor0
+\cf2 \cb3 The main difference is that I tell the candidate to write a function that takes a char * as input and returns a copy (i.e. does not modify the input) with the duplicate characters removed (and I give an example). I intentionally leave off the function signature, as a sanity check to make sure the candidate can declare a function with a sensible name.\cb1 \
+\pard\pardeftab720\sl480\sa200\partightenfactor0
+
+\f0\b\fs42 \cf2 \cb3 This question on the internet\cb1 \
+\pard\pardeftab720\sl480\partightenfactor0
+
+\f1\b0\fs30 \cf2 \cb3 A page 1 google result for "facebook interview" shows\'a0{\field{\*\fldinst{HYPERLINK "http://l.facebook.com/l.php?u=http%3A%2F%2Freza.lotun.name%2Fentries%2F12052007a.html&h=AT0Fs6w74fo60yjAmLQJ_Yq4WOdIUl91oR4vu-5WzJ4o06Xg_TownWycl4adOYBGvvFajRYHf6VHk08I06FvZj5dugUq4stMtbPHEr00MiLuzE93CDTbchXZouCUP9qWGXJGUfCGVFZIdgNHDunscwF_"}}{\fldrslt \cf9 \strokec9 this link}}, where someone talks about their facebook interview experience and mentions being asked this very question. Maybe we should deprecate this?\cb1 \
+\pard\pardeftab720\sl480\sa200\partightenfactor0
+
+\f0\b\fs42 \cf2 \cb3 Things to look for\cb1 \
+\pard\tx220\tx720\pardeftab720\li720\fi-720\sl480\partightenfactor0
+\ls1\ilvl0
+\f1\b0\fs30 \cf2 \cb3 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\uc0\u8226 	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 Most candidates will realize that hashing is in order, but some complain that there is no native hashtable implementation in C. I ask if there's any way they can approximate it, and most realize an array (of ints, chars, really anything) will suffice.\cb1 \
+\pard\tx220\tx720\pardeftab720\li720\fi-720\sl480\partightenfactor0
+\ls2\ilvl0\cf2 \cb3 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\uc0\u8226 	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 Folks will stumble on the amount of space to allocate for the return string. Allocating O(strlen(input))-space is suboptimal - here are two ways to avoid it:\
+\pard\tx940\tx1440\pardeftab720\li1440\fi-1440\sl480\partightenfactor0
+\ls2\ilvl1\cf2 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\uc0\u9702 .	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 Do an additional pass through the input to count the number of unique characters.\cb1 \
+\ls2\ilvl1\cb3 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\uc0\u9702 .	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 Allocate 256 bytes (or min(strlen(input), 256) bytes). This is my preferred solution, because a) the length of the output is at most 256, b) it avoids another pass through the input, and c) wasting up to 255 is okay in most situations.\cb1 \
+\pard\tx220\tx720\pardeftab720\li720\fi-720\sl480\partightenfactor0
+\ls3\ilvl0\cf2 \cb3 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\uc0\u8226 	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 Folks often forget to null-terminate the string, or to initialize the hash to zeros.\cb1 \
+}

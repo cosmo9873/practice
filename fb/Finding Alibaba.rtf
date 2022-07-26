@@ -1,0 +1,115 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1671\cocoasubrtf200
+{\fonttbl\f0\fnil\fcharset0 HelveticaNeue-Bold;\f1\fnil\fcharset0 HelveticaNeue;\f2\fswiss\fcharset0 Helvetica-Oblique;
+\f3\fswiss\fcharset0 Helvetica;\f4\fswiss\fcharset0 Helvetica-Bold;\f5\fnil\fcharset0 Monaco;
+}
+{\colortbl;\red255\green255\blue255;\red21\green23\blue25;\red255\green255\blue255;\red52\green56\blue63;
+\red78\green84\blue93;\red41\green67\blue135;\red22\green25\blue31;\red0\green0\blue82;\red252\green244\blue202;
+\red0\green0\blue0;\red152\green18\blue15;\red76\green12\blue1;\red6\green50\blue15;\red152\green46\blue3;
+}
+{\*\expandedcolortbl;;\cssrgb\c10980\c11765\c12941;\cssrgb\c100000\c100000\c100000;\cssrgb\c26667\c28627\c31373;
+\cssrgb\c37647\c40392\c43922;\cssrgb\c21176\c34510\c60000;\cssrgb\c11373\c12941\c16078;\cssrgb\c0\c3922\c39608;\cssrgb\c99216\c96078\c83137;
+\cssrgb\c0\c0\c0;\cssrgb\c66667\c13333\c6667;\cssrgb\c37647\c7059\c0;\cssrgb\c0\c25098\c7059;\cssrgb\c66667\c25098\c0;
+}
+{\*\listtable{\list\listtemplateid1\listhybrid{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{disc\}}{\leveltext\leveltemplateid1\'01\uc0\u8226 ;}{\levelnumbers;}\fi-360\li720\lin720 }{\listname ;}\listid1}}
+{\*\listoverridetable{\listoverride\listid1\listoverridecount0\ls1}}
+\margl1440\margr1440\vieww10800\viewh8400\viewkind0
+\deftab720
+\pard\pardeftab720\sl560\partightenfactor0
+
+\f0\b\fs48 \cf2 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 Finding Alibaba\
+\pard\pardeftab720\sl520\qc\partightenfactor0
+
+\f1\i\fs24 \cf3 \strokec3 \
+\pard\pardeftab720\sl520\qc\partightenfactor0
+\cf4 \strokec4 \
+\pard\pardeftab720\sl520\qc\partightenfactor0
+
+\f0\i0 \cf4 More Items\
+\pard\pardeftab720\sl320\partightenfactor0
+
+\f1\b0 \cf5 \strokec5 Owner:\'a0{\field{\*\fldinst{HYPERLINK "https://our.internmc.facebook.com/intern/profile/?id=567419810"}}{\fldrslt \cf6 \strokec6 Aleksandar Ilic}}\
+\pard\pardeftab720\sl280\partightenfactor0
+
+\f2\i \cf7 \strokec7 \
+\pard\pardeftab720\sl320\partightenfactor0
+
+\f1\i0 \cf5 \strokec5 Medium\
+\pard\pardeftab720\sl280\partightenfactor0
+
+\f2\i \cf7 \strokec7 \
+\pard\pardeftab720\sl320\partightenfactor0
+
+\f1\i0 \cf5 \strokec5 Ninja\
+\pard\pardeftab720\sl280\partightenfactor0
+
+\f2\i \cf7 \strokec7 \
+\pard\pardeftab720\sl320\partightenfactor0
+
+\f1\i0 \cf5 \strokec5 General\
+\pard\pardeftab720\sl560\partightenfactor0
+
+\f0\b\fs48 \cf2 \strokec2 Description\
+\pard\pardeftab720\sl280\partightenfactor0
+
+\f3\b0\fs24 \cf7 \strokec7 Simple coding question with a game theory strategy component.\
+\pard\pardeftab720\sl560\partightenfactor0
+
+\f0\b\fs48 \cf2 \strokec2 Question Statement\
+\pard\pardeftab720\sl280\sa240\partightenfactor0
+
+\f3\b0\fs24 \cf7 \strokec7 There are n caves arranged in a line and Alibaba is hiding in one of them. Each night, Alibaba moves to a different cave, either the neighboring cave on the left or the neighboring cave on the right (if exist). Once a day, you get to inspect one cave of your choice. Give a deterministic strategy to find Alibaba such that Alibaba knows your strategy and would want to escape.\
+Design an algorithm to check whether a given strategy is correct.\
+Note: there are actually two questions in the above description. One is finding a strategy, and another is checking the strategy. For the ninja purpose, checking the strategy is more appropriate for getting as many signals as possible.\
+\pard\pardeftab720\sl540\sa160\partightenfactor0
+
+\f4\b\fs36 \cf7 Solution for n=5\'a0{\field{\*\fldinst{HYPERLINK "https://our.internmc.facebook.com/intern/recruiting/interview/questions/?question_id=1705001043121798#solution-for-n-5"}}{\fldrslt \cf6 \strokec6 #}}\
+\pard\pardeftab720\sl280\sa240\partightenfactor0
+
+\f3\b0\fs24 \cf7 An interviewer should first explain a simple strategy for n=3: just search in cave #2 two days and you will capture Alibaba.\
+Now consider n=5. Let's prove that 2,3,4,2,3,4 is sufficient and will always find Alibaba. Initially, Alibaba could be in either \{1,3,5\} or \{2,4\}. If Alibaba was in \{2,4\} we can easily prove that 2,3,4 always finds Alibaba. After the first inspection, Alibaba can move to cave #3 or #5. If #3 did not work in the second inspection, it was at #5. Finally, Alibaba must move to #4 and will get caught in the third catch. Next suppose that Alibaba initially was in caves \{1,3,5\}. After three days, Alibaba would go to one in \{2,4\} and so now a 2,3,4 operation will do the trick.\
+\pard\pardeftab720\sl540\sa160\partightenfactor0
+
+\f4\b\fs36 \cf7 Solution for general n\'a0{\field{\*\fldinst{HYPERLINK "https://our.internmc.facebook.com/intern/recruiting/interview/questions/?question_id=1705001043121798#solution-for-general-n"}}{\fldrslt \cf6 \strokec6 #}}\
+\pard\pardeftab720\sl280\sa240\partightenfactor0
+
+\f3\b0\fs24 \cf7 The sequence of inspection should be: 2,3,4...,n-1 followed by n-1,n-2,...,2. If Alibaba started in an even numbered cave, then he will be found in the first part (assume that you are starting from cave #2 moving towards Alibaba - the distance always remains of the same parity and eventually decreases to 0). Otherwise, he fill be found in the second part.\
+\pard\pardeftab720\sl540\sa160\partightenfactor0
+
+\f4\b\fs36 \cf7 Algorithm for checking one strategy\'a0{\field{\*\fldinst{HYPERLINK "https://our.internmc.facebook.com/intern/recruiting/interview/questions/?question_id=1705001043121798#algorithm-for-checking-o"}}{\fldrslt \cf6 \strokec6 #}}\
+\pard\pardeftab720\sl280\sa240\partightenfactor0
+
+\f3\b0\fs24 \cf7 Suppose you are given a strategy a[1], a[2], ..., a[k].\
+First, the strategy fails if it does not contain each of the numbers 2,3,...,n-1. Otherwise, let x be the cave that is not in the strategy. Alibaba can move from x to neighboring caves x-1 or x+1 and return to x (over and over). Here is simple O (n * k) algorithm for checking strategy a whether is correct. One can easily reconstruct escaping sequence by storing all intermediate arrays.\
+\pard\pardeftab720\sl280\partightenfactor0
+
+\f5\fs20 \cf8 \cb9 \strokec8 a\cf10 \strokec10  \cf11 \strokec11 =\cf10 \strokec10  \cf11 \strokec11 [\cf12 \strokec12 2\cf11 \strokec11 ,\cf10 \strokec10  \cf12 \strokec12 3\cf11 \strokec11 ,\cf10 \strokec10  \cf12 \strokec12 4\cf11 \strokec11 ,\cf10 \strokec10  \cf12 \strokec12 2\cf11 \strokec11 ,\cf10 \strokec10  \cf12 \strokec12 3\cf11 \strokec11 ,\cf10 \strokec10  \cf12 \strokec12 4\cf11 \strokec11 ,\cf10 \strokec10  \cf12 \strokec12 5\cf11 \strokec11 ]\cf10 \strokec10 \
+\cf8 \strokec8 n\cf10 \strokec10  \cf11 \strokec11 =\cf10 \strokec10  \cf12 \strokec12 5\cf10 \strokec10 \
+\cf8 \strokec8 pos\cf10 \strokec10  \cf11 \strokec11 =\cf10 \strokec10  \cf13 \strokec13 range\cf11 \strokec11 (\cf12 \strokec12 1\cf11 \strokec11 ,\cf10 \strokec10  \cf8 \strokec8 n\cf11 \strokec11 )\cf10 \strokec10 \
+\pard\pardeftab720\sl280\partightenfactor0
+\cf14 \strokec14 for\cf10 \strokec10  \cf8 \strokec8 i\cf10 \strokec10  \cf8 \strokec8 in\cf10 \strokec10  \cf8 \strokec8 a\cf11 \strokec11 :\cf10 \strokec10 \
+    \cf14 \strokec14 try\cf11 \strokec11 :\cf10 \strokec10 \
+        \cf8 \strokec8 pos\cf11 \strokec11 .\cf13 \strokec13 remove\cf11 \strokec11 (\cf8 \strokec8 i\cf11 \strokec11 )\cf10 \strokec10 \
+    \cf8 \strokec8 except\cf11 \strokec11 :\cf10 \strokec10 \
+        \cf8 \strokec8 pass\cf10 \strokec10 \
+    \cf14 \strokec14 if\cf10 \strokec10  \cf13 \strokec13 len\cf11 \strokec11 (\cf8 \strokec8 pos\cf11 \strokec11 )\cf10 \strokec10  \cf11 \strokec11 ==\cf10 \strokec10  \cf12 \strokec12 0\cf11 \strokec11 :\cf10 \strokec10 \
+        \cf14 \strokec14 break\cf10 \strokec10 \
+    \cf8 \strokec8 pos\cf10 \strokec10  \cf11 \strokec11 =\cf10 \strokec10  \cf14 \strokec14 list\cf11 \strokec11 (\cf13 \strokec13 set\cf11 \strokec11 ([\cf8 \strokec8 x\cf10 \strokec10  \cf11 \strokec11 +\cf10 \strokec10  \cf12 \strokec12 1\cf10 \strokec10  \cf14 \strokec14 for\cf10 \strokec10  \cf8 \strokec8 x\cf10 \strokec10  \cf8 \strokec8 in\cf10 \strokec10  \cf8 \strokec8 pos\cf10 \strokec10  \cf14 \strokec14 if\cf10 \strokec10  \cf8 \strokec8 x\cf10 \strokec10  \cf11 \strokec11 <\cf10 \strokec10  \cf8 \strokec8 n\cf11 \strokec11 ])\cf10 \strokec10 \
+              \cf11 \strokec11 .\cf13 \strokec13 union\cf11 \strokec11 (\cf13 \strokec13 set\cf11 \strokec11 ([\cf8 \strokec8 x\cf10 \strokec10  \cf11 \strokec11 -\cf10 \strokec10  \cf12 \strokec12 1\cf10 \strokec10  \cf14 \strokec14 for\cf10 \strokec10  \cf8 \strokec8 x\cf10 \strokec10  \cf8 \strokec8 in\cf10 \strokec10  \cf8 \strokec8 pos\cf10 \strokec10  \cf14 \strokec14 if\cf10 \strokec10  \cf8 \strokec8 x\cf10 \strokec10  \cf11 \strokec11 >\cf10 \strokec10  \cf12 \strokec12 1\cf11 \strokec11 ])))\cf10 \strokec10 \
+\pard\pardeftab720\sl280\partightenfactor0
+\cf8 \strokec8 print\cf10 \strokec10  \cf8 \strokec8 pos\cf10 \strokec10 \
+\pard\pardeftab720\sl280\sa240\partightenfactor0
+
+\f3\fs24 \cf7 \cb1 \strokec7 We can also do a standard dfs stack based/recursive solution but this would be sub-optimal because worst case time-complexity is exponential. However, adding memoization to this version correctly should be optimal as well with time-complexity O(n * k).\
+\pard\pardeftab720\sl540\sa160\partightenfactor0
+
+\f4\b\fs36 \cf7 Typical problems/discussion\'a0{\field{\*\fldinst{HYPERLINK "https://our.internmc.facebook.com/intern/recruiting/interview/questions/?question_id=1705001043121798#typical-problems-discuss"}}{\fldrslt \cf6 \strokec6 #}}\
+\pard\tx220\tx720\pardeftab720\li720\fi-720\sl280\partightenfactor0
+\ls1\ilvl0
+\f3\b0\fs24 \cf7 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\uc0\u8226 	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec7 Good observation is that Alibaba in each move changes the parity of the cave.\
+\ls1\ilvl0\kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\uc0\u8226 	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec7 What happens if we let Alibaba to stay in the same cave? (in this case Alibaba can run forever)\
+\ls1\ilvl0\kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\uc0\u8226 	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec7 How to determine the shortest length strategy? (generate all variations of fixed length with elements \{1,2,...,n\}, cut off the impossible ones and apply above algorithm)\
+}

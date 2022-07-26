@@ -1,0 +1,208 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1671\cocoasubrtf200
+{\fonttbl\f0\fnil\fcharset0 HelveticaNeue-Bold;\f1\fnil\fcharset0 HelveticaNeue;\f2\fmodern\fcharset0 Courier;
+}
+{\colortbl;\red255\green255\blue255;\red22\green25\blue31;\red255\green255\blue255;\red42\green44\blue51;
+\red249\green249\blue249;\red147\green0\blue147;\red133\green85\blue4;}
+{\*\expandedcolortbl;;\cssrgb\c11373\c12941\c16078;\cssrgb\c100000\c100000\c100000;\cssrgb\c21961\c22745\c25882;
+\cssrgb\c98039\c98039\c98039;\cssrgb\c65098\c14902\c64314;\cssrgb\c59608\c40784\c392;}
+\margl1440\margr1440\vieww10800\viewh8400\viewkind0
+\deftab720
+\pard\pardeftab720\sl860\partightenfactor0
+
+\f0\b\fs72 \cf2 \cb3 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 Products of Primes\
+\pard\pardeftab720\sl480\sa100\partightenfactor0
+
+\fs36 \cf2 Target\cb1 \
+\pard\pardeftab720\sl480\partightenfactor0
+
+\f1\b0\fs30 \cf2 \cb3 This is a variant on a subsets question. It's good for new grads or anyone who should have algorithms/recursion experience. It has good complexity discussions and a good follow-up. It is probably medium difficulty.\cb1 \
+\pard\pardeftab720\sl480\sa100\partightenfactor0
+
+\f0\b\fs36 \cf2 \cb3 Question\cb1 \
+\pard\pardeftab720\sl480\partightenfactor0
+
+\f1\b0\fs30 \cf2 \cb3 You are given an array of unique prime numbers, e.g. [2,11,3]. Write a function to print out all possible products that you can make from these numbers (including the individual numbers themselves). Order doesn't matter. In this case, you'd print out the numbers: 2, 11, 3, 22, 66, 33, 6\cb1 \
+\pard\pardeftab720\sl480\sa100\partightenfactor0
+
+\f0\b\fs36 \cf2 \cb3 Getting Started\cb1 \
+\pard\pardeftab720\sl480\partightenfactor0
+
+\f1\b0\fs30 \cf2 \cb3 There are two common high-level ways people will approach a subsets problem like this: recursively or iteratively. I often push people to implement the recursive solution because it's more interesting to discuss the complexity, and it is much easier to modify it for follow-up questions.\cb1 \
+\cb3 Better candidates will quickly recognize this as a subsets problem. Be wary if the candidate starts by writing out a two nested for-loops and prints out the products containing exactly two factors, as this sometimes means they misunderstood the problem. Point out that in the above example, this would miss 66.\cb1 \
+\pard\pardeftab720\sl480\sa100\partightenfactor0
+
+\f0\b\fs36 \cf2 \cb3 Solution 1: Binary Recursion Printing At Leaves\cb1 \
+\pard\pardeftab720\sl480\partightenfactor0
+
+\f2\b0\fs30 \cf4 \cb5 \strokec4 def printProducts(arr, i, prod)\
+  \cf6 \strokec6 if\cf4 \strokec4  i == arr.length\
+    \cf6 \strokec6 if\cf4 \strokec4  prod != \cf7 \strokec7 1\cf4 \strokec4 \
+      puts prod\
+    end\
+    \cf6 \strokec6 return\cf4 \strokec4 \
+  end\
+  printProducts(arr, i+\cf7 \strokec7 1\cf4 \strokec4 , prod)\
+  printProducts(arr, i+\cf7 \strokec7 1\cf4 \strokec4 , prod*arr[i])\
+end\
+\
+printProducts([\cf7 \strokec7 2\cf4 \strokec4 ,\cf7 \strokec7 11\cf4 \strokec4 ,\cf7 \strokec7 3\cf4 \strokec4 ], \cf7 \strokec7 0\cf4 \strokec4 , \cf7 \strokec7 1\cf4 \strokec4 )\
+\pard\pardeftab720\sl480\partightenfactor0
+
+\f1 \cf2 \cb3 \strokec2 Time complexity here is 2^n (number of products). Good candidates will note we can't possibly do better than this since we have to print each of the O(2^n) products.\cb1 \
+\cb3 Space complexity depends on the language used and how arguments are passed. The recursive stack will get to be at most O(n) frames high, but if a copy of the array is passed down at each level, then the space used is O(n^2). Observant candidates will notice that if the "prod" variable is a C int, then it will overflow eventually. Very observant candidates may point out that in languages like Ruby where the integer has a Bignum-style representation and grows automatically, that it won't actually take constant space anymore and we'll potentially need to double the number bits used in that representation at each level of the stack.\cb1 \
+\cb3 Common mistakes: Forgetting to exclude printing "1". Or remembering to, but putting the base-case return statement inside this "!= 1" check instead of outside it.\cb1 \
+\pard\pardeftab720\sl480\sa100\partightenfactor0
+
+\f0\b\fs36 \cf2 \cb3 Solution 2: Iterative Using Bitmap\cb1 \
+\pard\pardeftab720\sl480\partightenfactor0
+
+\f2\b0\fs30 \cf4 \cb5 \strokec4 def printProducts(arr)\
+  \cf6 \strokec6 for\cf4 \strokec4  i in \cf7 \strokec7 1.\cf4 \strokec4 .((\cf7 \strokec7 1\cf4 \strokec4 <<arr.length)\cf7 \strokec7 -1\cf4 \strokec4 )\
+    prod = \cf7 \strokec7 1\cf4 \strokec4 \
+    \cf6 \strokec6 for\cf4 \strokec4  j in \cf7 \strokec7 0.\cf4 \strokec4 .(arr.length)\
+      \cf6 \strokec6 if\cf4 \strokec4  ((i >> j)&\cf7 \strokec7 1\cf4 \strokec4 ) == \cf7 \strokec7 1\cf4 \strokec4 \
+        prod *= arr[j]\
+      end\
+    end\
+    puts prod\
+  end\
+end\
+\
+printProducts([\cf7 \strokec7 2\cf4 \strokec4 , \cf7 \strokec7 11\cf4 \strokec4 , \cf7 \strokec7 3\cf4 \strokec4 ])\
+\pard\pardeftab720\sl480\partightenfactor0
+
+\f1 \cf2 \cb3 \strokec2 This is a common technique to iterate over subsets. Time complexity is n * 2^n. Space complexity is essentially constant ignoring the bits needed to represent the numbers and products.\cb1 \
+\pard\pardeftab720\sl480\sa100\partightenfactor0
+
+\f0\b\fs36 \cf2 \cb3 Solution 3: Iterative Build-up\cb1 \
+\pard\pardeftab720\sl480\partightenfactor0
+
+\f2\b0\fs30 \cf4 \cb5 \strokec4 def printProducts(arr)\
+  output = []\
+  arr.each \cf6 \strokec6 do\cf4 \strokec4  |i|\
+    cur = []\
+    output.each \{|j| cur += [j * i]\}\
+    output += cur\
+    output += [i]\
+  end\
+\
+  output.each \{|x| puts x\}\
+end\
+\
+printProducts([\cf7 \strokec7 2\cf4 \strokec4 , \cf7 \strokec7 11\cf4 \strokec4 , \cf7 \strokec7 3\cf4 \strokec4 ])\
+\pard\pardeftab720\sl480\partightenfactor0
+
+\f1 \cf2 \cb3 \strokec2 This is probably the easiest solution to think of. The space complexity is the main problem, as we hold all 2^n elements in memory. A good candidate who chooses this solution should be able to code it up quickly, at which point you may want to ask them to re-do it recursively.\cb1 \
+\pard\pardeftab720\sl480\sa100\partightenfactor0
+
+\f0\b\fs36 \cf2 \cb3 Other Solutions\cb1 \
+\pard\pardeftab720\sl480\partightenfactor0
+
+\f1\b0\fs30 \cf2 \cb3 There are many other ways to do this problem. There is a recursive solution that prints at the inner nodes instead of leaves, which is generally harder to understand and reason about. There is also a recursive solution that iterates through the number of factors in each resulting product, and then for each of those, recursively uses different elements to be part of the product.\cb1 \
+\cb3 Example of the recursive solution that prints at the inner nodes:\cb1 \
+\pard\pardeftab720\sl480\partightenfactor0
+
+\f2 \cf4 \cb5 \strokec4 void generateProductsHelper(vector<int> nums, int index, int val)\
+\{\
+  int size = nums.size();\
+  cout << val;\
+  \cf6 \strokec6 for\cf4 \strokec4 (int i=index; i<size; i++ )\
+  \{\
+    generateProductsHelper(nums,i+\cf7 \strokec7 1\cf4 \strokec4 ,val*nums[i]);\
+  \}\
+\}\
+\
+void generateProducts(vector<int> nums) \{\
+  generateProductsHelper(nums, \cf7 \strokec7 0\cf4 \strokec4 , \cf7 \strokec7 1\cf4 \strokec4 );\
+\}\
+\pard\pardeftab720\sl480\partightenfactor0
+
+\f1 \cf2 \cb3 \strokec2 Example of a solution that iterates through the number of factors:\cb1 \
+\pard\pardeftab720\sl480\partightenfactor0
+
+\f2 \cf6 \cb5 \strokec6 public\cf4 \strokec4  void getProduct(int[] nums) \{\
+    \cf6 \strokec6 if\cf4 \strokec4  (nums == \cf6 \strokec6 null\cf4 \strokec4 ) \{\
+      \cf6 \strokec6 return\cf4 \strokec4 ;\
+    \}\
+    \
+    \cf6 \strokec6 for\cf4 \strokec4  (int i = \cf7 \strokec7 0\cf4 \strokec4 ; i <= nums.length; i++) \{ \
+      helper(nums, i, \cf7 \strokec7 0\cf4 \strokec4 , \cf7 \strokec7 1\cf4 \strokec4 );\
+    \}\
+  \}\
+\
+  \cf6 \strokec6 private\cf4 \strokec4  void helper(int[] nums, int i, int pos, int product) \{\
+    \cf6 \strokec6 if\cf4 \strokec4  (i == \cf7 \strokec7 0\cf4 \strokec4 ) \{\
+      System.out.println(product);\
+      \cf6 \strokec6 return\cf4 \strokec4 ;\
+    \}\
+    \
+    \cf6 \strokec6 for\cf4 \strokec4  (int j = pos; j < nums.length; j++) \{\
+      helper(nums, i - \cf7 \strokec7 1\cf4 \strokec4 , j + \cf7 \strokec7 1\cf4 \strokec4 , product * nums[j];);\
+    \}\
+  \}\
+\pard\pardeftab720\sl480\sa100\partightenfactor0
+
+\f0\b\fs36 \cf2 \cb3 \strokec2 Follow-up: Non-uniques\cb1 \
+\pard\pardeftab720\sl480\partightenfactor0
+
+\f1\b0\fs30 \cf2 \cb3 Same question, except the prime numbers aren't guaranteed to be unique. E.g. [2, 11, 2]. In this case you'd print: 2, 11, 22, 44, 4. The challenge is to make sure you don't print duplicates.\cb1 \
+\cb3 If the candidate originally wrote a recursive solution, the simplest modification would be to just keep a set of already-printed numbers, and check that before printing. I often lead the candidate to this idea and make sure they understand why it's not ideal (2^n worst-case space usage).\cb1 \
+\cb3 The best candidates will see that this is a generalization of the original problem, where originally each prime could be included 0 or 1 times in the product, but now can be included 0-k times. It's easiest to modify the recursive solution to first either keep a count of all the prime frequencies, or sort the array and accomplish the same sort of thing "in-place." Here's a sample solution with frequency counts:\cb1 \
+\pard\pardeftab720\sl480\partightenfactor0
+
+\f2 \cf4 \cb5 \strokec4 def printProductsWrapper(arr)\
+  counts = \{\}\
+  arr.each \cf6 \strokec6 do\cf4 \strokec4  |val|\
+    counts[val] = (counts[val] == nil) ? \cf7 \strokec7 1\cf4 \strokec4  : (counts[val] + \cf7 \strokec7 1\cf4 \strokec4 )\
+  end\
+\
+  uniques = counts.keys\
+  printProducts(uniques, \cf7 \strokec7 0\cf4 \strokec4 , \cf7 \strokec7 1\cf4 \strokec4 , counts)\
+end\
+\
+def printProducts(arr, i, prod, counts)\
+  \cf6 \strokec6 if\cf4 \strokec4  i == arr.length\
+    \cf6 \strokec6 if\cf4 \strokec4  prod != \cf7 \strokec7 1\cf4 \strokec4 \
+      puts prod\
+    end\
+    \cf6 \strokec6 return\cf4 \strokec4 \
+  end\
+  cur_val = arr[i]\
+  \cf6 \strokec6 for\cf4 \strokec4  j in \cf7 \strokec7 0.\cf4 \strokec4 .counts[cur_val]\
+    printProducts(arr, i+\cf7 \strokec7 1\cf4 \strokec4 , prod, counts)\
+    prod = prod * cur_val\
+  end\
+end\
+\
+printProductsWrapper([\cf7 \strokec7 2\cf4 \strokec4 ,\cf7 \strokec7 11\cf4 \strokec4 ,\cf7 \strokec7 2\cf4 \strokec4 ])\
+\pard\pardeftab720\sl480\partightenfactor0
+
+\f1 \cf2 \cb3 \strokec2 Another solution modifies the iterative build-up solution. Sort the input array, go through each prime, and if it\'92s the same as the previous prime, only add the products formed by multiplying it by the numbers added in the previous step:\cb1 \
+\pard\pardeftab720\sl480\partightenfactor0
+
+\f2 \cf4 \cb5 \strokec4 vector<int> productOfPrimes(vector<int> nums)\
+\{\
+  vector<int> result;\
+  result.push_back(\cf7 \strokec7 1\cf4 \strokec4 );\
+  sort(nums.begin(),nums.end());\
+  int product;\
+  int index, n;\
+  \cf6 \strokec6 for\cf4 \strokec4 (int i=\cf7 \strokec7 0\cf4 \strokec4 ; i<nums.size(); i++)\
+  \{\
+    \cf6 \strokec6 if\cf4 \strokec4 (i>\cf7 \strokec7 0\cf4 \strokec4  && nums[i] == nums[i\cf7 \strokec7 -1\cf4 \strokec4 ])\
+      index = n;\
+    \cf6 \strokec6 else\cf4 \strokec4 \
+      index = \cf7 \strokec7 0\cf4 \strokec4 ;\
+    n = result.size();\
+    \cf6 \strokec6 for\cf4 \strokec4 (int j=index; j<n; j++)\
+    \{\
+      product = result[j] * nums[i];\
+      result.push_back(product);\
+    \}\
+  \
+  \}\
+  \
+  \cf6 \strokec6 return\cf4 \strokec4  result;\
+\}\
+}

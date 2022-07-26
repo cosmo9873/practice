@@ -1,0 +1,175 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1671\cocoasubrtf200
+{\fonttbl\f0\fnil\fcharset0 HelveticaNeue-Bold;\f1\fnil\fcharset0 HelveticaNeue;\f2\fswiss\fcharset0 Helvetica-Oblique;
+\f3\fswiss\fcharset0 Helvetica;\f4\fswiss\fcharset0 Helvetica-Bold;\f5\fnil\fcharset0 Monaco;
+}
+{\colortbl;\red255\green255\blue255;\red21\green23\blue25;\red255\green255\blue255;\red52\green56\blue63;
+\red78\green84\blue93;\red41\green67\blue135;\red22\green25\blue31;\red0\green0\blue0;\red252\green244\blue202;
+\red0\green0\blue82;\red152\green18\blue15;\red6\green50\blue15;\red76\green12\blue1;\red152\green46\blue3;
+\red98\green83\blue14;}
+{\*\expandedcolortbl;;\cssrgb\c10980\c11765\c12941;\cssrgb\c100000\c100000\c100000;\cssrgb\c26667\c28627\c31373;
+\cssrgb\c37647\c40392\c43922;\cssrgb\c21176\c34510\c60000;\cssrgb\c11373\c12941\c16078;\cssrgb\c0\c0\c0;\cssrgb\c99216\c96078\c83137;
+\cssrgb\c0\c3922\c39608;\cssrgb\c66667\c13333\c6667;\cssrgb\c0\c25098\c7059;\cssrgb\c37647\c7059\c0;\cssrgb\c66667\c25098\c0;
+\cssrgb\c46275\c39608\c6275;}
+{\*\listtable{\list\listtemplateid1\listhybrid{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{disc\}}{\leveltext\leveltemplateid1\'01\uc0\u8226 ;}{\levelnumbers;}\fi-360\li720\lin720 }{\listname ;}\listid1}
+{\list\listtemplateid2\listhybrid{\listlevel\levelnfc0\levelnfcn0\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{decimal\}.}{\leveltext\leveltemplateid101\'02\'00.;}{\levelnumbers\'01;}\fi-360\li720\lin720 }{\listname ;}\listid2}}
+{\*\listoverridetable{\listoverride\listid1\listoverridecount0\ls1}{\listoverride\listid2\listoverridecount0\ls2}}
+\margl1440\margr1440\vieww10800\viewh8400\viewkind0
+\deftab720
+\pard\pardeftab720\sl560\partightenfactor0
+
+\f0\b\fs48 \cf2 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 Binary Tree Iterator For Inorder Traversal\
+\pard\pardeftab720\sl520\qc\partightenfactor0
+
+\f1\i\fs24 \cf3 \strokec3 \
+\pard\pardeftab720\sl520\qc\partightenfactor0
+\cf4 \strokec4 \
+\pard\pardeftab720\sl520\qc\partightenfactor0
+
+\f0\i0 \cf4 More Items\
+\pard\pardeftab720\sl320\partightenfactor0
+
+\f1\b0 \cf5 \strokec5 Owner:\'a0{\field{\*\fldinst{HYPERLINK "https://our.internmc.facebook.com/intern/profile/?id=122602977"}}{\fldrslt \cf6 \strokec6 Jack Zhao}}\
+\pard\pardeftab720\sl280\partightenfactor0
+
+\f2\i \cf7 \strokec7 \
+\pard\pardeftab720\sl320\partightenfactor0
+
+\f1\i0 \cf5 \strokec5 Medium\
+\pard\pardeftab720\sl280\partightenfactor0
+
+\f2\i \cf7 \strokec7 \
+\pard\pardeftab720\sl320\partightenfactor0
+
+\f1\i0 \cf5 \strokec5 Ninja\
+\pard\pardeftab720\sl280\partightenfactor0
+
+\f2\i \cf7 \strokec7 \
+\pard\pardeftab720\sl320\partightenfactor0
+
+\f1\i0 \cf5 \strokec5 Algorithm\
+\pard\pardeftab720\sl560\partightenfactor0
+
+\f0\b\fs48 \cf2 \strokec2 Description\
+\pard\pardeftab720\sl280\partightenfactor0
+
+\f3\b0\fs24 \cf7 \strokec7 Given a well formed binary tree, implement an iterator that iterates over it in in-order fashion.\
+\pard\pardeftab720\sl560\partightenfactor0
+
+\f0\b\fs48 \cf2 \strokec2 Question Statement\
+\pard\pardeftab720\sl540\sa160\partightenfactor0
+
+\f4\fs36 \cf7 \strokec7 Notes\'a0{\field{\*\fldinst{HYPERLINK "https://our.internmc.facebook.com/intern/recruiting/interview/questions/?question_id=1485996841621367#notes"}}{\fldrslt \cf6 \strokec6 #}}\
+\pard\tx220\tx720\pardeftab720\li720\fi-720\sl280\partightenfactor0
+\ls1\ilvl0
+\f3\b0\fs24 \cf7 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\uc0\u8226 	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec7 Most candidates will know what in-order traversal means. I typically start off by drawing out a simple binary tree and asking the candidate to write it out in-order. Once I'm sure that we're on the same page, I ask them this question.\
+\ls1\ilvl0\kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\uc0\u8226 	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec7 Good candidates (or those that have experience using STL and have bothered looking at the implementation) realize quickly that the cleanest way of doing this is by creating a separate Iterator object that can track where it is in the tree and where it needs to go next.\
+\ls1\ilvl0\kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\uc0\u8226 	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec7 Some times, candidates assume that they have to do this in O(1) space. Make the candidate think aloud to make sure this isn't the case.\
+\ls1\ilvl0\kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\uc0\u8226 	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec7 Other times, candidates assume that they can do this in O(2 * N) space (By doing an in-order traversal and creating a list). I try to nudge them away from this approach by asking what would happen if the tree had millions of nodes? Can you do better in the average case, with a reasonably well-balanced tree?\
+\ls1\ilvl0\kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\uc0\u8226 	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec7 Some candidates realize that they can use a stack, but get stuck after that because they're confused about the right order of pushing and popping nodes. At this point I ask them to come up with an invariant for the point where a node is popped. ("When a node is popped it is guaranteed that its left subtree, if it exists, has been processed")\
+\pard\pardeftab720\sl453\sa160\partightenfactor0
+
+\f4\b\fs33 \cf7 Alternative Format\'a0{\field{\*\fldinst{HYPERLINK "https://our.internmc.facebook.com/intern/recruiting/interview/questions/?question_id=1485996841621367#alternative-format"}}{\fldrslt \cf6 \strokec6 #}}\
+\pard\pardeftab720\sl280\sa240\partightenfactor0
+
+\f3\b0\fs24 \cf7 A great alternative way to ask this question is: imagine a binary search that could have duplicate elements, and still maintain O(log(n) lookup.\
+\pard\tx220\tx720\pardeftab720\li720\fi-720\sl280\partightenfactor0
+\ls2\ilvl0\cf7 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	1.	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec7 Can you write the specifications for this tree? (left children <= root <= right children)\
+\ls2\ilvl0\kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	2.	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec7 Write a function that determines if the given BST has any duplicates. (Best solution is in-order traversal, but valid alternatives using ranges work).\
+\pard\pardeftab720\sl540\sa160\partightenfactor0
+
+\f4\b\fs36 \cf7 Python Solution\'a0{\field{\*\fldinst{HYPERLINK "https://our.internmc.facebook.com/intern/recruiting/interview/questions/?question_id=1485996841621367#python-solution"}}{\fldrslt \cf6 \strokec6 #}}\
+\pard\pardeftab720\sl280\partightenfactor0
+
+\f5\b0\fs20 \cf8 \cb9 \strokec8 #! /usr/local/bin/python3.3\
+\
+class Node:\
+  def __init__(self, value, left = None, right = None):\
+    self.value = value\
+    self.left = left\
+    self.right = right\
+\
+class Iterator:\
+  def __init__(self, root):\
+    self.stack = []\
+    self.left_recurse(root)\
+\
+  def left_recurse(self, node):\
+    if node == None:\
+      return\
+    self.stack.append(node)\
+    self.left_recurse(node.left)\
+\
+  def next(self):\
+    if len(self.stack) == 0:\
+      return None\
+\
+    next_item = self.stack.pop()\
+    self.left_recurse(next_item.right)\
+    return next_item\
+\pard\pardeftab720\sl540\sa160\partightenfactor0
+
+\f4\b\fs36 \cf7 \cb1 \strokec7 Create a tree for testing\'a0{\field{\*\fldinst{HYPERLINK "https://our.internmc.facebook.com/intern/recruiting/interview/questions/?question_id=1485996841621367#create-a-tree-for-testin"}}{\fldrslt \cf6 \strokec6 #}}\
+\pard\pardeftab720\sl280\partightenfactor0
+
+\f5\b0\fs20 \cf10 \cb9 \strokec10 root\cf8 \strokec8  \cf11 \strokec11 =\cf8 \strokec8  \cf12 \strokec12 Node\cf11 \strokec11 (\cf13 \strokec13 0\cf11 \strokec11 )\cf8 \strokec8 \
+\
+\cf10 \strokec10 l\cf8 \strokec8  \cf11 \strokec11 =\cf8 \strokec8  \cf12 \strokec12 Node\cf11 \strokec11 (\cf13 \strokec13 1\cf11 \strokec11 )\cf8 \strokec8 \
+\
+\cf10 \strokec10 r\cf8 \strokec8  \cf11 \strokec11 =\cf8 \strokec8  \cf12 \strokec12 Node\cf11 \strokec11 (\cf13 \strokec13 2\cf11 \strokec11 )\cf8 \strokec8 \
+\
+\cf10 \strokec10 ll\cf8 \strokec8  \cf11 \strokec11 =\cf8 \strokec8  \cf12 \strokec12 Node\cf11 \strokec11 (\cf13 \strokec13 3\cf11 \strokec11 )\cf8 \strokec8 \
+\
+\cf10 \strokec10 lr\cf8 \strokec8  \cf11 \strokec11 =\cf8 \strokec8  \cf12 \strokec12 Node\cf11 \strokec11 (\cf13 \strokec13 4\cf11 \strokec11 )\cf8 \strokec8 \
+\
+\cf10 \strokec10 rl\cf8 \strokec8  \cf11 \strokec11 =\cf8 \strokec8  \cf12 \strokec12 Node\cf11 \strokec11 (\cf13 \strokec13 5\cf11 \strokec11 )\cf8 \strokec8 \
+\
+\cf10 \strokec10 rr\cf8 \strokec8  \cf11 \strokec11 =\cf8 \strokec8  \cf12 \strokec12 Node\cf11 \strokec11 (\cf13 \strokec13 6\cf11 \strokec11 )\cf8 \strokec8 \
+\
+\cf10 \strokec10 lll\cf8 \strokec8  \cf11 \strokec11 =\cf8 \strokec8  \cf12 \strokec12 Node\cf11 \strokec11 (\cf13 \strokec13 7\cf11 \strokec11 )\cf8 \strokec8 \
+\
+\cf10 \strokec10 llr\cf8 \strokec8  \cf11 \strokec11 =\cf8 \strokec8  \cf12 \strokec12 Node\cf11 \strokec11 (\cf13 \strokec13 8\cf11 \strokec11 )\cf8 \strokec8 \
+\
+\cf10 \strokec10 rrl\cf8 \strokec8  \cf11 \strokec11 =\cf8 \strokec8  \cf12 \strokec12 Node\cf11 \strokec11 (\cf13 \strokec13 9\cf11 \strokec11 )\cf8 \strokec8 \
+\
+\cf10 \strokec10 rrr\cf8 \strokec8  \cf11 \strokec11 =\cf8 \strokec8  \cf12 \strokec12 Node\cf11 \strokec11 (\cf13 \strokec13 10\cf11 \strokec11 )\cf8 \strokec8 \
+\
+\cf10 \strokec10 root\cf11 \strokec11 .\cf10 \strokec10 left\cf8 \strokec8  \cf11 \strokec11 =\cf8 \strokec8  \cf10 \strokec10 l\cf8 \strokec8 \
+\
+\cf10 \strokec10 root\cf11 \strokec11 .\cf10 \strokec10 right\cf8 \strokec8  \cf11 \strokec11 =\cf8 \strokec8  \cf10 \strokec10 r\cf8 \strokec8 \
+\
+\cf10 \strokec10 l\cf11 \strokec11 .\cf10 \strokec10 left\cf8 \strokec8  \cf11 \strokec11 =\cf8 \strokec8  \cf10 \strokec10 ll\cf8 \strokec8 \
+\
+\cf10 \strokec10 l\cf11 \strokec11 .\cf10 \strokec10 right\cf8 \strokec8  \cf11 \strokec11 =\cf8 \strokec8  \cf10 \strokec10 lr\cf8 \strokec8 \
+\
+\cf10 \strokec10 r\cf11 \strokec11 .\cf10 \strokec10 left\cf8 \strokec8  \cf11 \strokec11 =\cf8 \strokec8  \cf10 \strokec10 rl\cf8 \strokec8 \
+\
+\cf10 \strokec10 r\cf11 \strokec11 .\cf10 \strokec10 right\cf8 \strokec8  \cf11 \strokec11 =\cf8 \strokec8  \cf10 \strokec10 rr\cf8 \strokec8 \
+\
+\cf10 \strokec10 ll\cf11 \strokec11 .\cf10 \strokec10 left\cf8 \strokec8  \cf11 \strokec11 =\cf8 \strokec8  \cf10 \strokec10 lll\cf8 \strokec8 \
+\
+\cf10 \strokec10 ll\cf11 \strokec11 .\cf10 \strokec10 right\cf8 \strokec8  \cf11 \strokec11 =\cf8 \strokec8  \cf10 \strokec10 llr\cf8 \strokec8 \
+\
+\cf10 \strokec10 rr\cf11 \strokec11 .\cf10 \strokec10 left\cf8 \strokec8  \cf11 \strokec11 =\cf8 \strokec8  \cf10 \strokec10 rrl\cf8 \strokec8 \
+\
+\cf10 \strokec10 rr\cf11 \strokec11 .\cf10 \strokec10 right\cf8 \strokec8  \cf11 \strokec11 =\cf8 \strokec8  \cf10 \strokec10 rrr\cf8 \strokec8 \
+\pard\pardeftab720\sl540\sa160\partightenfactor0
+
+\f4\b\fs36 \cf7 \cb1 \strokec7 Test\'a0{\field{\*\fldinst{HYPERLINK "https://our.internmc.facebook.com/intern/recruiting/interview/questions/?question_id=1485996841621367#test"}}{\fldrslt \cf6 \strokec6 #}}\
+\pard\pardeftab720\sl280\partightenfactor0
+
+\f5\b0\fs20 \cf10 \cb9 \strokec10 my_iterator\cf8 \strokec8  \cf11 \strokec11 =\cf8 \strokec8  \cf12 \strokec12 Iterator\cf11 \strokec11 (\cf10 \strokec10 root\cf11 \strokec11 )\cf8 \strokec8 \
+\pard\pardeftab720\sl280\partightenfactor0
+\cf14 \strokec14 while\cf8 \strokec8  \cf10 \strokec10 True\cf11 \strokec11 :\cf8 \strokec8 \
+  \cf10 \strokec10 my_node\cf8 \strokec8  \cf11 \strokec11 =\cf8 \strokec8  \cf10 \strokec10 my_iterator\cf11 \strokec11 .\cf12 \strokec12 next\cf11 \strokec11 ()\cf8 \strokec8 \
+  \cf14 \strokec14 if\cf8 \strokec8  \cf10 \strokec10 my_node\cf8 \strokec8  \cf11 \strokec11 ==\cf8 \strokec8  \cf10 \strokec10 None\cf11 \strokec11 :\cf8 \strokec8 \
+    \cf14 \strokec14 break\cf8 \strokec8 \
+  \cf12 \strokec12 print\cf11 \strokec11 (\cf10 \strokec10 my_node\cf11 \strokec11 .\cf10 \strokec10 value\cf11 \strokec11 ,\cf8 \strokec8  \cf10 \strokec10 end\cf11 \strokec11 =\cf15 \strokec15 "\cf14 \strokec14 \\n\cf15 \strokec15 "\cf11 \strokec11 )\cf8 \strokec8 \
+}

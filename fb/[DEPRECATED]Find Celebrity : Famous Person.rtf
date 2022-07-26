@@ -1,0 +1,175 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1671\cocoasubrtf200
+{\fonttbl\f0\fnil\fcharset0 HelveticaNeue-Bold;\f1\fnil\fcharset0 HelveticaNeue;\f2\fswiss\fcharset0 Helvetica-Oblique;
+\f3\fswiss\fcharset0 Helvetica;\f4\fswiss\fcharset0 Helvetica-Bold;\f5\fmodern\fcharset0 Courier;
+\f6\fnil\fcharset0 Monaco;}
+{\colortbl;\red255\green255\blue255;\red245\green30\blue48;\red21\green23\blue25;\red255\green255\blue255;
+\red52\green56\blue63;\red78\green84\blue93;\red41\green67\blue135;\red22\green25\blue31;\red54\green59\blue74;
+\red252\green244\blue202;\red38\green38\blue38;\red228\green230\blue234;\red0\green0\blue82;\red0\green0\blue0;
+\red6\green50\blue15;\red152\green18\blue15;\red152\green46\blue3;\red76\green12\blue1;\red83\green83\blue83;
+}
+{\*\expandedcolortbl;;\cssrgb\c98039\c21961\c24314;\cssrgb\c10980\c11765\c12941;\cssrgb\c100000\c100000\c100000;
+\cssrgb\c26667\c28627\c31373;\cssrgb\c37647\c40392\c43922;\cssrgb\c21176\c34510\c60000;\cssrgb\c11373\c12941\c16078;\cssrgb\c27451\c29804\c36078;
+\cssrgb\c99216\c96078\c83137;\cssrgb\c20000\c20000\c20000;\cssrgb\c91373\c92157\c93333;\cssrgb\c0\c3922\c39608;\cssrgb\c0\c0\c0;
+\cssrgb\c0\c25098\c7059;\cssrgb\c66667\c13333\c6667;\cssrgb\c66667\c25098\c0;\cssrgb\c37647\c7059\c0;\cssrgb\c40000\c40000\c40000;
+}
+\margl1440\margr1440\vieww10800\viewh8400\viewkind0
+\deftab720
+\pard\pardeftab720\sl560\partightenfactor0
+
+\f0\b\fs48 \cf2 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 [DEPRECATED]\cf3 \strokec3 Find Celebrity / Famous Person\
+\pard\pardeftab720\sl520\qc\partightenfactor0
+
+\f1\i\fs24 \cf4 \strokec4 \
+\pard\pardeftab720\sl520\qc\partightenfactor0
+\cf5 \strokec5 \
+\pard\pardeftab720\sl520\qc\partightenfactor0
+
+\f0\i0 \cf5 More Items\
+\pard\pardeftab720\sl320\partightenfactor0
+
+\f1\b0 \cf6 \strokec6 Owner:\'a0{\field{\*\fldinst{HYPERLINK "https://our.internmc.facebook.com/intern/profile/?id=662113661"}}{\fldrslt \cf7 \strokec7 Mark Govea}}\
+\pard\pardeftab720\sl280\partightenfactor0
+
+\f2\i \cf8 \strokec8 \
+\pard\pardeftab720\sl320\partightenfactor0
+
+\f1\i0 \cf6 \strokec6 Hard\
+\pard\pardeftab720\sl280\partightenfactor0
+
+\f2\i \cf8 \strokec8 \
+\pard\pardeftab720\sl320\partightenfactor0
+
+\f1\i0 \cf6 \strokec6 Ninja\
+\pard\pardeftab720\sl280\partightenfactor0
+
+\f2\i \cf8 \strokec8 \
+\pard\pardeftab720\sl320\partightenfactor0
+
+\f1\i0 \cf6 \strokec6 Algorithm\
+\pard\pardeftab720\sl560\partightenfactor0
+
+\f0\b\fs48 \cf3 \strokec3 Description\
+\pard\pardeftab720\sl280\sa240\partightenfactor0
+
+\f3\b0\fs24 \cf8 \strokec8 Find the "celebrity"/"famous person" in a graph. They know nobody, but are known by everybody.\
+I've always asked as a conceptual question if I need more signal on problem solving, but am already decently confident about code.\
+\pard\pardeftab720\sl280\partightenfactor0
+
+\f4\b \cf9 \cb10 \strokec9 WARNING:
+\f3\b0 \cf8 \strokec8 \'a0This problem is leaked at\'a0{\field{\*\fldinst{HYPERLINK "http://l.facebook.com/l.php?u=http%3A%2F%2Fwww.geeksforgeeks.org%2Fthe-celebrity-problem%2F&h=AT09mNMHh3jWWkD4Jkv1THc_ck4s6MN4SRa_xCBt0i8HKr5AZ3S2e74t4x_fFI_bhXChy66c2bQhaLRGSqthYWwFrPmJqS5qaxvAReA7ys2rbMWvH0gpai1I3Kd_Qz1QdEvtkRO79Sx-Qe1vnmO00gTZ"}}{\fldrslt \cf7 \strokec7 http://www.geeksforgeeks.org/the-celebrity-problem/}}. It is also known as the "Mayor" question where the Mayor is someone in the list that is 'liked' by all voters but the Mayor is impartial so the mayor doesn't 'like' anyone in the list.\
+\pard\pardeftab720\sl560\partightenfactor0
+
+\f0\b\fs48 \cf3 \cb1 \strokec3 Question Statement\
+\pard\pardeftab720\sl280\sa240\partightenfactor0
+
+\f3\b0\fs24 \cf8 \strokec8 Given a list of people, find the "famous person" in the list. A person is a "famous person" iff all others know him/her AND he/she doesn't know anybody else. Assume we have a function bool\'a0
+\f5 \cf11 \cb12 \strokec11 know(i, j)
+\f3 \cf8 \cb1 \strokec8 \'a0which return true if\'a0
+\f5 \cf11 \cb12 \strokec11 i
+\f3 \cf8 \cb1 \strokec8 \'a0knows\'a0
+\f5 \cf11 \cb12 \strokec11 j
+\f3 \cf8 \cb1 \strokec8 , or else false. An\'a0
+\f5 \cf11 \cb12 \strokec11 O(n)
+\f3 \cf8 \cb1 \strokec8 \'a0solution is expected, where\'a0
+\f5 \cf11 \cb12 \strokec11 n
+\f3 \cf8 \cb1 \strokec8 \'a0is the number of people. We pose this question with the assumption that there's exactly one famous person in the list. The goal is to find the ID of the famous person, given the function\'a0
+\f5 \cf11 \cb12 \strokec11 know()
+\f3 \cf8 \cb1 \strokec8 \'a0and the total number of people.\
+\pard\pardeftab720\sl453\sa160\partightenfactor0
+
+\f4\b\fs33 \cf8 Variant\'a0{\field{\*\fldinst{HYPERLINK "https://our.internmc.facebook.com/intern/recruiting/interview/questions/?question_id=247563539028919#variant"}}{\fldrslt \cf7 \strokec7 #}}\
+\pard\pardeftab720\sl280\sa240\partightenfactor0
+
+\f3\b0\fs24 \cf8 A variant of this problem does not guarantee that there's one famous person (we could have no famous people). To solve this variant, all the candidate needs to do is to do a final check and see that everyone knows the person (or that this person does not know anyone else).\
+\pard\pardeftab720\sl453\sa160\partightenfactor0
+
+\f4\b\fs33 \cf8 Alternative problem statement\'a0{\field{\*\fldinst{HYPERLINK "https://our.internmc.facebook.com/intern/recruiting/interview/questions/?question_id=247563539028919#alternative-problem-stat"}}{\fldrslt \cf7 \strokec7 #}}\
+\pard\pardeftab720\sl280\sa240\partightenfactor0
+
+\f3\b0\fs24 \cf8 In a directed graph, find the node(s) whose indegree is n-1 and outdegree is 0.\
+This question is very versatile and you can use it for 20 or 12 minutes depending on how much help you give the person. The final solution is as small as 6 lines of python, so people can write it fast once they know exactly what is needed.\
+\pard\pardeftab720\sl540\sa160\partightenfactor0
+
+\f4\b\fs36 \cf8 Na\'efve solution\'a0{\field{\*\fldinst{HYPERLINK "https://our.internmc.facebook.com/intern/recruiting/interview/questions/?question_id=247563539028919#na-ve-solution"}}{\fldrslt \cf7 \strokec7 #}}\
+\pard\pardeftab720\sl280\sa240\partightenfactor0
+
+\f3\b0\fs24 \cf8 The na\'efve solution is pretty easy to get:\
+\pard\pardeftab720\sl280\partightenfactor0
+
+\f6\fs20 \cf13 \cb10 \strokec13 def\cf14 \strokec14  \cf15 \strokec15 famousPerson\cf16 \strokec16 (\cf13 \strokec13 people\cf16 \strokec16 ):\cf14 \strokec14 \
+  \cf17 \strokec17 for\cf14 \strokec14  \cf13 \strokec13 i\cf14 \strokec14  \cf13 \strokec13 in\cf14 \strokec14  \cf15 \strokec15 range\cf16 \strokec16 (\cf15 \strokec15 len\cf16 \strokec16 (\cf13 \strokec13 people\cf16 \strokec16 )):\cf14 \strokec14 \
+    \cf13 \strokec13 count\cf14 \strokec14  \cf16 \strokec16 =\cf14 \strokec14  \cf18 \strokec18 0\cf14 \strokec14 \
+    \cf17 \strokec17 for\cf14 \strokec14  \cf13 \strokec13 j\cf14 \strokec14  \cf13 \strokec13 in\cf14 \strokec14  \cf15 \strokec15 range\cf16 \strokec16 (\cf15 \strokec15 len\cf16 \strokec16 (\cf13 \strokec13 people\cf16 \strokec16 )):\cf14 \strokec14 \
+      \cf17 \strokec17 if\cf14 \strokec14  \cf13 \strokec13 i\cf14 \strokec14  \cf16 \strokec16 !=\cf14 \strokec14  \cf13 \strokec13 j\cf14 \strokec14  \cf17 \strokec17 and\cf14 \strokec14  \cf15 \strokec15 know\cf16 \strokec16 (\cf13 \strokec13 j\cf16 \strokec16 ,\cf14 \strokec14  \cf13 \strokec13 i\cf16 \strokec16 ):\cf14 \strokec14 \
+        \cf13 \strokec13 count\cf14 \strokec14  \cf16 \strokec16 +=\cf14 \strokec14  \cf18 \strokec18 1\cf14 \strokec14 \
+    \cf17 \strokec17 if\cf14 \strokec14  \cf13 \strokec13 count\cf14 \strokec14  \cf16 \strokec16 ==\cf14 \strokec14  \cf15 \strokec15 len\cf16 \strokec16 (\cf13 \strokec13 people\cf16 \strokec16 )\cf14 \strokec14  \cf16 \strokec16 -\cf14 \strokec14  \cf18 \strokec18 1\cf16 \strokec16 :\cf14 \strokec14 \
+      \cf17 \strokec17 return\cf14 \strokec14  \cf13 \strokec13 i\cf14 \strokec14 \
+  \cf19 \strokec19 // should never happen.\cf14 \strokec14 \
+  \cf17 \strokec17 return\cf14 \strokec14  \cf16 \strokec16 -\cf18 \strokec18 1\cf14 \strokec14 \
+\pard\pardeftab720\sl280\sa240\partightenfactor0
+
+\f3\fs24 \cf8 \cb1 \strokec8 The candidates should be able to explain this solution verbally as well as give out the complexity (
+\f5 \cf11 \cb12 \strokec11 O(n^2)
+\f3 \cf8 \cb1 \strokec8 ) without trouble. Don't let them implement it. Get them to think about a better way to do it.\
+\pard\pardeftab720\sl540\sa160\partightenfactor0
+
+\f4\b\fs36 \cf8 Improved solution\'a0{\field{\*\fldinst{HYPERLINK "https://our.internmc.facebook.com/intern/recruiting/interview/questions/?question_id=247563539028919#improved-solution"}}{\fldrslt \cf7 \strokec7 #}}\
+\pard\pardeftab720\sl280\sa240\partightenfactor0
+
+\f3\b0\fs24 \cf8 If they spend 20 seconds without ideas (or if you are short on time), you can give them this tip: "Out of the group of people, pick two out of the crowd, what are all the cases you could see happening between them?" (This is the only real big tip good candidates will need, very few people can do it without this tip, so don't hold them too much on it).\
+They will probably come up with something like this (if not, help them):\
+\pard\pardeftab720\sl280\partightenfactor0
+
+\f6\fs20 \cf13 \cb10 \strokec13 A\cf14 \strokec14  \cf16 \strokec16 -->\cf14 \strokec14  \cf13 \strokec13 B\cf14 \strokec14 \
+\cf13 \strokec13 A\cf14 \strokec14  \cf16 \strokec16 <--\cf14 \strokec14  \cf13 \strokec13 B\cf14 \strokec14 \
+\cf13 \strokec13 A\cf14 \strokec14  \cf16 \strokec16 <->\cf14 \strokec14  \cf13 \strokec13 B\cf14 \strokec14 \
+\cf13 \strokec13 A\cf14 \strokec14  \cf16 \strokec16 ...\cf14 \strokec14  \cf13 \strokec13 B\cf14 \strokec14 \
+\pard\pardeftab720\sl280\sa240\partightenfactor0
+
+\f3\fs24 \cf8 \cb1 \strokec8 Ask them if they can see the invariance there (that there's always someone that is for sure not famous).\
+Now that they know that with two calls to\'a0
+\f5 \cf11 \cb12 \strokec11 know()
+\f3 \cf8 \cb1 \strokec8 \'a0they are able to eliminate one person, they should be able to say that a\'a0
+\f5 \cf11 \cb12 \strokec11 O(n)
+\f3 \cf8 \cb1 \strokec8 \'a0algorithm seems plausible.\
+Check if they know how to write it, sometimes they will still try to add in a array or a set to to keep track of who is famous or not, ask them if they really need it, if they can't pick it up, you can say the word "candidate," and that will generally be enough for them.\
+\pard\pardeftab720\sl453\sa160\partightenfactor0
+
+\f4\b\fs33 \cf8 One-pointer approach\'a0{\field{\*\fldinst{HYPERLINK "https://our.internmc.facebook.com/intern/recruiting/interview/questions/?question_id=247563539028919#one-pointer-approach"}}{\fldrslt \cf7 \strokec7 #}}\
+\pard\pardeftab720\sl280\partightenfactor0
+
+\f6\b0\fs20 \cf13 \cb10 \strokec13 def\cf14 \strokec14  \cf15 \strokec15 famousPerson\cf16 \strokec16 (\cf13 \strokec13 people\cf16 \strokec16 ):\cf14 \strokec14 \
+  \cf13 \strokec13 candidate\cf14 \strokec14  \cf16 \strokec16 =\cf14 \strokec14  \cf18 \strokec18 0\cf14 \strokec14 \
+  \cf17 \strokec17 for\cf14 \strokec14  \cf13 \strokec13 i\cf14 \strokec14  \cf13 \strokec13 in\cf14 \strokec14  \cf15 \strokec15 range\cf16 \strokec16 (\cf18 \strokec18 1\cf16 \strokec16 ,\cf14 \strokec14  \cf15 \strokec15 len\cf16 \strokec16 (\cf13 \strokec13 people\cf16 \strokec16 )):\cf14 \strokec14 \
+    \cf17 \strokec17 if\cf14 \strokec14  \cf15 \strokec15 know\cf16 \strokec16 (\cf13 \strokec13 candidate\cf16 \strokec16 ,\cf14 \strokec14  \cf13 \strokec13 i\cf16 \strokec16 ):\cf14 \strokec14 \
+      \cf13 \strokec13 candidate\cf14 \strokec14  \cf16 \strokec16 =\cf14 \strokec14  \cf13 \strokec13 i\cf14 \strokec14 \
+  \cf17 \strokec17 return\cf14 \strokec14  \cf13 \strokec13 candidate\cf14 \strokec14 \
+\pard\pardeftab720\sl453\sa160\partightenfactor0
+
+\f4\b\fs33 \cf8 \cb1 \strokec8 Two-pointer approach\'a0{\field{\*\fldinst{HYPERLINK "https://our.internmc.facebook.com/intern/recruiting/interview/questions/?question_id=247563539028919#two-pointer-approach"}}{\fldrslt \cf7 \strokec7 #}}\
+\pard\pardeftab720\sl280\partightenfactor0
+
+\f6\b0\fs20 \cf13 \cb10 \strokec13 def\cf14 \strokec14  \cf15 \strokec15 famousPerson\cf16 \strokec16 (\cf13 \strokec13 people\cf16 \strokec16 ):\cf14 \strokec14 \
+  \cf13 \strokec13 i\cf14 \strokec14  \cf16 \strokec16 =\cf14 \strokec14  \cf18 \strokec18 0\cf14 \strokec14 \
+  \cf13 \strokec13 j\cf14 \strokec14  \cf16 \strokec16 =\cf14 \strokec14  \cf15 \strokec15 len\cf16 \strokec16 (\cf13 \strokec13 people\cf16 \strokec16 )\cf14 \strokec14  \cf16 \strokec16 -\cf14 \strokec14  \cf18 \strokec18 1\cf14 \strokec14 \
+  \cf17 \strokec17 while\cf14 \strokec14  \cf13 \strokec13 i\cf14 \strokec14  \cf16 \strokec16 !=\cf14 \strokec14  \cf13 \strokec13 j\cf16 \strokec16 :\cf14 \strokec14 \
+    \cf17 \strokec17 if\cf14 \strokec14  \cf15 \strokec15 know\cf16 \strokec16 (\cf13 \strokec13 i\cf16 \strokec16 ,\cf14 \strokec14  \cf13 \strokec13 j\cf16 \strokec16 ):\cf14 \strokec14 \
+      \cf13 \strokec13 i\cf14 \strokec14  \cf16 \strokec16 +=\cf14 \strokec14  \cf18 \strokec18 1\cf14 \strokec14 \
+    \cf17 \strokec17 else\cf16 \strokec16 :\cf14 \strokec14 \
+      \cf13 \strokec13 j\cf14 \strokec14  \cf16 \strokec16 -=\cf14 \strokec14  \cf18 \strokec18 1\cf14 \strokec14 \
+  \cf17 \strokec17 return\cf14 \strokec14  \cf13 \strokec13 i\cf14 \strokec14 \
+\pard\pardeftab720\sl540\sa160\partightenfactor0
+
+\f4\b\fs36 \cf8 \cb1 \strokec8 Extra signal\'a0{\field{\*\fldinst{HYPERLINK "https://our.internmc.facebook.com/intern/recruiting/interview/questions/?question_id=247563539028919#extra-signal"}}{\fldrslt \cf7 \strokec7 #}}\
+\pard\pardeftab720\sl280\sa240\partightenfactor0
+
+\fs24 \cf8 Person can take feedback
+\f3\b0 : Some people will dive into graph theory, and while this is graph theory, if they haven't seen it in the past, hardly they will be able to solve the core of the problem without help. You can ask the candidate to look into a pair of people (from the n people in the input) and then draw all the cases out of it. Some candidates will just ignore you and work out their solution, that's a red flag.\
+\pard\pardeftab720\sl280\partightenfactor0
+
+\f4\b \cf8 Make it a longer question
+\f3\b0 : In the end, if you have time, you can ask: What if the number of people is on the millions scale and\'a0
+\f5 \cf11 \cb12 \strokec11 know()
+\f3 \cf8 \cb1 \strokec8 \'a0is a expensive IO bound operation? They can come up with a map reduce calculation, this can be reduced into a find max problem. Some candidates will think on this right off in the main question, bring them back to the main solution first.\
+}

@@ -1,0 +1,187 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1671\cocoasubrtf200
+{\fonttbl\f0\fnil\fcharset0 HelveticaNeue-Bold;\f1\fnil\fcharset0 HelveticaNeue;\f2\fswiss\fcharset0 Helvetica-Oblique;
+\f3\fswiss\fcharset0 Helvetica;\f4\fswiss\fcharset0 Helvetica-Bold;\f5\fnil\fcharset0 Monaco;
+\f6\fmodern\fcharset0 Courier;}
+{\colortbl;\red255\green255\blue255;\red21\green23\blue25;\red255\green255\blue255;\red52\green56\blue63;
+\red78\green84\blue93;\red41\green67\blue135;\red22\green25\blue31;\red54\green59\blue74;\red210\green229\blue240;
+\red76\green12\blue1;\red252\green244\blue202;\red0\green0\blue0;\red0\green0\blue82;\red6\green50\blue15;
+\red152\green18\blue15;\red38\green38\blue38;\red228\green230\blue234;\red152\green46\blue3;}
+{\*\expandedcolortbl;;\cssrgb\c10980\c11765\c12941;\cssrgb\c100000\c100000\c100000;\cssrgb\c26667\c28627\c31373;
+\cssrgb\c37647\c40392\c43922;\cssrgb\c21176\c34510\c60000;\cssrgb\c11373\c12941\c16078;\cssrgb\c27451\c29804\c36078;\cssrgb\c85490\c91765\c95294;
+\cssrgb\c37647\c7059\c0;\cssrgb\c99216\c96078\c83137;\cssrgb\c0\c0\c0;\cssrgb\c0\c3922\c39608;\cssrgb\c0\c25098\c7059;
+\cssrgb\c66667\c13333\c6667;\cssrgb\c20000\c20000\c20000;\cssrgb\c91373\c92157\c93333;\cssrgb\c66667\c25098\c0;}
+{\*\listtable{\list\listtemplateid1\listhybrid{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{disc\}}{\leveltext\leveltemplateid1\'01\uc0\u8226 ;}{\levelnumbers;}\fi-360\li720\lin720 }{\listname ;}\listid1}
+{\list\listtemplateid2\listhybrid{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{disc\}}{\leveltext\leveltemplateid101\'01\uc0\u8226 ;}{\levelnumbers;}\fi-360\li720\lin720 }{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{disc\}}{\leveltext\leveltemplateid102\'01\uc0\u8226 ;}{\levelnumbers;}\fi-360\li1440\lin1440 }{\listname ;}\listid2}}
+{\*\listoverridetable{\listoverride\listid1\listoverridecount0\ls1}{\listoverride\listid2\listoverridecount0\ls2}}
+\margl1440\margr1440\vieww10800\viewh8400\viewkind0
+\deftab720
+\pard\pardeftab720\sl560\partightenfactor0
+
+\f0\b\fs48 \cf2 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 Count Ones in a 2D Subgrid\
+\pard\pardeftab720\sl520\qc\partightenfactor0
+
+\f1\i\fs24 \cf3 \strokec3 \
+\pard\pardeftab720\sl520\qc\partightenfactor0
+\cf4 \strokec4 \
+\pard\pardeftab720\sl520\qc\partightenfactor0
+
+\f0\i0 \cf4 More Items\
+\pard\pardeftab720\sl320\partightenfactor0
+
+\f1\b0 \cf5 \strokec5 Owner:\'a0{\field{\*\fldinst{HYPERLINK "https://our.internmc.facebook.com/intern/profile/?id=1000550"}}{\fldrslt \cf6 \strokec6 Eric Zamore}}\
+\pard\pardeftab720\sl280\partightenfactor0
+
+\f2\i \cf7 \strokec7 \
+\pard\pardeftab720\sl320\partightenfactor0
+
+\f1\i0 \cf5 \strokec5 Medium\
+\pard\pardeftab720\sl280\partightenfactor0
+
+\f2\i \cf7 \strokec7 \
+\pard\pardeftab720\sl320\partightenfactor0
+
+\f1\i0 \cf5 \strokec5 Ninja\
+\pard\pardeftab720\sl280\partightenfactor0
+
+\f2\i \cf7 \strokec7 \
+\pard\pardeftab720\sl320\partightenfactor0
+
+\f1\i0 \cf5 \strokec5 Coding\
+\pard\pardeftab720\sl560\partightenfactor0
+
+\f0\b\fs48 \cf2 \strokec2 Description\
+\pard\pardeftab720\sl280\partightenfactor0
+
+\f3\b0\fs24 \cf7 \strokec7 Given a large rectangular 2D grid of arbitrarily-placed 1's and 0's, write a service that answers the query "how many 1's in a given subgrid?". You should assume that the grid is large, doesn't change, and is given to you ahead of time. The query will be called many times, so it needs to be fast.\
+\pard\pardeftab720\sl560\partightenfactor0
+
+\f0\b\fs48 \cf2 \strokec2 Question Statement\
+\pard\pardeftab720\sl280\partightenfactor0
+
+\f4\fs24 \cf8 \cb9 \strokec8 NOTE:
+\f3\b0 \cf7 \strokec7 \'a0The general problem and its solution is commonly encountered in computer graphics/image processing/vision ({\field{\*\fldinst{HYPERLINK "https://l.facebook.com/l.php?u=https%3A%2F%2Fen.wikipedia.org%2Fwiki%2FSummed-area_table&h=AT0dPzOGlbTBhemtiB773XyRuYlTFAEx8988xoZEd8nx4-4ZVylEZqTGxo2Du2ZgCBKkWz4cuTbzOlGt5a6oO0y1uGhjPqt0hQp5z8Paq9WXa-jiWzsr1d-ukARTQzmDI--c1IvgYbWyBxbo1c_NE7wX"}}{\fldrslt \cf6 \strokec6 https://en.wikipedia.org/wiki/Summed-area_table}}). You should probably avoid asking this question for candidates from these backgrounds.\
+\pard\pardeftab720\sl375\sa160\partightenfactor0
+
+\f4\b\fs30 \cf7 \cb1 Example\'a0{\field{\*\fldinst{HYPERLINK "https://our.internmc.facebook.com/intern/recruiting/interview/questions/?question_id=778740755625387#example"}}{\fldrslt \cf6 \strokec6 #}}\
+\pard\pardeftab720\sl280\sa240\partightenfactor0
+
+\f3\b0\fs24 \cf7 Grid:\
+\pard\pardeftab720\sl280\partightenfactor0
+
+\f5\fs20 \cf10 \cb11 \strokec10 0\cf12 \strokec12  \cf10 \strokec10 0\cf12 \strokec12  \cf10 \strokec10 0\cf12 \strokec12  \cf10 \strokec10 1\cf12 \strokec12 \
+\cf10 \strokec10 1\cf12 \strokec12  \cf10 \strokec10 0\cf12 \strokec12  \cf10 \strokec10 1\cf12 \strokec12  \cf10 \strokec10 0\cf12 \strokec12 \
+\cf10 \strokec10 1\cf12 \strokec12  \cf10 \strokec10 1\cf12 \strokec12  \cf10 \strokec10 1\cf12 \strokec12  \cf10 \strokec10 0\cf12 \strokec12 \
+\pard\pardeftab720\sl280\sa240\partightenfactor0
+
+\f3\fs24 \cf7 \cb1 \strokec7 Query API:\
+\pard\pardeftab720\sl280\partightenfactor0
+
+\f5\fs20 \cf13 \cb11 \strokec13 int\cf12 \strokec12  \cf14 \strokec14 getOnes\cf15 \strokec15 (\cf13 \strokec13 x1\cf15 \strokec15 ,\cf12 \strokec12  \cf13 \strokec13 y1\cf15 \strokec15 ,\cf12 \strokec12  \cf13 \strokec13 x2\cf15 \strokec15 ,\cf12 \strokec12  \cf13 \strokec13 y2\cf15 \strokec15 )\cf12 \strokec12 \
+\pard\pardeftab720\sl280\sa240\partightenfactor0
+
+\f3\fs24 \cf7 \cb1 \strokec7 Input: 0, 0, 3, 1 Output: 3\
+Input: 0, 1, 3, 2 Output: 5\
+Note that I don't provide the query API; I like to let the candidate come up with that, as it gives me good signal about:\
+\pard\tx220\tx720\pardeftab720\li720\fi-720\sl280\partightenfactor0
+\ls1\ilvl0\cf7 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\uc0\u8226 	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec7 Whether they figure out how to define a subgrid\
+\ls1\ilvl0\kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\uc0\u8226 	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec7 Whether they can come up with a consistent row/column scheme. An equally acceptable API is\'a0
+\f6 \cf16 \cb17 \strokec16 int getOnes(x, y, w, h)
+\f3 \cf7 \cb1 \strokec7 \
+\pard\pardeftab720\sl540\sa160\partightenfactor0
+
+\f4\b\fs36 \cf7 Solution\'a0{\field{\*\fldinst{HYPERLINK "https://our.internmc.facebook.com/intern/recruiting/interview/questions/?question_id=778740755625387#solution"}}{\fldrslt \cf6 \strokec6 #}}\
+\pard\pardeftab720\sl280\sa240\partightenfactor0
+
+\f3\b0\fs24 \cf7 The idea is to implement a one-time preprocessing step that computes a grid of equal size, such that each cell (x,y) in the computed grid stores the number of 1's in the original grid from (0,0) to (x,y). With the preprocessed grid, the query can be done in constant time using arithmetic.\
+Consider the following image with color-coded overlapping regions. The black rectangle in the middle is what we're querying.\
+\{\{\{px/7h0l\}\}\}\
+\pard\pardeftab720\sl280\sa240\partightenfactor0
+{\field{\*\fldinst{HYPERLINK "https://our.intern.facebook.com/intern/px/p/7h0l"}}{\fldrslt \cf6 \strokec6 https://our.intern.facebook.com/intern/px/p/7h0l}}\
+The correct arithmetic is the following (each variable represents the number of 1's in that region):\'a0
+\f6 \cf16 \cb17 \strokec16 D - C - B + A
+\f3 \cf7 \cb1 \strokec7 . We need to add\'a0
+\f6 \cf16 \cb17 \strokec16 A
+\f3 \cf7 \cb1 \strokec7 \'a0because we're subtracting it twice.\
+\pard\pardeftab720\sl375\sa160\partightenfactor0
+
+\f4\b\fs30 \cf7 Code\'a0{\field{\*\fldinst{HYPERLINK "https://our.internmc.facebook.com/intern/recruiting/interview/questions/?question_id=778740755625387#code"}}{\fldrslt \cf6 \strokec6 #}}\
+\pard\pardeftab720\sl280\sa240\partightenfactor0
+
+\f3\b0\fs24 \cf7 Preprocessing step:\
+\pard\pardeftab720\sl280\partightenfactor0
+
+\f5\fs20 \cf13 \cb11 \strokec13 def\cf12 \strokec12  \cf14 \strokec14 getValue\cf15 \strokec15 (\cf13 \strokec13 x\cf15 \strokec15 ,\cf12 \strokec12  \cf13 \strokec13 y\cf15 \strokec15 ):\cf12 \strokec12 \
+  \cf18 \strokec18 if\cf12 \strokec12  \cf13 \strokec13 x\cf12 \strokec12  \cf15 \strokec15 <\cf12 \strokec12  \cf10 \strokec10 0\cf12 \strokec12  \cf18 \strokec18 or\cf12 \strokec12  \cf13 \strokec13 y\cf12 \strokec12  \cf15 \strokec15 <\cf12 \strokec12  \cf10 \strokec10 0\cf15 \strokec15 :\cf12 \strokec12 \
+    \cf18 \strokec18 return\cf12 \strokec12  \cf10 \strokec10 0\cf12 \strokec12 \
+  \cf18 \strokec18 return\cf12 \strokec12  \cf18 \strokec18 self\cf15 \strokec15 .\cf13 \strokec13 pgrid\cf15 \strokec15 [\cf13 \strokec13 x\cf15 \strokec15 ][\cf13 \strokec13 y\cf15 \strokec15 ]\cf12 \strokec12 \
+\
+\cf13 \strokec13 def\cf12 \strokec12  \cf14 \strokec14 preprocessGrid\cf15 \strokec15 (\cf13 \strokec13 grid\cf15 \strokec15 ,\cf12 \strokec12  \cf13 \strokec13 w\cf15 \strokec15 ,\cf12 \strokec12  \cf13 \strokec13 h\cf15 \strokec15 ):\cf12 \strokec12 \
+  \cf18 \strokec18 self\cf15 \strokec15 .\cf13 \strokec13 pgrid\cf12 \strokec12  \cf15 \strokec15 =\cf12 \strokec12  \cf15 \strokec15 []\cf12 \strokec12 \
+  \cf18 \strokec18 for\cf12 \strokec12  \cf13 \strokec13 x\cf12 \strokec12  \cf13 \strokec13 in\cf12 \strokec12  \cf14 \strokec14 range\cf15 \strokec15 (\cf10 \strokec10 0\cf15 \strokec15 ,\cf12 \strokec12  \cf13 \strokec13 w\cf15 \strokec15 ):\cf12 \strokec12 \
+    \cf18 \strokec18 self\cf15 \strokec15 .\cf13 \strokec13 pgrid\cf15 \strokec15 .\cf14 \strokec14 append\cf15 \strokec15 ([])\cf12 \strokec12 \
+    \cf18 \strokec18 for\cf12 \strokec12  \cf13 \strokec13 y\cf12 \strokec12  \cf13 \strokec13 in\cf12 \strokec12  \cf14 \strokec14 range\cf15 \strokec15 (\cf10 \strokec10 0\cf15 \strokec15 ,\cf12 \strokec12  \cf13 \strokec13 h\cf15 \strokec15 ):\cf12 \strokec12 \
+      \cf13 \strokec13 gridval\cf12 \strokec12  \cf15 \strokec15 =\cf12 \strokec12  \cf13 \strokec13 grid\cf15 \strokec15 [\cf13 \strokec13 x\cf15 \strokec15 ][\cf13 \strokec13 y\cf15 \strokec15 ]\cf12 \strokec12  \cf15 \strokec15 +\cf12 \strokec12  \cf14 \strokec14 getValue\cf15 \strokec15 (\cf13 \strokec13 x\cf12 \strokec12  \cf15 \strokec15 -\cf12 \strokec12  \cf10 \strokec10 1\cf15 \strokec15 ,\cf12 \strokec12  \cf13 \strokec13 y\cf15 \strokec15 )\cf12 \strokec12  \cf15 \strokec15 +\cf12 \strokec12  \cf14 \strokec14 getValue\cf15 \strokec15 (\cf13 \strokec13 x\cf15 \strokec15 ,\cf12 \strokec12  \cf13 \strokec13 y\cf12 \strokec12  \cf15 \strokec15 -\cf12 \strokec12  \cf10 \strokec10 1\cf15 \strokec15 )\cf12 \strokec12  \cf15 \strokec15 -\cf12 \strokec12  \cf14 \strokec14 getValue\cf15 \strokec15 (\cf13 \strokec13 x\cf12 \strokec12  \cf15 \strokec15 -\cf12 \strokec12  \cf10 \strokec10 1\cf15 \strokec15 ,\cf12 \strokec12  \cf13 \strokec13 y\cf12 \strokec12  \cf15 \strokec15 -\cf12 \strokec12  \cf10 \strokec10 1\cf15 \strokec15 )\cf12 \strokec12 \
+      \cf18 \strokec18 self\cf15 \strokec15 .\cf13 \strokec13 pgrid\cf15 \strokec15 [\cf13 \strokec13 x\cf15 \strokec15 ].\cf14 \strokec14 append\cf15 \strokec15 (\cf13 \strokec13 gridval\cf15 \strokec15 )\cf12 \strokec12 \
+\pard\pardeftab720\sl280\sa240\partightenfactor0
+
+\f3\fs24 \cf7 \cb1 \strokec7 Note that this implementation is sort-of like the query step in reverse.\
+There are other equally correct/efficient implementations, such as storing a running sum of the current row (or column):\
+\pard\pardeftab720\sl280\partightenfactor0
+
+\f5\fs20 \cf13 \cb11 \strokec13 def\cf12 \strokec12  \cf14 \strokec14 preprocessGrid2\cf15 \strokec15 (\cf13 \strokec13 grid\cf15 \strokec15 ,\cf12 \strokec12  \cf13 \strokec13 w\cf15 \strokec15 ,\cf12 \strokec12  \cf13 \strokec13 h\cf15 \strokec15 ):\cf12 \strokec12 \
+  \cf18 \strokec18 self\cf15 \strokec15 .\cf13 \strokec13 pgrid\cf12 \strokec12  \cf15 \strokec15 =\cf12 \strokec12  \cf15 \strokec15 []\cf12 \strokec12 \
+  \cf18 \strokec18 for\cf12 \strokec12  \cf13 \strokec13 x\cf12 \strokec12  \cf13 \strokec13 in\cf12 \strokec12  \cf14 \strokec14 range\cf15 \strokec15 (\cf10 \strokec10 0\cf15 \strokec15 ,\cf12 \strokec12  \cf13 \strokec13 w\cf15 \strokec15 ):\cf12 \strokec12 \
+    \cf13 \strokec13 pgrid\cf15 \strokec15 .\cf14 \strokec14 append\cf15 \strokec15 ([])\cf12 \strokec12 \
+    \cf13 \strokec13 colsum\cf12 \strokec12  \cf15 \strokec15 =\cf12 \strokec12  \cf10 \strokec10 0\cf12 \strokec12 \
+    \cf18 \strokec18 for\cf12 \strokec12  \cf13 \strokec13 y\cf12 \strokec12  \cf13 \strokec13 in\cf12 \strokec12  \cf14 \strokec14 range\cf15 \strokec15 (\cf10 \strokec10 0\cf15 \strokec15 ,\cf12 \strokec12  \cf13 \strokec13 h\cf15 \strokec15 ):\cf12 \strokec12 \
+      \cf13 \strokec13 gridval\cf12 \strokec12  \cf15 \strokec15 =\cf12 \strokec12  \cf13 \strokec13 grid\cf15 \strokec15 [\cf13 \strokec13 x\cf15 \strokec15 ][\cf13 \strokec13 y\cf15 \strokec15 ]\cf12 \strokec12  \cf15 \strokec15 +\cf12 \strokec12  \cf14 \strokec14 getValue\cf15 \strokec15 (\cf13 \strokec13 x\cf12 \strokec12  \cf15 \strokec15 -\cf12 \strokec12  \cf10 \strokec10 1\cf15 \strokec15 ,\cf12 \strokec12  \cf13 \strokec13 y\cf15 \strokec15 )\cf12 \strokec12  \cf15 \strokec15 +\cf12 \strokec12  \cf13 \strokec13 colsum\cf12 \strokec12 \
+      \cf18 \strokec18 self\cf15 \strokec15 .\cf13 \strokec13 pgrid\cf15 \strokec15 [\cf13 \strokec13 x\cf15 \strokec15 ].\cf14 \strokec14 append\cf15 \strokec15 (\cf13 \strokec13 gridval\cf15 \strokec15 )\cf12 \strokec12 \
+      \cf13 \strokec13 colsum\cf12 \strokec12  \cf15 \strokec15 +=\cf12 \strokec12  \cf13 \strokec13 grid\cf15 \strokec15 [\cf13 \strokec13 x\cf15 \strokec15 ][\cf13 \strokec13 y\cf15 \strokec15 ]\cf12 \strokec12 \
+\pard\pardeftab720\sl280\sa240\partightenfactor0
+
+\f3\fs24 \cf7 \cb1 \strokec7 Query:\
+\pard\pardeftab720\sl280\partightenfactor0
+
+\f5\fs20 \cf13 \cb11 \strokec13 def\cf12 \strokec12  \cf14 \strokec14 query\cf15 \strokec15 (\cf13 \strokec13 x\cf15 \strokec15 ,\cf12 \strokec12  \cf13 \strokec13 y\cf15 \strokec15 ,\cf12 \strokec12  \cf13 \strokec13 w\cf15 \strokec15 ,\cf12 \strokec12  \cf13 \strokec13 h\cf15 \strokec15 ):\cf12 \strokec12 \
+  \cf13 \strokec13 endX\cf12 \strokec12  \cf15 \strokec15 =\cf12 \strokec12  \cf13 \strokec13 x\cf12 \strokec12  \cf15 \strokec15 +\cf12 \strokec12  \cf13 \strokec13 w\cf12 \strokec12  \cf15 \strokec15 -\cf12 \strokec12  \cf10 \strokec10 1\cf12 \strokec12 \
+  \cf13 \strokec13 endY\cf12 \strokec12  \cf15 \strokec15 =\cf12 \strokec12  \cf13 \strokec13 y\cf12 \strokec12  \cf15 \strokec15 +\cf12 \strokec12  \cf13 \strokec13 h\cf12 \strokec12  \cf15 \strokec15 -\cf12 \strokec12  \cf10 \strokec10 1\cf12 \strokec12 \
+  \cf18 \strokec18 return\cf12 \strokec12  \cf14 \strokec14 getValue\cf15 \strokec15 (\cf13 \strokec13 endX\cf15 \strokec15 ,\cf12 \strokec12  \cf13 \strokec13 endY\cf15 \strokec15 )\cf12 \strokec12  \cf15 \strokec15 -\cf12 \strokec12  \cf14 \strokec14 getValue\cf15 \strokec15 (\cf13 \strokec13 x\cf12 \strokec12  \cf15 \strokec15 -\cf12 \strokec12  \cf10 \strokec10 1\cf15 \strokec15 ,\cf12 \strokec12  \cf13 \strokec13 endY\cf15 \strokec15 )\cf12 \strokec12  \cf15 \strokec15 -\cf12 \strokec12  \cf14 \strokec14 getValue\cf15 \strokec15 (\cf13 \strokec13 endX\cf15 \strokec15 ,\cf12 \strokec12  \cf13 \strokec13 y\cf12 \strokec12  \cf15 \strokec15 -\cf12 \strokec12  \cf10 \strokec10 1\cf15 \strokec15 )\cf12 \strokec12  \cf15 \strokec15 +\cf12 \strokec12  \cf14 \strokec14 getValue\cf15 \strokec15 (\cf13 \strokec13 x\cf12 \strokec12  \cf15 \strokec15 -\cf12 \strokec12  \cf10 \strokec10 1\cf15 \strokec15 ,\cf12 \strokec12  \cf13 \strokec13 y\cf12 \strokec12  \cf15 \strokec15 -\cf12 \strokec12  \cf10 \strokec10 1\cf15 \strokec15 )\cf12 \strokec12 \
+\pard\pardeftab720\sl540\sa160\partightenfactor0
+
+\f4\b\fs36 \cf7 \cb1 \strokec7 Discussion\'a0{\field{\*\fldinst{HYPERLINK "https://our.internmc.facebook.com/intern/recruiting/interview/questions/?question_id=778740755625387#discussion"}}{\fldrslt \cf6 \strokec6 #}}\
+\pard\tx220\tx720\pardeftab720\li720\fi-720\sl280\partightenfactor0
+\ls2\ilvl0
+\f3\b0\fs24 \cf7 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\uc0\u8226 	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec7 Some candidates will initially describe the brute force naive solution (i.e. do a nested loop over the subgrid and return a count). This is fine, but trivial, so they should realize that the desired algorithm is better. If not, ask how efficient that solution is, and if they can do better.\
+\ls2\ilvl0\kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\uc0\u8226 	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec7 Most candidates will quickly recognize that they should do pre-processing.\
+\ls2\ilvl0\kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\uc0\u8226 	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec7 Some candidates will instead suggest caching the results from each query, but they should be able to point out that computing an uncached value is still slow, there is no savings gain if the queries are all distinct, and the cache can get very large. Some candidates will refine this by computing splitting the query up into subqueries for which precomputations already exist, but it still has the "initial computation is too slow" problem. This can take up a lot of time in the interview, so\'a0
+\f4\b I try to aggressively steer candidates toward a solution that *guarantees* an efficient running time
+\f3\b0 .\
+\ls2\ilvl0\kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\uc0\u8226 	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec7 An interesting side discussion is how many subgrids there are in an M x N grid.\
+\pard\tx940\tx1440\pardeftab720\li1440\fi-1440\sl280\partightenfactor0
+\ls2\ilvl1\cf7 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\uc0\u8226 	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec7 Answer: O((MN)^2).\
+\ls2\ilvl1\kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\uc0\u8226 	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec7 Justification: there are O(N^2) "sublines" of height 1 in each row. Similarly, for each subline, there are O(M^2) subgrids of varying heights and the same width as the corresponding subline.\
+\pard\tx220\tx720\pardeftab720\li720\fi-720\sl280\partightenfactor0
+\ls2\ilvl0\cf7 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\uc0\u8226 	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec7 If candidates are struggling, I reduce the problem to a 1D version, where we have a 1D array of 1's and 0's, and you need to return how many 1's are in a subline. Most candidates will see that they can precompute N values and compute the subline from X to Y by subtracting A[X] from A[Y], and then start working on how to extrapolate that to 2D.\
+\ls2\ilvl0\kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\uc0\u8226 	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec7 Some candidates will struggle with a coordinate system. This is good signal.\
+\ls2\ilvl0\kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\uc0\u8226 	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec7 Some candidates will have trouble with array-out-of-bounds issues. I prefer to define a helper getValue(x, y) that returns 0 if either x or y is negative, but there are other ways of dealing with this as well (e.g., special-casing the 0 row and 0 column).\
+\ls2\ilvl0\kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\uc0\u8226 	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec7 This question can give good problem-solving signal even if the candidate doesn't have time for the coding portion (i.e., if you've already asked one coding question and have a little bit of time left).\
+\pard\pardeftab720\sl540\sa160\partightenfactor0
+
+\f4\b\fs36 \cf7 Efficiency\'a0{\field{\*\fldinst{HYPERLINK "https://our.internmc.facebook.com/intern/recruiting/interview/questions/?question_id=778740755625387#efficiency"}}{\fldrslt \cf6 \strokec6 #}}\
+\pard\pardeftab720\sl280\partightenfactor0
+
+\f3\b0\fs24 \cf7 Assuming an M x N grid, the pre-processing step should take O(MN)-time and use O(NM) extra space. The query should take O(1) time and use O(1) space.\
+}

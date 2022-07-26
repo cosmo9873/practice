@@ -1,0 +1,219 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1671\cocoasubrtf200
+{\fonttbl\f0\fnil\fcharset0 HelveticaNeue-Bold;\f1\fnil\fcharset0 HelveticaNeue;\f2\fswiss\fcharset0 Helvetica-Oblique;
+\f3\fswiss\fcharset0 Helvetica;\f4\fswiss\fcharset0 Helvetica-Bold;\f5\fmodern\fcharset0 Courier;
+\f6\fnil\fcharset0 Monaco;}
+{\colortbl;\red255\green255\blue255;\red21\green23\blue25;\red255\green255\blue255;\red52\green56\blue63;
+\red78\green84\blue93;\red41\green67\blue135;\red22\green25\blue31;\red38\green38\blue38;\red228\green230\blue234;
+\red83\green83\blue83;\red252\green244\blue202;\red0\green0\blue0;\red152\green46\blue3;\red0\green0\blue82;
+\red6\green50\blue15;\red152\green18\blue15;\red76\green12\blue1;\red12\green95\blue32;\red98\green83\blue14;
+}
+{\*\expandedcolortbl;;\cssrgb\c10980\c11765\c12941;\cssrgb\c100000\c100000\c100000;\cssrgb\c26667\c28627\c31373;
+\cssrgb\c37647\c40392\c43922;\cssrgb\c21176\c34510\c60000;\cssrgb\c11373\c12941\c16078;\cssrgb\c20000\c20000\c20000;\cssrgb\c91373\c92157\c93333;
+\cssrgb\c40000\c40000\c40000;\cssrgb\c99216\c96078\c83137;\cssrgb\c0\c0\c0;\cssrgb\c66667\c25098\c0;\cssrgb\c0\c3922\c39608;
+\cssrgb\c0\c25098\c7059;\cssrgb\c66667\c13333\c6667;\cssrgb\c37647\c7059\c0;\cssrgb\c0\c43922\c16471;\cssrgb\c46275\c39608\c6275;
+}
+{\*\listtable{\list\listtemplateid1\listhybrid{\listlevel\levelnfc0\levelnfcn0\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{decimal\}.}{\leveltext\leveltemplateid1\'02\'00.;}{\levelnumbers\'01;}\fi-360\li720\lin720 }{\listname ;}\listid1}
+{\list\listtemplateid2\listhybrid{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{disc\}}{\leveltext\leveltemplateid101\'01\uc0\u8226 ;}{\levelnumbers;}\fi-360\li720\lin720 }{\listname ;}\listid2}
+{\list\listtemplateid3\listhybrid{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{disc\}}{\leveltext\leveltemplateid201\'01\uc0\u8226 ;}{\levelnumbers;}\fi-360\li720\lin720 }{\listname ;}\listid3}}
+{\*\listoverridetable{\listoverride\listid1\listoverridecount0\ls1}{\listoverride\listid2\listoverridecount0\ls2}{\listoverride\listid3\listoverridecount0\ls3}}
+\margl1440\margr1440\vieww10800\viewh8400\viewkind0
+\deftab720
+\pard\pardeftab720\sl560\partightenfactor0
+
+\f0\b\fs48 \cf2 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 Decide Last Byte Encoding\
+\pard\pardeftab720\sl520\qc\partightenfactor0
+
+\f1\i\fs24 \cf3 \strokec3 \
+\pard\pardeftab720\sl520\qc\partightenfactor0
+\cf4 \strokec4 \
+\pard\pardeftab720\sl520\qc\partightenfactor0
+
+\f0\i0 \cf4 More Items\
+\pard\pardeftab720\sl320\partightenfactor0
+
+\f1\b0 \cf5 \strokec5 Owner:\'a0{\field{\*\fldinst{HYPERLINK "https://our.internmc.facebook.com/intern/profile/?id=100005512321061"}}{\fldrslt \cf6 \strokec6 Chen Sun}}\
+\pard\pardeftab720\sl280\partightenfactor0
+
+\f2\i \cf7 \strokec7 \
+\pard\pardeftab720\sl320\partightenfactor0
+
+\f1\i0 \cf5 \strokec5 Hard\
+\pard\pardeftab720\sl280\partightenfactor0
+
+\f2\i \cf7 \strokec7 \
+\pard\pardeftab720\sl320\partightenfactor0
+
+\f1\i0 \cf5 \strokec5 Ninja\
+\pard\pardeftab720\sl280\partightenfactor0
+
+\f2\i \cf7 \strokec7 \
+\pard\pardeftab720\sl320\partightenfactor0
+
+\f1\i0 \cf5 \strokec5 Algorithm\
+\pard\pardeftab720\sl560\partightenfactor0
+
+\f0\b\fs48 \cf2 \strokec2 Description\
+\pard\pardeftab720\sl280\sa240\partightenfactor0
+
+\f3\b0\fs24 \cf7 \strokec7 There is a limited stream of bytes coming together to represent a string. The characters in this string could be encoded by 1 byte OR 2 byte. When considering a single byte,\
+\pard\tx220\tx720\pardeftab720\li720\fi-720\sl280\partightenfactor0
+\ls1\ilvl0\cf7 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	1.	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec7 If the first bit of one byte is 1, then this byte plus the following byte represent a single character. That's\'a0
+\f4\b 2 byte encoding
+\f3\b0 . The second byte's starting bit can be either 1 or 0.\
+\ls1\ilvl0\kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	2.	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec7 If the first bit of one byte is 0, then this byte itself represent a single character. That's\'a0
+\f4\b 1 byte encoding
+\f3\b0 .\
+\pard\pardeftab720\sl280\partightenfactor0
+\cf7 Given a limited stream of bytes which obeys the above rule, decide whether the\'a0
+\f4\b last byte
+\f3\b0 \'a0is 1 byte encoding or 2 byte encoding.\
+\pard\pardeftab720\sl560\partightenfactor0
+
+\f0\b\fs48 \cf2 \strokec2 Question Statement\
+\pard\pardeftab720\sl280\sa240\partightenfactor0
+
+\f3\b0\fs24 \cf7 \strokec7 Expecting O(1) average case solution, and O(n) worst case.\
+\pard\pardeftab720\sl453\sa160\partightenfactor0
+
+\f4\b\fs33 \cf7 Lead ins\'a0{\field{\*\fldinst{HYPERLINK "https://our.internmc.facebook.com/intern/recruiting/interview/questions/?question_id=1867831083233485#lead-ins"}}{\fldrslt \cf6 \strokec6 #}}\
+\pard\pardeftab720\sl280\sa240\partightenfactor0
+
+\f3\b0\fs24 \cf7 Coming at this problem blind can be a bit intimidating. The following lead-in questions typically help candidates frame the problem in a manageable way.\
+\pard\tx220\tx720\pardeftab720\li720\fi-720\sl280\partightenfactor0
+\ls2\ilvl0\cf7 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\uc0\u8226 	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec7 Are you able to find a steam's last byte encoding, starting from the end instead of from beginning?\
+\ls2\ilvl0\kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\uc0\u8226 	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec7 Are you able to decide an arbitrary byte's encoding type within a stream?\
+\pard\pardeftab720\sl453\sa160\partightenfactor0
+
+\f4\b\fs33 \cf7 Thought process and solution\'a0{\field{\*\fldinst{HYPERLINK "https://our.internmc.facebook.com/intern/recruiting/interview/questions/?question_id=1867831083233485#thought-process-and-solu"}}{\fldrslt \cf6 \strokec6 #}}\
+\pard\pardeftab720\sl280\sa240\partightenfactor0
+
+\f3\b0\fs24 \cf7 Candidates will usually start by proposing the O(n) solution of going from left to right and jumping by 2 when they encounter a byte that starts with a 1 and jumping by 1 when they encounter a byte that starts with a 0. Once the candidate mentions this solution, I would ask them what the run-time complexity is and then ask if it's possible to do something faster on average.\
+Solving the problem faster than O(n) on average means that, some of the time, we have to be able to solve the problem without looking at all of the bytes.\
+The way to solve the problem faster is to work backwards, looking at bytes from right to left. If we assume the last byte is a one-byte, then we can return true if bytes [0, n-2] constitute a valid sequence (if the last byte is a two-byte, then the bytes [0, n-2] will not be a valid sequence).\
+As we work backwards, we can look at pairs of bits (e.g., previous and current). This will give us the most amount of information.\
+Let the syntax a,b correspond with previous =\'a0
+\f5 \cf8 \cb9 \strokec8 a######
+\f3 \cf7 \cb1 \strokec7 \'a0(binary) and current =\'a0
+\f5 \cf8 \cb9 \strokec8 b#######
+\f3 \cf7 \cb1 \strokec7 \'a0(binary).\
+Then we have the following cases:\
+\pard\tx220\tx720\pardeftab720\li720\fi-720\sl280\partightenfactor0
+\ls3\ilvl0\cf7 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\uc0\u8226 	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec7 0,0 => The first byte is the end of a two-byte or the start of a one-byte. The second byte must be the start of a one-byte. We can return true because a valid sequence ends at the second byte.\
+\ls3\ilvl0\kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\uc0\u8226 	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec7 0,1 => The first byte is the end of a two-byte or the start of a one-byte. The second byte must be the start of a two-byte. We can return false because a valid sequence does not end at the second byte.\
+\ls3\ilvl0\kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\uc0\u8226 	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec7 1,0 => The first byte is the end of a two-byte or the start of a two-byte. The second byte must be the start of a one-byte or the end of a two-byte. In either case, we can return true because a valid sequence ends at the sequence byte.\
+\ls3\ilvl0\kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\uc0\u8226 	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec7 1,1 => The first byte is either the end of a two-byte or the start of a two-byte. The second byte must be the start of a two-byte or the end of a two-byte. If the second byte is the start of a two-byte, a valid sequence does not end at the second byte. However, if the second byte is the end of a two-byte, a valid sequence does end at the second byte. The only way we can return true is if the second byte is the end of a two-byte. We can determine that by checking whether the sequence without the current and previous bytes is a valid sequence.\
+\pard\pardeftab720\sl453\sa160\partightenfactor0
+
+\f4\b\fs33 \cf7 Analysis\'a0{\field{\*\fldinst{HYPERLINK "https://our.internmc.facebook.com/intern/recruiting/interview/questions/?question_id=1867831083233485#analysis"}}{\fldrslt \cf6 \strokec6 #}}\
+\pard\pardeftab720\sl280\sa240\partightenfactor0
+
+\f3\b0\fs24 \cf7 In 3 of the 4 cases above, we return early. In one case we recurse on a subproblem. That means the probability of recursing once is\'a0
+\f5 \cf8 \cb9 \strokec8 1/4
+\f3 \cf7 \cb1 \strokec7 \'a0(if we assume the distribution of bytes that start with 0 and 1 is random). The probability of recursing twice is\'a0
+\f5 \cf8 \cb9 \strokec8 (1/4)^2
+\f3 \cf7 \cb1 \strokec7 . The probability of recursing three times is\'a0
+\f5 \cf8 \cb9 \strokec8 (1/4)^3
+\f3 \cf7 \cb1 \strokec7 . If the array is length\'a0
+\f5 \cf8 \cb9 \strokec8 N
+\f3 \cf7 \cb1 \strokec7 , then in the worst case, we recurse roughly\'a0
+\f5 \cf8 \cb9 \strokec8 (1/4)^(N/2)
+\f3 \cf7 \cb1 \strokec7 \'a0times since we jump by 2 with each recursive call. Expanded, this is\'a0
+\f5 \cf8 \cb9 \strokec8 E(N) = 1/2 + (1/2)^2 + (1/2)^3 + ... + (1/2)^(N/2)
+\f3 \cf7 \cb1 \strokec7 . As\'a0
+\f5 \cf8 \cb9 \strokec8 N
+\f3 \cf7 \cb1 \strokec7 \'a0approaches infinity, the expected value approaches 1. This means that on average, we make 1 recursive call. This means the average case run-time complexity is O(1).\
+\pard\pardeftab720\sl453\sa160\partightenfactor0
+
+\f4\b\fs33 \cf7 Iterative solution (O(1) average, O(n) worst case)\'a0{\field{\*\fldinst{HYPERLINK "https://our.internmc.facebook.com/intern/recruiting/interview/questions/?question_id=1867831083233485#iterative-solution-o-1-a"}}{\fldrslt \cf6 \strokec6 #}}\
+\pard\pardeftab720\sl280\sa240\partightenfactor0
+
+\f3\b0\fs24 \cf7 POC:\'a0{\field{\*\fldinst{HYPERLINK "https://our.intern.facebook.com/intern/profile/kurlak"}}{\fldrslt \cf6 \strokec6 kurlak}}\
+\pard\pardeftab720\sl280\partightenfactor0
+
+\f6\fs20 \cf10 \cb11 \strokec10 // Assumes the given sequence of bytes obeys the rules specified in the problem description\cf12 \strokec12 \
+\pard\pardeftab720\sl280\partightenfactor0
+\cf13 \strokec13 public\cf12 \strokec12  \cf13 \strokec13 static\cf12 \strokec12  \cf14 \strokec14 boolean\cf12 \strokec12  \cf15 \strokec15 isLastByteOneByteEncoded\cf16 \strokec16 (\cf14 \strokec14 byte\cf16 \strokec16 []\cf12 \strokec12  \cf14 \strokec14 bytes\cf16 \strokec16 )\cf12 \strokec12  \cf16 \strokec16 \{\cf12 \strokec12 \
+  \cf13 \strokec13 if\cf12 \strokec12  \cf16 \strokec16 (\cf14 \strokec14 bytes\cf12 \strokec12  \cf16 \strokec16 ==\cf12 \strokec12  \cf14 \strokec14 null\cf12 \strokec12  \cf16 \strokec16 ||\cf12 \strokec12  \cf14 \strokec14 bytes\cf16 \strokec16 .\cf14 \strokec14 length\cf12 \strokec12  \cf16 \strokec16 ==\cf12 \strokec12  \cf17 \strokec17 0\cf16 \strokec16 )\cf12 \strokec12  \cf16 \strokec16 \{\cf12 \strokec12 \
+    \cf13 \strokec13 throw\cf12 \strokec12  \cf13 \strokec13 new\cf12 \strokec12  \cf18 \strokec18 IllegalArgumentException\cf16 \strokec16 (\cf19 \strokec19 "Need a sequence of bytes"\cf16 \strokec16 );\cf12 \strokec12 \
+  \cf16 \strokec16 \}\cf12 \strokec12 \
+\
+  \cf14 \strokec14 int\cf12 \strokec12  \cf14 \strokec14 index\cf12 \strokec12  \cf16 \strokec16 =\cf12 \strokec12  \cf14 \strokec14 bytes\cf16 \strokec16 .\cf14 \strokec14 length\cf12 \strokec12  \cf16 \strokec16 -\cf12 \strokec12  \cf17 \strokec17 2\cf16 \strokec16 ;\cf12 \strokec12 \
+\
+  \cf13 \strokec13 while\cf12 \strokec12  \cf16 \strokec16 (\cf14 \strokec14 index\cf12 \strokec12  \cf16 \strokec16 >=\cf12 \strokec12  \cf17 \strokec17 1\cf16 \strokec16 )\cf12 \strokec12  \cf16 \strokec16 \{\cf12 \strokec12 \
+    \cf14 \strokec14 int\cf12 \strokec12  \cf14 \strokec14 previous\cf12 \strokec12  \cf16 \strokec16 =\cf12 \strokec12  \cf15 \strokec15 firstBitInByte\cf16 \strokec16 (\cf14 \strokec14 bytes\cf16 \strokec16 [\cf14 \strokec14 index\cf12 \strokec12  \cf16 \strokec16 -\cf12 \strokec12  \cf17 \strokec17 1\cf16 \strokec16 ]);\cf12 \strokec12 \
+    \cf14 \strokec14 int\cf12 \strokec12  \cf14 \strokec14 current\cf12 \strokec12  \cf16 \strokec16 =\cf12 \strokec12  \cf15 \strokec15 firstBitInByte\cf16 \strokec16 (\cf14 \strokec14 bytes\cf16 \strokec16 [\cf14 \strokec14 index\cf16 \strokec16 ]);\cf12 \strokec12 \
+\
+    \cf13 \strokec13 if\cf12 \strokec12  \cf16 \strokec16 (\cf14 \strokec14 current\cf12 \strokec12  \cf16 \strokec16 ==\cf12 \strokec12  \cf17 \strokec17 0\cf16 \strokec16 )\cf12 \strokec12  \cf16 \strokec16 \{\cf12 \strokec12 \
+      \cf13 \strokec13 return\cf12 \strokec12  \cf14 \strokec14 true\cf16 \strokec16 ;\cf12 \strokec12 \
+    \cf16 \strokec16 \}\cf12 \strokec12 \
+    \cf13 \strokec13 if\cf12 \strokec12  \cf16 \strokec16 (\cf14 \strokec14 previous\cf12 \strokec12  \cf16 \strokec16 ==\cf12 \strokec12  \cf17 \strokec17 0\cf12 \strokec12  \cf16 \strokec16 &&\cf12 \strokec12  \cf14 \strokec14 current\cf12 \strokec12  \cf16 \strokec16 ==\cf12 \strokec12  \cf17 \strokec17 1\cf16 \strokec16 )\cf12 \strokec12  \cf16 \strokec16 \{\cf12 \strokec12 \
+      \cf13 \strokec13 return\cf12 \strokec12  \cf14 \strokec14 false\cf16 \strokec16 ;\cf12 \strokec12 \
+    \cf16 \strokec16 \}\cf12 \strokec12 \
+\
+    \cf14 \strokec14 index\cf12 \strokec12  \cf16 \strokec16 -=\cf12 \strokec12  \cf17 \strokec17 2\cf16 \strokec16 ;\cf12 \strokec12 \
+  \cf16 \strokec16 \}\cf12 \strokec12 \
+\
+  \cf13 \strokec13 return\cf12 \strokec12  \cf16 \strokec16 (\cf14 \strokec14 index\cf12 \strokec12  \cf16 \strokec16 ==\cf12 \strokec12  \cf17 \strokec17 0\cf16 \strokec16 )\cf12 \strokec12  \cf16 \strokec16 ?\cf12 \strokec12  \cf16 \strokec16 (\cf14 \strokec14 bytes\cf16 \strokec16 [\cf14 \strokec14 index\cf16 \strokec16 ]\cf12 \strokec12  \cf16 \strokec16 ==\cf12 \strokec12  \cf17 \strokec17 0\cf16 \strokec16 )\cf12 \strokec12  \cf16 \strokec16 :\cf12 \strokec12  \cf14 \strokec14 true\cf16 \strokec16 ;\cf12 \strokec12 \
+\pard\pardeftab720\sl280\partightenfactor0
+\cf16 \strokec16 \}\cf12 \strokec12 \
+\
+\pard\pardeftab720\sl280\partightenfactor0
+\cf13 \strokec13 private\cf12 \strokec12  \cf13 \strokec13 static\cf12 \strokec12  \cf14 \strokec14 int\cf12 \strokec12  \cf15 \strokec15 firstBitInByte\cf16 \strokec16 (\cf14 \strokec14 byte\cf12 \strokec12  \cf14 \strokec14 a\cf16 \strokec16 )\cf12 \strokec12  \cf16 \strokec16 \{\cf12 \strokec12 \
+  \cf13 \strokec13 return\cf12 \strokec12  \cf16 \strokec16 (\cf14 \strokec14 a\cf12 \strokec12  \cf16 \strokec16 >>\cf12 \strokec12  \cf17 \strokec17 7\cf16 \strokec16 )\cf12 \strokec12  \cf16 \strokec16 &\cf12 \strokec12  \cf17 \strokec17 1\cf16 \strokec16 ;\cf12 \strokec12 \
+\pard\pardeftab720\sl280\partightenfactor0
+\cf16 \strokec16 \}\cf12 \strokec12 \
+\pard\pardeftab720\sl453\sa160\partightenfactor0
+
+\f4\b\fs33 \cf7 \cb1 \strokec7 Recursive solution (O(1) average, O(n) worst case)\'a0{\field{\*\fldinst{HYPERLINK "https://our.internmc.facebook.com/intern/recruiting/interview/questions/?question_id=1867831083233485#recursive-solution-o-1-a"}}{\fldrslt \cf6 \strokec6 #}}\
+\pard\pardeftab720\sl280\sa240\partightenfactor0
+
+\f3\b0\fs24 \cf7 POC:\'a0{\field{\*\fldinst{HYPERLINK "https://our.intern.facebook.com/intern/profile/kurlak"}}{\fldrslt \cf6 \strokec6 kurlak}}\
+\pard\pardeftab720\sl280\partightenfactor0
+
+\f6\fs20 \cf10 \cb11 \strokec10 // Assumes the given sequence of bytes obeys the rules specified in the problem description\cf12 \strokec12 \
+\pard\pardeftab720\sl280\partightenfactor0
+\cf13 \strokec13 public\cf12 \strokec12  \cf13 \strokec13 static\cf12 \strokec12  \cf14 \strokec14 boolean\cf12 \strokec12  \cf15 \strokec15 isLastByteOneByteEncoded\cf16 \strokec16 (\cf14 \strokec14 byte\cf16 \strokec16 []\cf12 \strokec12  \cf14 \strokec14 bytes\cf16 \strokec16 )\cf12 \strokec12  \cf16 \strokec16 \{\cf12 \strokec12 \
+  \cf13 \strokec13 if\cf12 \strokec12  \cf16 \strokec16 (\cf14 \strokec14 bytes\cf12 \strokec12  \cf16 \strokec16 ==\cf12 \strokec12  \cf14 \strokec14 null\cf12 \strokec12  \cf16 \strokec16 ||\cf12 \strokec12  \cf14 \strokec14 bytes\cf16 \strokec16 .\cf14 \strokec14 length\cf12 \strokec12  \cf16 \strokec16 ==\cf12 \strokec12  \cf17 \strokec17 0\cf16 \strokec16 )\cf12 \strokec12  \cf16 \strokec16 \{\cf12 \strokec12 \
+    \cf13 \strokec13 throw\cf12 \strokec12  \cf13 \strokec13 new\cf12 \strokec12  \cf18 \strokec18 IllegalArgumentException\cf16 \strokec16 (\cf19 \strokec19 "Need a sequence of bytes"\cf16 \strokec16 );\cf12 \strokec12 \
+  \cf16 \strokec16 \}\cf12 \strokec12 \
+  \cf13 \strokec13 return\cf12 \strokec12  \cf15 \strokec15 isValidSequenceEndingAt\cf16 \strokec16 (\cf14 \strokec14 bytes\cf16 \strokec16 ,\cf12 \strokec12  \cf14 \strokec14 bytes\cf16 \strokec16 .\cf14 \strokec14 length\cf12 \strokec12  \cf16 \strokec16 -\cf12 \strokec12  \cf17 \strokec17 2\cf16 \strokec16 );\cf12 \strokec12 \
+\pard\pardeftab720\sl280\partightenfactor0
+\cf16 \strokec16 \}\cf12 \strokec12 \
+\
+\pard\pardeftab720\sl280\partightenfactor0
+\cf13 \strokec13 private\cf12 \strokec12  \cf13 \strokec13 static\cf12 \strokec12  \cf14 \strokec14 boolean\cf12 \strokec12  \cf15 \strokec15 isValidSequenceEndingAt\cf16 \strokec16 (\cf14 \strokec14 byte\cf16 \strokec16 []\cf12 \strokec12  \cf14 \strokec14 bytes\cf16 \strokec16 ,\cf12 \strokec12  \cf14 \strokec14 int\cf12 \strokec12  \cf14 \strokec14 index\cf16 \strokec16 )\cf12 \strokec12  \cf16 \strokec16 \{\cf12 \strokec12 \
+  \cf13 \strokec13 if\cf12 \strokec12  \cf16 \strokec16 (\cf14 \strokec14 index\cf12 \strokec12  \cf16 \strokec16 ==\cf12 \strokec12  \cf16 \strokec16 -\cf17 \strokec17 1\cf16 \strokec16 )\cf12 \strokec12  \cf16 \strokec16 \{\cf12 \strokec12 \
+    \cf13 \strokec13 return\cf12 \strokec12  \cf14 \strokec14 true\cf16 \strokec16 ;\cf12 \strokec12 \
+  \cf16 \strokec16 \}\cf12 \strokec12 \
+  \cf13 \strokec13 if\cf12 \strokec12  \cf16 \strokec16 (\cf14 \strokec14 index\cf12 \strokec12  \cf16 \strokec16 ==\cf12 \strokec12  \cf17 \strokec17 0\cf16 \strokec16 )\cf12 \strokec12  \cf16 \strokec16 \{\cf12 \strokec12 \
+    \cf13 \strokec13 return\cf12 \strokec12  \cf16 \strokec16 (\cf14 \strokec14 bytes\cf16 \strokec16 [\cf14 \strokec14 index\cf16 \strokec16 ]\cf12 \strokec12  \cf16 \strokec16 ==\cf12 \strokec12  \cf17 \strokec17 0\cf16 \strokec16 );\cf12 \strokec12 \
+  \cf16 \strokec16 \}\cf12 \strokec12 \
+  \
+  \cf14 \strokec14 int\cf12 \strokec12  \cf14 \strokec14 previous\cf12 \strokec12  \cf16 \strokec16 =\cf12 \strokec12  \cf15 \strokec15 firstBitInByte\cf16 \strokec16 (\cf14 \strokec14 bytes\cf16 \strokec16 [\cf14 \strokec14 index\cf12 \strokec12  \cf16 \strokec16 -\cf12 \strokec12  \cf17 \strokec17 1\cf16 \strokec16 ]);\cf12 \strokec12 \
+  \cf14 \strokec14 int\cf12 \strokec12  \cf14 \strokec14 current\cf12 \strokec12  \cf16 \strokec16 =\cf12 \strokec12  \cf15 \strokec15 firstBitInByte\cf16 \strokec16 (\cf14 \strokec14 bytes\cf16 \strokec16 [\cf14 \strokec14 index\cf16 \strokec16 ]);\cf12 \strokec12 \
+  \
+  \cf13 \strokec13 if\cf12 \strokec12  \cf16 \strokec16 (\cf14 \strokec14 current\cf12 \strokec12  \cf16 \strokec16 ==\cf12 \strokec12  \cf17 \strokec17 0\cf16 \strokec16 )\cf12 \strokec12  \cf16 \strokec16 \{\cf12 \strokec12 \
+    \cf13 \strokec13 return\cf12 \strokec12  \cf14 \strokec14 true\cf16 \strokec16 ;\cf12 \strokec12 \
+  \cf16 \strokec16 \}\cf12 \strokec12 \
+  \cf13 \strokec13 if\cf12 \strokec12  \cf16 \strokec16 (\cf14 \strokec14 previous\cf12 \strokec12  \cf16 \strokec16 ==\cf12 \strokec12  \cf17 \strokec17 0\cf12 \strokec12  \cf16 \strokec16 &&\cf12 \strokec12  \cf14 \strokec14 current\cf12 \strokec12  \cf16 \strokec16 ==\cf12 \strokec12  \cf17 \strokec17 1\cf16 \strokec16 )\cf12 \strokec12  \cf16 \strokec16 \{\cf12 \strokec12 \
+    \cf13 \strokec13 return\cf12 \strokec12  \cf14 \strokec14 false\cf16 \strokec16 ;\cf12 \strokec12 \
+  \cf16 \strokec16 \}\cf12 \strokec12 \
+  \cf13 \strokec13 return\cf12 \strokec12  \cf15 \strokec15 isValidSequenceEndingAt\cf16 \strokec16 (\cf14 \strokec14 bytes\cf16 \strokec16 ,\cf12 \strokec12  \cf14 \strokec14 index\cf12 \strokec12  \cf16 \strokec16 -\cf12 \strokec12  \cf17 \strokec17 2\cf16 \strokec16 );\cf12 \strokec12 \
+\pard\pardeftab720\sl280\partightenfactor0
+\cf16 \strokec16 \}\cf12 \strokec12 \
+\
+\pard\pardeftab720\sl280\partightenfactor0
+\cf13 \strokec13 private\cf12 \strokec12  \cf13 \strokec13 static\cf12 \strokec12  \cf14 \strokec14 int\cf12 \strokec12  \cf15 \strokec15 firstBitInByte\cf16 \strokec16 (\cf14 \strokec14 byte\cf12 \strokec12  \cf14 \strokec14 a\cf16 \strokec16 )\cf12 \strokec12  \cf16 \strokec16 \{\cf12 \strokec12 \
+  \cf13 \strokec13 return\cf12 \strokec12  \cf16 \strokec16 (\cf14 \strokec14 a\cf12 \strokec12  \cf16 \strokec16 >>\cf12 \strokec12  \cf17 \strokec17 7\cf16 \strokec16 )\cf12 \strokec12  \cf16 \strokec16 &\cf12 \strokec12  \cf17 \strokec17 1\cf16 \strokec16 ;\cf12 \strokec12 \
+\pard\pardeftab720\sl280\partightenfactor0
+\cf16 \strokec16 \}\cf12 \strokec12 \
+}

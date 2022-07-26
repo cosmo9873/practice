@@ -1,0 +1,280 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1671\cocoasubrtf200
+{\fonttbl\f0\fnil\fcharset0 HelveticaNeue-Bold;\f1\fnil\fcharset0 HelveticaNeue;\f2\fswiss\fcharset0 Helvetica-Oblique;
+\f3\fswiss\fcharset0 Helvetica;\f4\fswiss\fcharset0 Helvetica-Bold;\f5\fnil\fcharset0 Monaco;
+}
+{\colortbl;\red255\green255\blue255;\red245\green30\blue48;\red21\green23\blue25;\red255\green255\blue255;
+\red52\green56\blue63;\red78\green84\blue93;\red41\green67\blue135;\red22\green25\blue31;\red54\green59\blue74;
+\red252\green244\blue202;\red6\green50\blue15;\red152\green18\blue15;\red76\green12\blue1;\red0\green0\blue0;
+\red83\green83\blue83;\red0\green0\blue82;\red152\green46\blue3;\red12\green95\blue32;\red40\green52\blue164;
+\red201\green201\blue201;\red109\green109\blue109;}
+{\*\expandedcolortbl;;\cssrgb\c98039\c21961\c24314;\cssrgb\c10980\c11765\c12941;\cssrgb\c100000\c100000\c100000;
+\cssrgb\c26667\c28627\c31373;\cssrgb\c37647\c40392\c43922;\cssrgb\c21176\c34510\c60000;\cssrgb\c11373\c12941\c16078;\cssrgb\c27451\c29804\c36078;
+\cssrgb\c99216\c96078\c83137;\cssrgb\c0\c25098\c7059;\cssrgb\c66667\c13333\c6667;\cssrgb\c37647\c7059\c0;\cssrgb\c0\c0\c0;
+\cssrgb\c40000\c40000\c40000;\cssrgb\c0\c3922\c39608;\cssrgb\c66667\c25098\c0;\cssrgb\c0\c43922\c16471;\cssrgb\c20784\c29412\c70196;
+\cssrgb\c82745\c82745\c82745;\cssrgb\c50196\c50196\c50196;}
+\margl1440\margr1440\vieww10800\viewh8400\viewkind0
+\deftab720
+\pard\pardeftab720\sl560\partightenfactor0
+
+\f0\b\fs48 \cf2 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 [DEPRECATED]\cf3 \strokec3 Coin Denominations\
+\pard\pardeftab720\sl520\qc\partightenfactor0
+
+\f1\i\fs24 \cf4 \strokec4 \
+\pard\pardeftab720\sl520\qc\partightenfactor0
+\cf5 \strokec5 \
+\pard\pardeftab720\sl520\qc\partightenfactor0
+
+\f0\i0 \cf5 More Items\
+\pard\pardeftab720\sl320\partightenfactor0
+
+\f1\b0 \cf6 \strokec6 Owner:\'a0{\field{\*\fldinst{HYPERLINK "https://our.internmc.facebook.com/intern/profile/?id=788915578"}}{\fldrslt \cf7 \strokec7 Felix Handte}}\
+\pard\pardeftab720\sl280\partightenfactor0
+
+\f2\i \cf8 \strokec8 \
+\pard\pardeftab720\sl320\partightenfactor0
+
+\f1\i0 \cf6 \strokec6 Medium\
+\pard\pardeftab720\sl280\partightenfactor0
+
+\f2\i \cf8 \strokec8 \
+\pard\pardeftab720\sl320\partightenfactor0
+
+\f1\i0 \cf6 \strokec6 Ninja\
+\pard\pardeftab720\sl280\partightenfactor0
+
+\f2\i \cf8 \strokec8 \
+\pard\pardeftab720\sl320\partightenfactor0
+
+\f1\i0 \cf6 \strokec6 General\
+\pard\pardeftab720\sl560\partightenfactor0
+
+\f0\b\fs48 \cf3 \strokec3 Description\
+\pard\pardeftab720\sl280\partightenfactor0
+
+\f3\b0\fs24 \cf8 \strokec8 Given a sorted list of denominations of coins and a target value, determine how many combinations of the coin types sum to the target value.\
+\pard\pardeftab720\sl560\partightenfactor0
+
+\f0\b\fs48 \cf3 \strokec3 Question Statement\
+\pard\pardeftab720\sl280\partightenfactor0
+
+\f4\fs24 \cf9 \cb10 \strokec9 WARNING:
+\f3\b0 \cf8 \strokec8 \'a0This question is in Cracking the Coding Interview and should probably be retired\
+
+\f4\b \cf9 \strokec9 WARNING:
+\f3\b0 \cf8 \strokec8 \'a0Dynamic programming questions are very strongly discouraged. If you're a new interviewer, do not ask this question. If you're an experienced interviewer, please migrate to something else. See\'a0{\field{\*\fldinst{HYPERLINK "https://l.facebook.com/l.php?u=https%3A%2F%2Ffburl.com%2FEschewDP&h=AT2CuZ5qaneFDYP0zLKLbAOG-sSpWebUtEJxbqETV29y6wZkOCxcJHsq9YvrRysLAOMXDJjY9GTfJco5ZdE7FNiY8h4nah5eZ9BJQ-9v3zaQV-_WvdwKmicaYkg9hZe2O2U2Pl86kqRsTJUjWSZHbPd5"}}{\fldrslt \cf7 \strokec7 https://fburl.com/EschewDP}}.\
+\pard\pardeftab720\sl280\sa240\partightenfactor0
+\cf8 \cb1 Given a sorted list of denominations of coins and a target value, determine how many combinations of the coin types sum to the target value. For example:\
+\pard\pardeftab720\sl280\partightenfactor0
+
+\f5\fs20 \cf11 \cb10 \strokec11 coinDenominations\cf12 \strokec12 ([\cf13 \strokec13 1\cf12 \strokec12 ,\cf14 \strokec14  \cf13 \strokec13 2\cf12 \strokec12 ],\cf14 \strokec14  \cf13 \strokec13 5\cf12 \strokec12 )\cf14 \strokec14  \cf12 \strokec12 =>\cf14 \strokec14  \cf13 \strokec13 3\cf14 \strokec14 \
+\pard\pardeftab720\sl280\partightenfactor0
+\cf15 \strokec15 # [1, 1, 1, 1, 1], [2, 1, 1, 1], [2, 2, 1]\cf14 \strokec14 \
+\pard\pardeftab720\sl280\sa240\partightenfactor0
+
+\f3\fs24 \cf8 \cb1 \strokec8 The key challenge is that permutations--[1, 2, 2] and [2, 2, 1]--shouldn't be double-counted. The bad way to do this is to deduplicate solutions after you construct them, while the good way is to structure the solution so that each combination is only generated once. This can be done by imposing an order on the coins in solutions, i.e., that you're only allowed to use coins of value less than or equal to the smallest coin in the current solution.\
+You can optionally ask the candidate about how they would make their solution faster and see if they bring up caching/memoization.\
+Here's an example implementation:\
+\pard\pardeftab720\sl280\partightenfactor0
+
+\f5\fs20 \cf16 \cb10 \strokec16 def\cf14 \strokec14  \cf11 \strokec11 coinDenominations\cf12 \strokec12 (\cf16 \strokec16 coins\cf12 \strokec12 ,\cf14 \strokec14  \cf16 \strokec16 target\cf12 \strokec12 ):\cf14 \strokec14 \
+  \cf17 \strokec17 return\cf14 \strokec14  \cf11 \strokec11 coinDenominationsHelper\cf12 \strokec12 (\cf16 \strokec16 coins\cf12 \strokec12 ,\cf14 \strokec14  \cf16 \strokec16 target\cf12 \strokec12 ,\cf14 \strokec14  \cf13 \strokec13 0\cf12 \strokec12 )\cf14 \strokec14 \
+\
+\cf16 \strokec16 def\cf14 \strokec14  \cf11 \strokec11 coinDenominationsHelper\cf12 \strokec12 (\cf16 \strokec16 coins\cf12 \strokec12 ,\cf14 \strokec14  \cf16 \strokec16 target\cf12 \strokec12 ,\cf14 \strokec14  \cf16 \strokec16 index\cf12 \strokec12 ):\cf14 \strokec14 \
+  \cf17 \strokec17 if\cf14 \strokec14  \cf16 \strokec16 target\cf14 \strokec14  \cf12 \strokec12 ==\cf14 \strokec14  \cf13 \strokec13 0\cf12 \strokec12 :\cf14 \strokec14 \
+    \cf17 \strokec17 return\cf14 \strokec14  \cf13 \strokec13 1\cf14 \strokec14 \
+  \cf16 \strokec16 running_sum\cf14 \strokec14  \cf12 \strokec12 =\cf14 \strokec14  \cf13 \strokec13 0\cf14 \strokec14 \
+  \cf17 \strokec17 for\cf14 \strokec14  \cf16 \strokec16 v\cf14 \strokec14  \cf16 \strokec16 in\cf14 \strokec14  \cf11 \strokec11 range\cf12 \strokec12 (\cf16 \strokec16 index\cf12 \strokec12 ,\cf14 \strokec14  \cf11 \strokec11 len\cf12 \strokec12 (\cf16 \strokec16 coins\cf12 \strokec12 )):\cf14 \strokec14 \
+    \cf16 \strokec16 coin\cf14 \strokec14  \cf12 \strokec12 =\cf14 \strokec14  \cf16 \strokec16 coins\cf12 \strokec12 [\cf16 \strokec16 v\cf12 \strokec12 ]\cf14 \strokec14 \
+    \cf17 \strokec17 if\cf14 \strokec14  \cf16 \strokec16 target\cf14 \strokec14  \cf12 \strokec12 -\cf14 \strokec14  \cf16 \strokec16 coin\cf14 \strokec14  \cf12 \strokec12 >=\cf14 \strokec14  \cf13 \strokec13 0\cf12 \strokec12 :\cf14 \strokec14 \
+      \cf16 \strokec16 running_sum\cf14 \strokec14  \cf12 \strokec12 +=\cf14 \strokec14  \cf11 \strokec11 coinDenominationsHelper\cf12 \strokec12 (\cf16 \strokec16 coins\cf12 \strokec12 ,\cf14 \strokec14  \cf16 \strokec16 target\cf14 \strokec14  \cf12 \strokec12 -\cf14 \strokec14  \cf16 \strokec16 coin\cf12 \strokec12 ,\cf14 \strokec14  \cf16 \strokec16 v\cf12 \strokec12 )\cf14 \strokec14 \
+  \cf17 \strokec17 return\cf14 \strokec14  \cf16 \strokec16 running_sum\cf14 \strokec14 \
+\pard\pardeftab720\sl280\sa240\partightenfactor0
+
+\f3\fs24 \cf8 \cb1 \strokec8 Or reverse iterating:\
+\pard\pardeftab720\sl280\partightenfactor0
+
+\f5\fs20 \cf16 \cb10 \strokec16 def\cf14 \strokec14  \cf11 \strokec11 coinDenominations\cf12 \strokec12 (\cf16 \strokec16 coins\cf12 \strokec12 ,\cf14 \strokec14  \cf16 \strokec16 target\cf12 \strokec12 ):\cf14 \strokec14 \
+  \cf17 \strokec17 return\cf14 \strokec14  \cf11 \strokec11 coinDenominationsHelper\cf12 \strokec12 (\cf16 \strokec16 coins\cf12 \strokec12 ,\cf14 \strokec14  \cf16 \strokec16 target\cf12 \strokec12 ,\cf14 \strokec14  \cf11 \strokec11 len\cf12 \strokec12 (\cf16 \strokec16 coins\cf12 \strokec12 ))\cf14 \strokec14 \
+\
+\cf16 \strokec16 def\cf14 \strokec14  \cf11 \strokec11 coinDenominationsHelper\cf12 \strokec12 (\cf16 \strokec16 coins\cf12 \strokec12 ,\cf14 \strokec14  \cf16 \strokec16 target\cf12 \strokec12 ,\cf14 \strokec14  \cf16 \strokec16 index\cf12 \strokec12 ):\cf14 \strokec14 \
+  \cf17 \strokec17 if\cf14 \strokec14  \cf16 \strokec16 target\cf14 \strokec14  \cf12 \strokec12 ==\cf14 \strokec14  \cf13 \strokec13 0\cf12 \strokec12 :\cf14 \strokec14 \
+    \cf17 \strokec17 return\cf14 \strokec14  \cf13 \strokec13 1\cf14 \strokec14 \
+  \cf16 \strokec16 running_sum\cf14 \strokec14  \cf12 \strokec12 =\cf14 \strokec14  \cf13 \strokec13 0\cf14 \strokec14 \
+  \cf17 \strokec17 for\cf14 \strokec14  \cf16 \strokec16 v\cf14 \strokec14  \cf16 \strokec16 in\cf14 \strokec14  \cf11 \strokec11 range\cf12 \strokec12 (\cf13 \strokec13 0\cf12 \strokec12 ,\cf14 \strokec14  \cf16 \strokec16 index\cf12 \strokec12 ):\cf14 \strokec14 \
+    \cf16 \strokec16 coin\cf14 \strokec14  \cf12 \strokec12 =\cf14 \strokec14  \cf16 \strokec16 coins\cf12 \strokec12 [\cf16 \strokec16 v\cf12 \strokec12 ]\cf14 \strokec14 \
+    \cf17 \strokec17 if\cf14 \strokec14  \cf16 \strokec16 target\cf14 \strokec14  \cf12 \strokec12 -\cf14 \strokec14  \cf16 \strokec16 coin\cf14 \strokec14  \cf12 \strokec12 >=\cf14 \strokec14  \cf13 \strokec13 0\cf12 \strokec12 :\cf14 \strokec14 \
+      \cf16 \strokec16 running_sum\cf14 \strokec14  \cf12 \strokec12 +=\cf14 \strokec14  \cf11 \strokec11 coinDenominationsHelper\cf12 \strokec12 (\cf16 \strokec16 coins\cf12 \strokec12 ,\cf14 \strokec14  \cf16 \strokec16 target\cf14 \strokec14  \cf12 \strokec12 -\cf14 \strokec14  \cf16 \strokec16 coin\cf12 \strokec12 ,\cf14 \strokec14  \cf16 \strokec16 v\cf14 \strokec14  \cf12 \strokec12 +\cf14 \strokec14  \cf13 \strokec13 1\cf12 \strokec12 )\cf14 \strokec14 \
+  \cf17 \strokec17 return\cf14 \strokec14  \cf16 \strokec16 running_sum\cf14 \strokec14 \
+\pard\pardeftab720\sl280\sa240\partightenfactor0
+
+\f3\fs24 \cf8 \cb1 \strokec8 Or, in C:\
+\pard\pardeftab720\sl280\partightenfactor0
+
+\f5\fs20 \cf14 \cb10 \strokec14 /**\
+ * Preconditions:\
+ * - The coins list is terminated by a zero.\
+ * - The target is greater than or equal to zero. \
+ */\
+\pard\pardeftab720\sl280\partightenfactor0
+\cf16 \strokec16 int\cf14 \strokec14  \cf11 \strokec11 combos\cf12 \strokec12 (\cf16 \strokec16 int\cf14 \strokec14  \cf12 \strokec12 *\cf16 \strokec16 coins\cf12 \strokec12 ,\cf14 \strokec14  \cf16 \strokec16 int\cf14 \strokec14  \cf16 \strokec16 target\cf12 \strokec12 )\cf14 \strokec14  \cf12 \strokec12 \{\cf14 \strokec14 \
+  \cf17 \strokec17 if\cf14 \strokec14  \cf12 \strokec12 (!\cf16 \strokec16 target\cf12 \strokec12 )\cf14 \strokec14  \cf17 \strokec17 return\cf14 \strokec14  \cf13 \strokec13 1\cf12 \strokec12 ;\cf14 \strokec14 \
+  \cf16 \strokec16 int\cf14 \strokec14  \cf16 \strokec16 r\cf14 \strokec14  \cf12 \strokec12 =\cf14 \strokec14  \cf13 \strokec13 0\cf12 \strokec12 ;\cf14 \strokec14 \
+  \cf16 \strokec16 coins\cf12 \strokec12 --;\cf14 \strokec14 \
+  \cf17 \strokec17 while\cf14 \strokec14  \cf12 \strokec12 (*++\cf16 \strokec16 coins\cf12 \strokec12 )\cf14 \strokec14 \
+    \cf17 \strokec17 if\cf14 \strokec14  \cf12 \strokec12 (*\cf16 \strokec16 coins\cf14 \strokec14  \cf12 \strokec12 <=\cf14 \strokec14  \cf16 \strokec16 target\cf12 \strokec12 )\cf14 \strokec14 \
+      \cf16 \strokec16 r\cf14 \strokec14  \cf12 \strokec12 +=\cf14 \strokec14  \cf11 \strokec11 combos\cf12 \strokec12 (\cf16 \strokec16 coins\cf12 \strokec12 ,\cf14 \strokec14  \cf16 \strokec16 target\cf14 \strokec14  \cf12 \strokec12 -\cf14 \strokec14  \cf12 \strokec12 *\cf16 \strokec16 coins\cf12 \strokec12 );\cf14 \strokec14 \
+  \cf17 \strokec17 return\cf14 \strokec14  \cf16 \strokec16 r\cf12 \strokec12 ;\cf14 \strokec14 \
+\pard\pardeftab720\sl280\partightenfactor0
+\cf12 \strokec12 \}\cf14 \strokec14 \
+\pard\pardeftab720\sl280\sa240\partightenfactor0
+
+\f3\fs24 \cf8 \cb1 \strokec8 Alternatively, code-golfed down to 52 characters in C:\
+\pard\pardeftab720\sl280\partightenfactor0
+
+\f5\fs20 \cf11 \cb10 \strokec11 f\cf12 \strokec12 (\cf16 \strokec16 int\cf12 \strokec12 *\cf16 \strokec16 c\cf12 \strokec12 ,\cf16 \strokec16 int\cf14 \strokec14  \cf16 \strokec16 t\cf12 \strokec12 )\{\cf17 \strokec17 return\cf12 \strokec12 !*\cf16 \strokec16 c\cf12 \strokec12 |\cf16 \strokec16 t\cf12 \strokec12 <\cf13 \strokec13 1\cf12 \strokec12 ?!\cf16 \strokec16 t\cf12 \strokec12 :\cf11 \strokec11 f\cf12 \strokec12 (\cf16 \strokec16 c\cf12 \strokec12 ,\cf16 \strokec16 t\cf12 \strokec12 -*\cf16 \strokec16 c\cf12 \strokec12 )+\cf11 \strokec11 f\cf12 \strokec12 (\cf16 \strokec16 c\cf12 \strokec12 +\cf13 \strokec13 1\cf12 \strokec12 ,\cf16 \strokec16 t\cf12 \strokec12 );\}\cf14 \strokec14 \
+\pard\pardeftab720\sl280\sa240\partightenfactor0
+
+\f3\fs24 \cf8 \cb1 \strokec8 Another possible solution:\
+\pard\pardeftab720\sl280\partightenfactor0
+
+\f5\fs20 \cf16 \cb10 \strokec16 int\cf14 \strokec14  \cf11 \strokec11 func\cf12 \strokec12 (\cf17 \strokec17 const\cf14 \strokec14  \cf16 \strokec16 vector\cf12 \strokec12 <\cf16 \strokec16 int\cf12 \strokec12 >\cf14 \strokec14  \cf12 \strokec12 &\cf14 \strokec14  \cf16 \strokec16 coins\cf12 \strokec12 ,\cf14 \strokec14  \cf16 \strokec16 int\cf14 \strokec14  \cf16 \strokec16 target\cf12 \strokec12 )\cf14 \strokec14  \cf12 \strokec12 \{\cf14 \strokec14 \
+  \cf16 \strokec16 int\cf14 \strokec14  \cf16 \strokec16 result\cf14 \strokec14  \cf12 \strokec12 =\cf14 \strokec14  \cf13 \strokec13 0\cf12 \strokec12 ;\cf14 \strokec14 \
+  \cf11 \strokec11 help\cf12 \strokec12 (\cf13 \strokec13 0\cf12 \strokec12 ,\cf14 \strokec14  \cf16 \strokec16 result\cf12 \strokec12 ,\cf14 \strokec14  \cf16 \strokec16 target\cf12 \strokec12 ,\cf14 \strokec14  \cf16 \strokec16 coins\cf12 \strokec12 ,\cf14 \strokec14  \cf13 \strokec13 0\cf12 \strokec12 );\cf14 \strokec14 \
+  \cf17 \strokec17 return\cf14 \strokec14  \cf16 \strokec16 result\cf12 \strokec12 ;\cf14 \strokec14 \
+\pard\pardeftab720\sl280\partightenfactor0
+\cf12 \strokec12 \}\cf14 \strokec14 \
+\
+\pard\pardeftab720\sl280\partightenfactor0
+\cf16 \strokec16 void\cf14 \strokec14  \cf11 \strokec11 help\cf12 \strokec12 (\cf16 \strokec16 int\cf14 \strokec14  \cf16 \strokec16 start\cf12 \strokec12 ,\cf14 \strokec14  \cf16 \strokec16 int\cf14 \strokec14  \cf12 \strokec12 &\cf14 \strokec14  \cf16 \strokec16 result\cf12 \strokec12 ,\cf14 \strokec14  \cf16 \strokec16 int\cf14 \strokec14  \cf16 \strokec16 target\cf12 \strokec12 ,\cf14 \strokec14  \cf17 \strokec17 const\cf14 \strokec14  \cf16 \strokec16 vector\cf12 \strokec12 <\cf16 \strokec16 int\cf12 \strokec12 >\cf14 \strokec14  \cf12 \strokec12 &\cf14 \strokec14  \cf16 \strokec16 coins\cf12 \strokec12 ,\cf14 \strokec14  \cf16 \strokec16 int\cf14 \strokec14  \cf16 \strokec16 sum\cf12 \strokec12 )\cf14 \strokec14  \cf12 \strokec12 \{\cf14 \strokec14 \
+  \cf17 \strokec17 if\cf14 \strokec14  \cf12 \strokec12 (\cf16 \strokec16 sum\cf14 \strokec14  \cf12 \strokec12 ==\cf14 \strokec14  \cf16 \strokec16 target\cf12 \strokec12 )\cf14 \strokec14  \cf12 \strokec12 \{\cf14 \strokec14 \
+    \cf12 \strokec12 ++\cf16 \strokec16 result\cf12 \strokec12 ;\cf14 \strokec14 \
+    \cf17 \strokec17 return\cf12 \strokec12 ;\cf14 \strokec14 \
+  \cf12 \strokec12 \}\cf14 \strokec14 \
+  \cf17 \strokec17 if\cf14 \strokec14  \cf12 \strokec12 (\cf16 \strokec16 start\cf14 \strokec14  \cf12 \strokec12 >=\cf14 \strokec14  \cf16 \strokec16 coins\cf12 \strokec12 .\cf11 \strokec11 size\cf12 \strokec12 ())\cf14 \strokec14 \
+    \cf17 \strokec17 return\cf12 \strokec12 ;\cf14 \strokec14 \
+  \cf17 \strokec17 if\cf14 \strokec14  \cf12 \strokec12 (\cf16 \strokec16 sum\cf14 \strokec14  \cf12 \strokec12 >\cf14 \strokec14  \cf16 \strokec16 target\cf12 \strokec12 )\cf14 \strokec14 \
+    \cf17 \strokec17 return\cf12 \strokec12 ;\cf14 \strokec14 \
+\
+  \cf11 \strokec11 help\cf12 \strokec12 (\cf16 \strokec16 start\cf12 \strokec12 ,\cf14 \strokec14  \cf16 \strokec16 result\cf12 \strokec12 ,\cf14 \strokec14  \cf16 \strokec16 target\cf12 \strokec12 ,\cf14 \strokec14  \cf16 \strokec16 coins\cf12 \strokec12 ,\cf14 \strokec14  \cf16 \strokec16 sum\cf14 \strokec14  \cf12 \strokec12 +\cf14 \strokec14  \cf16 \strokec16 coins\cf12 \strokec12 [\cf16 \strokec16 start\cf12 \strokec12 ]);\cf14 \strokec14 \
+  \cf11 \strokec11 help\cf12 \strokec12 (\cf16 \strokec16 start\cf14 \strokec14  \cf12 \strokec12 +\cf14 \strokec14  \cf13 \strokec13 1\cf12 \strokec12 ,\cf14 \strokec14  \cf16 \strokec16 result\cf12 \strokec12 ,\cf14 \strokec14  \cf16 \strokec16 target\cf12 \strokec12 ,\cf14 \strokec14  \cf16 \strokec16 coins\cf12 \strokec12 ,\cf14 \strokec14  \cf16 \strokec16 sum\cf12 \strokec12 );\cf14 \strokec14 \
+\pard\pardeftab720\sl280\partightenfactor0
+\cf12 \strokec12 \}\cf14 \strokec14 \
+\pard\pardeftab720\sl280\sa240\partightenfactor0
+
+\f3\fs24 \cf8 \cb1 \strike \strikec8 \strokec8 Another solution without using recursion. It's missing some edge cases checking but for the main case it works. Don't ask me how this works but if you do, please augment the wiki:\strike0\striked0 \
+This is a bottom-up dp solution that builds up the solution row by row.\
+\pard\pardeftab720\sl280\partightenfactor0
+
+\f5\fs20 \cf16 \cb10 \strokec16 int\cf14 \strokec14  \cf11 \strokec11 coinDenomination\cf12 \strokec12 (\cf16 \strokec16 vector\cf12 \strokec12 <\cf16 \strokec16 int\cf12 \strokec12 >&\cf14 \strokec14  \cf16 \strokec16 coins\cf12 \strokec12 ,\cf14 \strokec14  \cf16 \strokec16 int\cf14 \strokec14  \cf16 \strokec16 target\cf12 \strokec12 )\cf14 \strokec14  \cf12 \strokec12 \{\cf14 \strokec14 \
+  \cf16 \strokec16 int\cf14 \strokec14  \cf16 \strokec16 n\cf14 \strokec14  \cf12 \strokec12 =\cf14 \strokec14  \cf16 \strokec16 coins\cf12 \strokec12 .\cf11 \strokec11 size\cf12 \strokec12 ();\cf14 \strokec14 \
+  \cf17 \strokec17 if\cf14 \strokec14  \cf12 \strokec12 (\cf16 \strokec16 n\cf14 \strokec14  \cf12 \strokec12 ==\cf14 \strokec14  \cf13 \strokec13 0\cf14 \strokec14  \cf12 \strokec12 ||\cf14 \strokec14  \cf16 \strokec16 target\cf14 \strokec14  \cf12 \strokec12 <=\cf14 \strokec14  \cf13 \strokec13 0\cf12 \strokec12 )\cf14 \strokec14 \
+    \cf17 \strokec17 return\cf14 \strokec14  \cf13 \strokec13 0\cf12 \strokec12 ;\cf14 \strokec14 \
+\
+  \cf18 \strokec18 std\cf12 \strokec12 ::\cf19 \strokec19 vector\cf12 \strokec12 <\cf18 \strokec18 std\cf12 \strokec12 ::\cf19 \strokec19 vector\cf12 \strokec12 <\cf16 \strokec16 int\cf12 \strokec12 >\cf14 \strokec14  \cf12 \strokec12 >\cf14 \strokec14  \cf11 \strokec11 v\cf12 \strokec12 (\cf13 \strokec13 1\cf14 \strokec14  \cf12 \strokec12 +\cf14 \strokec14  \cf16 \strokec16 target\cf12 \strokec12 ,\cf14 \strokec14  \cf18 \strokec18 std\cf12 \strokec12 ::\cf19 \strokec19 vector\cf12 \strokec12 <\cf16 \strokec16 int\cf12 \strokec12 >(\cf16 \strokec16 n\cf12 \strokec12 ,\cf14 \strokec14  \cf13 \strokec13 0\cf12 \strokec12 ));\cf14 \strokec14 \
+  \cf17 \strokec17 for\cf14 \strokec14  \cf12 \strokec12 (\cf16 \strokec16 int\cf14 \strokec14  \cf16 \strokec16 j\cf12 \strokec12 =\cf13 \strokec13 0\cf12 \strokec12 ;\cf14 \strokec14  \cf16 \strokec16 j\cf12 \strokec12 <\cf16 \strokec16 n\cf12 \strokec12 ;\cf14 \strokec14  \cf12 \strokec12 ++\cf16 \strokec16 j\cf12 \strokec12 )\cf14 \strokec14  \cf16 \strokec16 v\cf12 \strokec12 [\cf13 \strokec13 0\cf12 \strokec12 ][\cf16 \strokec16 j\cf12 \strokec12 ]\cf14 \strokec14  \cf12 \strokec12 =\cf14 \strokec14  \cf13 \strokec13 1\cf12 \strokec12 ;\cf14 \strokec14  \
+\
+  \cf17 \strokec17 for\cf14 \strokec14  \cf12 \strokec12 (\cf16 \strokec16 int\cf14 \strokec14  \cf16 \strokec16 i\cf12 \strokec12 =\cf13 \strokec13 1\cf12 \strokec12 ;\cf14 \strokec14  \cf16 \strokec16 i\cf12 \strokec12 <=\cf14 \strokec14  \cf16 \strokec16 target\cf12 \strokec12 ;\cf14 \strokec14  \cf12 \strokec12 ++\cf16 \strokec16 i\cf12 \strokec12 )\cf14 \strokec14  \cf12 \strokec12 \{\cf14 \strokec14 \
+    \cf17 \strokec17 for\cf14 \strokec14  \cf12 \strokec12 (\cf16 \strokec16 int\cf14 \strokec14  \cf16 \strokec16 j\cf12 \strokec12 =\cf13 \strokec13 0\cf12 \strokec12 ;\cf14 \strokec14  \cf16 \strokec16 j\cf12 \strokec12 <\cf16 \strokec16 n\cf14 \strokec14  \cf12 \strokec12 ;\cf14 \strokec14  \cf12 \strokec12 ++\cf16 \strokec16 j\cf12 \strokec12 )\cf14 \strokec14  \cf12 \strokec12 \{\cf14 \strokec14 \
+      \cf17 \strokec17 for\cf14 \strokec14  \cf12 \strokec12 (\cf16 \strokec16 int\cf14 \strokec14  \cf16 \strokec16 k\cf12 \strokec12 =\cf16 \strokec16 j\cf12 \strokec12 ;\cf14 \strokec14  \cf16 \strokec16 k\cf12 \strokec12 <\cf16 \strokec16 n\cf12 \strokec12 ;\cf14 \strokec14  \cf12 \strokec12 ++\cf16 \strokec16 k\cf12 \strokec12 )\cf14 \strokec14  \cf12 \strokec12 \{\cf14 \strokec14 \
+        \cf17 \strokec17 if\cf14 \strokec14  \cf12 \strokec12 (\cf16 \strokec16 coins\cf12 \strokec12 [\cf16 \strokec16 k\cf12 \strokec12 ]\cf14 \strokec14  \cf12 \strokec12 <=\cf14 \strokec14  \cf16 \strokec16 i\cf12 \strokec12 )\cf14 \strokec14  \cf12 \strokec12 \{\cf14 \strokec14 \
+          \cf16 \strokec16 v\cf12 \strokec12 [\cf16 \strokec16 i\cf12 \strokec12 ][\cf16 \strokec16 j\cf12 \strokec12 ]\cf14 \strokec14  \cf12 \strokec12 +=\cf14 \strokec14  \cf16 \strokec16 v\cf12 \strokec12 [\cf16 \strokec16 i\cf12 \strokec12 -\cf16 \strokec16 coins\cf12 \strokec12 [\cf16 \strokec16 k\cf12 \strokec12 ]][\cf16 \strokec16 k\cf12 \strokec12 ];\cf14 \strokec14 \
+        \cf12 \strokec12 \}\cf14 \strokec14 \
+      \cf12 \strokec12 \}\cf14 \strokec14 \
+    \cf12 \strokec12 \}\cf14 \strokec14 \
+  \cf12 \strokec12 \}\cf14 \strokec14 \
+\
+  \cf17 \strokec17 return\cf14 \strokec14  \cf16 \strokec16 v\cf12 \strokec12 [\cf16 \strokec16 target\cf12 \strokec12 ][\cf13 \strokec13 0\cf12 \strokec12 ];\cf14 \strokec14 \
+\pard\pardeftab720\sl280\partightenfactor0
+\cf12 \strokec12 \}\cf14 \strokec14 \
+\pard\pardeftab720\sl280\sa240\partightenfactor0
+
+\f3\fs24 \cf8 \cb1 \strokec8 Here is a similar solution that uses less code and saves space by writing into the same row each loop (please correct if you find any errors). memo[j] represents the number of ways to make a sum of j. We start off with memo[0] = 1, as there is just one way to make a sum of zero. From there, we try using each coin. The number of ways you can make sum j is the number of ways you can make sum j - coinValue1 plus the number of ways you can make sum j - coinValue2, etc.\
+\pard\pardeftab720\sl280\partightenfactor0
+
+\f5\fs20 \cf16 \cb10 \strokec16 int\cf14 \strokec14  \cf11 \strokec11 numWays\cf12 \strokec12 (\cf17 \strokec17 const\cf14 \strokec14  \cf16 \strokec16 vector\cf12 \strokec12 <\cf16 \strokec16 int\cf12 \strokec12 >\cf14 \strokec14  \cf12 \strokec12 &\cf14 \strokec14  \cf16 \strokec16 v\cf12 \strokec12 ,\cf14 \strokec14  \cf16 \strokec16 int\cf14 \strokec14  \cf16 \strokec16 target\cf12 \strokec12 )\cf14 \strokec14  \cf12 \strokec12 \{\cf14 \strokec14 \
+  \cf16 \strokec16 vector\cf12 \strokec12 <\cf16 \strokec16 int\cf12 \strokec12 >\cf14 \strokec14  \cf11 \strokec11 memo\cf12 \strokec12 (\cf16 \strokec16 target\cf14 \strokec14  \cf12 \strokec12 +\cf14 \strokec14  \cf13 \strokec13 1\cf12 \strokec12 ,\cf14 \strokec14  \cf13 \strokec13 0\cf12 \strokec12 );\cf14 \strokec14 \
+  \cf16 \strokec16 memo\cf12 \strokec12 [\cf13 \strokec13 0\cf12 \strokec12 ]\cf14 \strokec14  \cf12 \strokec12 =\cf14 \strokec14  \cf13 \strokec13 1\cf12 \strokec12 ;\cf14 \strokec14 \
+  \cf17 \strokec17 for\cf14 \strokec14  \cf12 \strokec12 (\cf16 \strokec16 int\cf14 \strokec14  \cf16 \strokec16 i\cf14 \strokec14  \cf12 \strokec12 =\cf14 \strokec14  \cf13 \strokec13 0\cf12 \strokec12 ;\cf14 \strokec14  \cf16 \strokec16 i\cf14 \strokec14  \cf12 \strokec12 <\cf14 \strokec14  \cf16 \strokec16 v\cf12 \strokec12 .\cf11 \strokec11 size\cf12 \strokec12 ();\cf14 \strokec14  \cf12 \strokec12 ++\cf16 \strokec16 i\cf12 \strokec12 )\cf14 \strokec14  \cf12 \strokec12 \{\cf14 \strokec14 \
+    \cf17 \strokec17 for\cf14 \strokec14  \cf12 \strokec12 (\cf16 \strokec16 int\cf14 \strokec14  \cf16 \strokec16 j\cf14 \strokec14  \cf12 \strokec12 =\cf14 \strokec14  \cf16 \strokec16 v\cf12 \strokec12 [\cf16 \strokec16 i\cf12 \strokec12 ];\cf14 \strokec14  \cf16 \strokec16 j\cf14 \strokec14  \cf12 \strokec12 <=\cf14 \strokec14  \cf16 \strokec16 target\cf12 \strokec12 ;\cf14 \strokec14  \cf12 \strokec12 ++\cf16 \strokec16 j\cf12 \strokec12 )\cf14 \strokec14  \cf12 \strokec12 \{\cf14 \strokec14 \
+      \cf16 \strokec16 memo\cf12 \strokec12 [\cf16 \strokec16 j\cf12 \strokec12 ]\cf14 \strokec14  \cf12 \strokec12 +=\cf14 \strokec14  \cf16 \strokec16 memo\cf12 \strokec12 [\cf16 \strokec16 j\cf14 \strokec14  \cf12 \strokec12 -\cf14 \strokec14  \cf16 \strokec16 v\cf12 \strokec12 [\cf16 \strokec16 i\cf12 \strokec12 ]];\cf14 \strokec14 \
+    \cf12 \strokec12 \}\cf14 \strokec14 \
+  \cf12 \strokec12 \}\cf14 \strokec14 \
+  \cf17 \strokec17 return\cf14 \strokec14  \cf16 \strokec16 memo\cf12 \strokec12 [\cf16 \strokec16 target\cf12 \strokec12 ];\cf14 \strokec14 \
+\pard\pardeftab720\sl280\partightenfactor0
+\cf12 \strokec12 \}\cf14 \strokec14 \
+\pard\pardeftab720\sl280\sa240\partightenfactor0
+
+\f3\fs24 \cf8 \cb1 \strokec8 Here is a table representing the state of the vector after each outer loop. v = \{1, 2\}, target = 5\
+
+\itap1\trowd \taflags0 \trgaph108\trleft-108 \trcbpat20 \tamart240 \tamarb240 \trbrdrt\brdrnil \trbrdrl\brdrnil \trbrdrr\brdrnil 
+\clvertalc \clcbpat4 \clwWidth460\clftsWidth3 \clmart10 \clmarl10 \clmarb10 \clmarr10 \clbrdrt\brdrnil \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt60 \clpadl120 \clpadb60 \clpadr120 \gaph\cellx1234
+\clvertalc \clcbpat4 \clwWidth133\clftsWidth3 \clmart10 \clmarl10 \clmarb10 \clmarr10 \clbrdrt\brdrnil \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt60 \clpadl120 \clpadb60 \clpadr120 \gaph\cellx2468
+\clvertalc \clcbpat4 \clwWidth133\clftsWidth3 \clmart10 \clmarl10 \clmarb10 \clmarr10 \clbrdrt\brdrnil \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt60 \clpadl120 \clpadb60 \clpadr120 \gaph\cellx3702
+\clvertalc \clcbpat4 \clwWidth133\clftsWidth3 \clmart10 \clmarl10 \clmarb10 \clmarr10 \clbrdrt\brdrnil \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt60 \clpadl120 \clpadb60 \clpadr120 \gaph\cellx4937
+\clvertalc \clcbpat4 \clwWidth133\clftsWidth3 \clmart10 \clmarl10 \clmarb10 \clmarr10 \clbrdrt\brdrnil \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt60 \clpadl120 \clpadb60 \clpadr120 \gaph\cellx6171
+\clvertalc \clcbpat4 \clwWidth133\clftsWidth3 \clmart10 \clmarl10 \clmarb10 \clmarr10 \clbrdrt\brdrnil \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt60 \clpadl120 \clpadb60 \clpadr120 \gaph\cellx7405
+\clvertalc \clcbpat4 \clwWidth133\clftsWidth3 \clmart10 \clmarl10 \clmarb10 \clmarr10 \clbrdrt\brdrnil \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt60 \clpadl120 \clpadb60 \clpadr120 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\sl280\partightenfactor0
+\cf14 \strokec14 Init\cell 
+\pard\intbl\itap1\pardeftab720\sl280\partightenfactor0
+\cf14 1\cell 
+\pard\intbl\itap1\pardeftab720\sl280\partightenfactor0
+\cf14 0\cell 
+\pard\intbl\itap1\pardeftab720\sl280\partightenfactor0
+\cf14 0\cell 
+\pard\intbl\itap1\pardeftab720\sl280\partightenfactor0
+\cf14 0\cell 
+\pard\intbl\itap1\pardeftab720\sl280\partightenfactor0
+\cf14 0\cell 
+\pard\intbl\itap1\pardeftab720\sl280\partightenfactor0
+\cf14 0\cell \row
+
+\itap1\trowd \taflags0 \trgaph108\trleft-108 \trcbpat20 \tamart240 \tamarb240 \trbrdrl\brdrnil \trbrdrr\brdrnil 
+\clvertalc \clcbpat4 \clwWidth460\clftsWidth3 \clmart10 \clmarl10 \clmarb10 \clmarr10 \clbrdrt\brdrnil \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt60 \clpadl120 \clpadb60 \clpadr120 \gaph\cellx1234
+\clvertalc \clcbpat4 \clwWidth133\clftsWidth3 \clmart10 \clmarl10 \clmarb10 \clmarr10 \clbrdrt\brdrnil \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt60 \clpadl120 \clpadb60 \clpadr120 \gaph\cellx2468
+\clvertalc \clcbpat4 \clwWidth133\clftsWidth3 \clmart10 \clmarl10 \clmarb10 \clmarr10 \clbrdrt\brdrnil \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt60 \clpadl120 \clpadb60 \clpadr120 \gaph\cellx3702
+\clvertalc \clcbpat4 \clwWidth133\clftsWidth3 \clmart10 \clmarl10 \clmarb10 \clmarr10 \clbrdrt\brdrnil \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt60 \clpadl120 \clpadb60 \clpadr120 \gaph\cellx4937
+\clvertalc \clcbpat4 \clwWidth133\clftsWidth3 \clmart10 \clmarl10 \clmarb10 \clmarr10 \clbrdrt\brdrnil \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt60 \clpadl120 \clpadb60 \clpadr120 \gaph\cellx6171
+\clvertalc \clcbpat4 \clwWidth133\clftsWidth3 \clmart10 \clmarl10 \clmarb10 \clmarr10 \clbrdrt\brdrnil \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt60 \clpadl120 \clpadb60 \clpadr120 \gaph\cellx7405
+\clvertalc \clcbpat4 \clwWidth133\clftsWidth3 \clmart10 \clmarl10 \clmarb10 \clmarr10 \clbrdrt\brdrnil \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt60 \clpadl120 \clpadb60 \clpadr120 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\sl280\partightenfactor0
+\cf14 i = 0\cell 
+\pard\intbl\itap1\pardeftab720\sl280\partightenfactor0
+\cf14 1\cell 
+\pard\intbl\itap1\pardeftab720\sl280\partightenfactor0
+\cf14 1\cell 
+\pard\intbl\itap1\pardeftab720\sl280\partightenfactor0
+\cf14 1\cell 
+\pard\intbl\itap1\pardeftab720\sl280\partightenfactor0
+\cf14 1\cell 
+\pard\intbl\itap1\pardeftab720\sl280\partightenfactor0
+\cf14 1\cell 
+\pard\intbl\itap1\pardeftab720\sl280\partightenfactor0
+\cf14 1\cell \row
+
+\itap1\trowd \taflags0 \trgaph108\trleft-108 \trcbpat20 \tamart240 \tamarb240 \trbrdrl\brdrnil \trbrdrt\brdrnil \trbrdrr\brdrnil 
+\clvertalc \clcbpat4 \clwWidth460\clftsWidth3 \clmart10 \clmarl10 \clmarb10 \clmarr10 \clbrdrt\brdrnil \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt60 \clpadl120 \clpadb60 \clpadr120 \gaph\cellx1234
+\clvertalc \clcbpat4 \clwWidth133\clftsWidth3 \clmart10 \clmarl10 \clmarb10 \clmarr10 \clbrdrt\brdrnil \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt60 \clpadl120 \clpadb60 \clpadr120 \gaph\cellx2468
+\clvertalc \clcbpat4 \clwWidth133\clftsWidth3 \clmart10 \clmarl10 \clmarb10 \clmarr10 \clbrdrt\brdrnil \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt60 \clpadl120 \clpadb60 \clpadr120 \gaph\cellx3702
+\clvertalc \clcbpat4 \clwWidth133\clftsWidth3 \clmart10 \clmarl10 \clmarb10 \clmarr10 \clbrdrt\brdrnil \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt60 \clpadl120 \clpadb60 \clpadr120 \gaph\cellx4937
+\clvertalc \clcbpat4 \clwWidth133\clftsWidth3 \clmart10 \clmarl10 \clmarb10 \clmarr10 \clbrdrt\brdrnil \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt60 \clpadl120 \clpadb60 \clpadr120 \gaph\cellx6171
+\clvertalc \clcbpat4 \clwWidth133\clftsWidth3 \clmart10 \clmarl10 \clmarb10 \clmarr10 \clbrdrt\brdrnil \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt60 \clpadl120 \clpadb60 \clpadr120 \gaph\cellx7405
+\clvertalc \clcbpat4 \clwWidth133\clftsWidth3 \clmart10 \clmarl10 \clmarb10 \clmarr10 \clbrdrt\brdrnil \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt60 \clpadl120 \clpadb60 \clpadr120 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\sl280\partightenfactor0
+\cf14 i = 1\cell 
+\pard\intbl\itap1\pardeftab720\sl280\partightenfactor0
+\cf14 1\cell 
+\pard\intbl\itap1\pardeftab720\sl280\partightenfactor0
+\cf14 1\cell 
+\pard\intbl\itap1\pardeftab720\sl280\partightenfactor0
+\cf14 2\cell 
+\pard\intbl\itap1\pardeftab720\sl280\partightenfactor0
+\cf14 2\cell 
+\pard\intbl\itap1\pardeftab720\sl280\partightenfactor0
+\cf14 3\cell 
+\pard\intbl\itap1\pardeftab720\sl280\partightenfactor0
+\cf14 3\cell \lastrow\row
+\pard\pardeftab720\sl280\partightenfactor0
+\cf8 \strokec8 The final answer is memo[5] = 3\
+}

@@ -1,0 +1,244 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1671\cocoasubrtf200
+{\fonttbl\f0\fnil\fcharset0 HelveticaNeue-Bold;\f1\fnil\fcharset0 HelveticaNeue;\f2\fmodern\fcharset0 Courier-Oblique;
+\f3\fmodern\fcharset0 Courier;}
+{\colortbl;\red255\green255\blue255;\red22\green25\blue31;\red255\green255\blue255;\red143\green144\blue150;
+\red249\green249\blue249;\red42\green44\blue51;\red147\green0\blue147;\red178\green113\blue6;\red66\green147\blue62;
+}
+{\*\expandedcolortbl;;\cssrgb\c11373\c12941\c16078;\cssrgb\c100000\c100000\c100000;\cssrgb\c62745\c63137\c65490;
+\cssrgb\c98039\c98039\c98039;\cssrgb\c21961\c22745\c25882;\cssrgb\c65098\c14902\c64314;\cssrgb\c75686\c51765\c392;\cssrgb\c31373\c63137\c30980;
+}
+{\*\listtable{\list\listtemplateid1\listhybrid{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{disc\}}{\leveltext\leveltemplateid1\'01\uc0\u8226 ;}{\levelnumbers;}\fi-360\li720\lin720 }{\listname ;}\listid1}}
+{\*\listoverridetable{\listoverride\listid1\listoverridecount0\ls1}}
+\margl1440\margr1440\vieww10800\viewh8400\viewkind0
+\deftab720
+\pard\pardeftab720\sl860\partightenfactor0
+
+\f0\b\fs72 \cf2 \cb3 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 Binary Tree Iterator For Postorder Traversal\
+\pard\pardeftab720\sl480\sa200\partightenfactor0
+
+\fs42 \cf2 Question\cb1 \
+\pard\pardeftab720\sl480\partightenfactor0
+
+\f1\b0\fs30 \cf2 \cb3 Author: Bhal Agashe\cb1 \
+\
+\cb3 Difficulty: Medium\cb1 \
+\
+\
+\cb3 Given a well formed binary tree, implement an iterator that iterates over it in post-order fashion.\cb1 \
+\pard\pardeftab720\sl480\sa200\partightenfactor0
+
+\f0\b\fs42 \cf2 \cb3 Notes\cb1 \
+\pard\tx220\tx720\pardeftab720\li720\fi-720\sl480\partightenfactor0
+\ls1\ilvl0
+\f1\b0\fs30 \cf2 \cb3 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\uc0\u8226 	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 Most candidates will know what post-order traversal means. I typically start off by drawing out a simple binary tree and asking the candidate to write it out in post-order. Once I'm sure that we're on the same page, I ask them this question.\cb1 \
+\ls1\ilvl0\cb3 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\uc0\u8226 	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 Good candidates (or those that have experience using STL and have bothered looking at the implementation) realize quickly that the cleanest way of doing this is by creating a separate Iterator object that can track where it is in the tree and where it needs to go next.\cb1 \
+\ls1\ilvl0\cb3 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\uc0\u8226 	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 Some times, candidates assume that they have to do this in O(1) space. Make the candidate think aloud to make sure this isn't the case.\cb1 \
+\ls1\ilvl0\cb3 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\uc0\u8226 	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 Other times, candidates assume that they can do this in O(2 * N) space (By doing a post-order traversal and creating a list). I try to nudge them away from this approach by asking what would happen if the tree had millions of nodes? Can you do better in the average case, with a reasonably well-balanced tree?\cb1 \
+\ls1\ilvl0\cb3 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\uc0\u8226 	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 Some candidates realize that they can use a stack, but get stuck after that because they're confused about the right order of pushing and popping nodes. At this point I ask them to come up with an invariant for the point where a node is popped ("When a node is popped it is guaranteed that its left and right sub-trees have been processed"). Then I nudge them to enforce this invariant.\cb1 \
+\pard\pardeftab720\sl480\sa200\partightenfactor0
+
+\f0\b\fs42 \cf2 \cb3 Code\cb1 \
+\pard\pardeftab720\sl480\partightenfactor0
+
+\f1\b0\fs30 \cf2 \
+\pard\pardeftab720\sl480\partightenfactor0
+
+\f2\i \cf4 \cb5 \strokec4 #! /usr/local/bin/python3.3
+\f3\i0 \cf6 \strokec6 \
+\
+\pard\pardeftab720\sl480\partightenfactor0
+\cf7 \strokec7 class\cf6 \strokec6  \cf8 \strokec8 Node\cf6 \strokec6 :\
+  \cf8 \strokec8 def\cf6 \strokec6  \cf8 \strokec8 __init__\cf6 \strokec6 (\cf8 \strokec8 self\cf6 \strokec6 , \cf8 \strokec8 value\cf6 \strokec6 , \cf8 \strokec8 left\cf6 \strokec6  = \cf8 \strokec8 None\cf6 \strokec6 , \cf8 \strokec8 right\cf6 \strokec6  = \cf8 \strokec8 None\cf6 \strokec6 ):\
+    \cf8 \strokec8 self\cf6 \strokec6 .\cf8 \strokec8 value\cf6 \strokec6  = \cf8 \strokec8 value\cf6 \strokec6 \
+    \cf8 \strokec8 self\cf6 \strokec6 .\cf8 \strokec8 left\cf6 \strokec6  = \cf8 \strokec8 left\cf6 \strokec6 \
+    \cf8 \strokec8 self\cf6 \strokec6 .\cf8 \strokec8 right\cf6 \strokec6  = \cf8 \strokec8 right\cf6 \strokec6 \
+\
+\pard\pardeftab720\sl480\partightenfactor0
+\cf8 \strokec8 class\cf6 \strokec6  \cf8 \strokec8 Iterator\cf6 \strokec6 :\
+  \cf8 \strokec8 def\cf6 \strokec6  \cf8 \strokec8 __init__\cf6 \strokec6 (\cf8 \strokec8 self\cf6 \strokec6 , \cf8 \strokec8 root\cf6 \strokec6 ):\
+    \cf8 \strokec8 self\cf6 \strokec6 .\cf8 \strokec8 stack\cf6 \strokec6  = []\
+    \cf8 \strokec8 self\cf6 \strokec6 .\cf8 \strokec8 rightSubTreeProcessed\cf6 \strokec6  = \cf8 \strokec8 set\cf6 \strokec6 ()\
+    \cf8 \strokec8 self\cf6 \strokec6 .\cf8 \strokec8 traverse_until_leaf\cf6 \strokec6 (\cf8 \strokec8 root\cf6 \strokec6 )\
+\
+  \cf8 \strokec8 def\cf6 \strokec6  \cf8 \strokec8 traverse_until_leaf\cf6 \strokec6 (\cf8 \strokec8 self\cf6 \strokec6 , \cf8 \strokec8 node\cf6 \strokec6 ):\
+    \cf8 \strokec8 if\cf6 \strokec6  \cf8 \strokec8 node\cf6 \strokec6  == \cf8 \strokec8 None\cf6 \strokec6 :\
+      \cf8 \strokec8 return\cf6 \strokec6 \
+    \cf8 \strokec8 self\cf6 \strokec6 .\cf8 \strokec8 stack\cf6 \strokec6 .\cf8 \strokec8 append\cf6 \strokec6 (\cf8 \strokec8 node\cf6 \strokec6 )\
+    \cf8 \strokec8 if\cf6 \strokec6  \cf8 \strokec8 node\cf6 \strokec6 .\cf8 \strokec8 left\cf6 \strokec6 :\
+      \cf8 \strokec8 self\cf6 \strokec6 .\cf8 \strokec8 traverse_until_leaf\cf6 \strokec6 (\cf8 \strokec8 node\cf6 \strokec6 .\cf8 \strokec8 left\cf6 \strokec6 )\
+    \cf8 \strokec8 elif\cf6 \strokec6  \cf8 \strokec8 node\cf6 \strokec6 .\cf8 \strokec8 right\cf6 \strokec6 :\
+      \cf8 \strokec8 self\cf6 \strokec6 .\cf8 \strokec8 rightSubTreeProcessed\cf6 \strokec6 .\cf8 \strokec8 add\cf6 \strokec6 (\cf8 \strokec8 node\cf6 \strokec6 )\
+      \cf8 \strokec8 self\cf6 \strokec6 .\cf8 \strokec8 traverse_until_leaf\cf6 \strokec6 (\cf8 \strokec8 node\cf6 \strokec6 .\cf8 \strokec8 right\cf6 \strokec6 )\
+\
+  \cf8 \strokec8 def\cf6 \strokec6  \cf8 \strokec8 next\cf6 \strokec6 (\cf8 \strokec8 self\cf6 \strokec6 ):\
+    \cf8 \strokec8 next_element\cf6 \strokec6  = \cf8 \strokec8 None\cf6 \strokec6 \
+    \cf8 \strokec8 if\cf6 \strokec6  \cf8 \strokec8 len\cf6 \strokec6 (\cf8 \strokec8 self\cf6 \strokec6 .\cf8 \strokec8 stack\cf6 \strokec6 ) == 0:\
+      \cf8 \strokec8 return\cf6 \strokec6  \cf8 \strokec8 next_element\cf6 \strokec6 \
+\
+    \cf8 \strokec8 top_element\cf6 \strokec6  = \cf8 \strokec8 self\cf6 \strokec6 .\cf8 \strokec8 stack\cf6 \strokec6 [\cf8 \strokec8 len\cf6 \strokec6 (\cf8 \strokec8 self\cf6 \strokec6 .\cf8 \strokec8 stack\cf6 \strokec6 ) - 1]\
+    \cf8 \strokec8 if\cf6 \strokec6  \cf8 \strokec8 top_element\cf6 \strokec6  \cf8 \strokec8 in\cf6 \strokec6  \cf8 \strokec8 self\cf6 \strokec6 .\cf8 \strokec8 rightSubTreeProcessed\cf6 \strokec6 :\
+      # \cf8 \strokec8 Right\cf6 \strokec6  \cf8 \strokec8 sub\cf6 \strokec6 -\cf8 \strokec8 tree\cf6 \strokec6  \cf8 \strokec8 has\cf6 \strokec6  \cf8 \strokec8 been\cf6 \strokec6  \cf8 \strokec8 processed\cf6 \strokec6 . \cf8 \strokec8 No\cf6 \strokec6  \cf8 \strokec8 need\cf6 \strokec6  \cf8 \strokec8 to\cf6 \strokec6  \cf8 \strokec8 track\cf6 \strokec6  \cf8 \strokec8 this\cf6 \strokec6  \cf8 \strokec8 anymore\cf6 \strokec6 \
+      \cf8 \strokec8 self\cf6 \strokec6 .\cf8 \strokec8 rightSubTreeProcessed\cf6 \strokec6 .\cf8 \strokec8 remove\cf6 \strokec6 (\cf8 \strokec8 top_element\cf6 \strokec6 )\
+    \cf8 \strokec8 else\cf6 \strokec6 :\
+      \cf8 \strokec8 self\cf6 \strokec6 .\cf8 \strokec8 rightSubTreeProcessed\cf6 \strokec6 .\cf8 \strokec8 add\cf6 \strokec6 (\cf8 \strokec8 top_element\cf6 \strokec6 )\
+      \cf8 \strokec8 self\cf6 \strokec6 .\cf8 \strokec8 traverse_until_leaf\cf6 \strokec6 (\cf8 \strokec8 top_element\cf6 \strokec6 .\cf8 \strokec8 right\cf6 \strokec6 )\
+\
+    \cf8 \strokec8 next_element\cf6 \strokec6  = \cf8 \strokec8 self\cf6 \strokec6 .\cf8 \strokec8 stack\cf6 \strokec6 .\cf8 \strokec8 pop\cf6 \strokec6 ()\
+    \cf8 \strokec8 return\cf6 \strokec6  \cf8 \strokec8 next_element\cf6 \strokec6 \
+\
+\
+## \cf8 \strokec8 Create\cf6 \strokec6  \cf8 \strokec8 a\cf6 \strokec6  \cf8 \strokec8 tree\cf6 \strokec6  \cf8 \strokec8 for\cf6 \strokec6  \cf8 \strokec8 testing\cf6 \strokec6  ##\
+\cf8 \strokec8 root\cf6 \strokec6  = \cf8 \strokec8 Node\cf6 \strokec6 (0)\
+\cf8 \strokec8 l\cf6 \strokec6  = \cf8 \strokec8 Node\cf6 \strokec6 (1)\
+\cf8 \strokec8 r\cf6 \strokec6  = \cf8 \strokec8 Node\cf6 \strokec6 (2)\
+\cf8 \strokec8 ll\cf6 \strokec6  = \cf8 \strokec8 Node\cf6 \strokec6 (3)\
+\cf8 \strokec8 lr\cf6 \strokec6  = \cf8 \strokec8 Node\cf6 \strokec6 (4)\
+\cf8 \strokec8 rl\cf6 \strokec6  = \cf8 \strokec8 Node\cf6 \strokec6 (5)\
+\cf8 \strokec8 rr\cf6 \strokec6  = \cf8 \strokec8 Node\cf6 \strokec6 (6)\
+\cf8 \strokec8 lll\cf6 \strokec6  = \cf8 \strokec8 Node\cf6 \strokec6 (7)\
+\cf8 \strokec8 llr\cf6 \strokec6  = \cf8 \strokec8 Node\cf6 \strokec6 (8)\
+\cf8 \strokec8 rrl\cf6 \strokec6  = \cf8 \strokec8 Node\cf6 \strokec6 (9)\
+\cf8 \strokec8 rrr\cf6 \strokec6  = \cf8 \strokec8 Node\cf6 \strokec6 (10)\
+\
+\cf8 \strokec8 root\cf6 \strokec6 .\cf8 \strokec8 left\cf6 \strokec6  = \cf8 \strokec8 l\cf6 \strokec6 \
+\cf8 \strokec8 root\cf6 \strokec6 .\cf8 \strokec8 right\cf6 \strokec6  = \cf8 \strokec8 r\cf6 \strokec6 \
+\cf8 \strokec8 l\cf6 \strokec6 .\cf8 \strokec8 left\cf6 \strokec6  = \cf8 \strokec8 ll\cf6 \strokec6 \
+\cf8 \strokec8 l\cf6 \strokec6 .\cf8 \strokec8 right\cf6 \strokec6  = \cf8 \strokec8 lr\cf6 \strokec6 \
+\cf8 \strokec8 r\cf6 \strokec6 .\cf8 \strokec8 left\cf6 \strokec6  = \cf8 \strokec8 rl\cf6 \strokec6 \
+\cf8 \strokec8 r\cf6 \strokec6 .\cf8 \strokec8 right\cf6 \strokec6  = \cf8 \strokec8 rr\cf6 \strokec6 \
+\cf8 \strokec8 ll\cf6 \strokec6 .\cf8 \strokec8 left\cf6 \strokec6  = \cf8 \strokec8 lll\cf6 \strokec6 \
+\cf8 \strokec8 ll\cf6 \strokec6 .\cf8 \strokec8 right\cf6 \strokec6  = \cf8 \strokec8 llr\cf6 \strokec6 \
+\cf8 \strokec8 rr\cf6 \strokec6 .\cf8 \strokec8 left\cf6 \strokec6  = \cf8 \strokec8 rrl\cf6 \strokec6 \
+\cf8 \strokec8 rr\cf6 \strokec6 .\cf8 \strokec8 right\cf6 \strokec6  = \cf8 \strokec8 rrr\cf6 \strokec6 \
+\
+## \cf8 \strokec8 Test\cf6 \strokec6  \cf8 \strokec8 it\cf6 \strokec6  ##\
+\cf8 \strokec8 my_iterator\cf6 \strokec6  = \cf8 \strokec8 Iterator\cf6 \strokec6 (\cf8 \strokec8 root\cf6 \strokec6 )\
+\cf8 \strokec8 while\cf6 \strokec6  \cf8 \strokec8 True\cf6 \strokec6 :\
+  \cf8 \strokec8 my_node\cf6 \strokec6  = \cf8 \strokec8 my_iterator\cf6 \strokec6 .\cf8 \strokec8 next\cf6 \strokec6 ()\
+  \cf8 \strokec8 if\cf6 \strokec6  \cf8 \strokec8 my_node\cf6 \strokec6  == \cf8 \strokec8 None\cf6 \strokec6 :\
+    \cf8 \strokec8 break\cf6 \strokec6 \
+  \cf8 \strokec8 print\cf6 \strokec6 (\cf8 \strokec8 my_node\cf6 \strokec6 .\cf8 \strokec8 value\cf6 \strokec6 , \cf8 \strokec8 end\cf6 \strokec6 ="\\\cf8 \strokec8 n\cf6 \strokec6 ")\
+\pard\pardeftab720\sl480\partightenfactor0
+
+\f1 \cf2 \cb3 \strokec2 Alternatively, without explicitly tracking the right processed nodes\cb1 \
+\pard\pardeftab720\sl480\partightenfactor0
+
+\f3 \cf6 \cb5 \strokec6 from collections import namedtuple\
+import string\
+import unittest\
+\
+\pard\pardeftab720\sl480\partightenfactor0
+
+\f2\i \cf4 \strokec4 # -- Begin solution
+\f3\i0 \cf6 \strokec6 \
+\
+Node = namedtuple(\cf9 \strokec9 'Node'\cf6 \strokec6 , [\cf9 \strokec9 'd'\cf6 \strokec6 , \cf9 \strokec9 'l'\cf6 \strokec6 , \cf9 \strokec9 'r'\cf6 \strokec6 ])\
+\
+\
+\pard\pardeftab720\sl480\partightenfactor0
+\cf7 \strokec7 class\cf6 \strokec6  \cf8 \strokec8 PostOrderIterator\cf6 \strokec6 (\cf8 \strokec8 object\cf6 \strokec6 ):\
+    \cf8 \strokec8 def\cf6 \strokec6  \cf8 \strokec8 __init__\cf6 \strokec6 (\cf8 \strokec8 self\cf6 \strokec6 , \cf8 \strokec8 root\cf6 \strokec6 ):\
+        \cf8 \strokec8 self\cf6 \strokec6 .\cf8 \strokec8 _root\cf6 \strokec6  = \cf8 \strokec8 root\cf6 \strokec6 \
+        \cf8 \strokec8 self\cf6 \strokec6 .\cf8 \strokec8 _stack\cf6 \strokec6  = []\
+\
+        \cf8 \strokec8 if\cf6 \strokec6  \cf8 \strokec8 root\cf6 \strokec6 :\
+            \cf8 \strokec8 self\cf6 \strokec6 .\cf8 \strokec8 _walk\cf6 \strokec6 (\cf8 \strokec8 root\cf6 \strokec6 )\
+\
+    \cf8 \strokec8 def\cf6 \strokec6  \cf8 \strokec8 __iter__\cf6 \strokec6 (\cf8 \strokec8 self\cf6 \strokec6 ):\
+        \cf8 \strokec8 return\cf6 \strokec6  \cf8 \strokec8 self\cf6 \strokec6 \
+\
+    \cf8 \strokec8 def\cf6 \strokec6  \cf8 \strokec8 _walk\cf6 \strokec6 (\cf8 \strokec8 self\cf6 \strokec6 , \cf8 \strokec8 start_at\cf6 \strokec6 ):\
+        """\cf8 \strokec8 Invariant\cf6 \strokec6 : \cf8 \strokec8 top\cf6 \strokec6  \cf8 \strokec8 of\cf6 \strokec6  \cf8 \strokec8 stack\cf6 \strokec6  \cf8 \strokec8 is\cf6 \strokec6  \cf8 \strokec8 always\cf6 \strokec6  \cf8 \strokec8 the\cf6 \strokec6  \cf8 \strokec8 next\cf6 \strokec6  \cf8 \strokec8 node\cf6 \strokec6 """\
+        \cf8 \strokec8 n\cf6 \strokec6  = \cf8 \strokec8 start_at\cf6 \strokec6 \
+\
+        \cf8 \strokec8 while\cf6 \strokec6  \cf8 \strokec8 n\cf6 \strokec6 :\
+            \cf8 \strokec8 self\cf6 \strokec6 .\cf8 \strokec8 _stack\cf6 \strokec6 .\cf8 \strokec8 append\cf6 \strokec6 (\cf8 \strokec8 n\cf6 \strokec6 )\
+            \cf8 \strokec8 n\cf6 \strokec6  = \cf8 \strokec8 n\cf6 \strokec6 .\cf8 \strokec8 l\cf6 \strokec6  \cf8 \strokec8 if\cf6 \strokec6  \cf8 \strokec8 n\cf6 \strokec6 .\cf8 \strokec8 l\cf6 \strokec6  \cf8 \strokec8 else\cf6 \strokec6  \cf8 \strokec8 n\cf6 \strokec6 .\cf8 \strokec8 r\cf6 \strokec6 \
+\
+    \cf8 \strokec8 def\cf6 \strokec6  \cf8 \strokec8 next\cf6 \strokec6 (\cf8 \strokec8 self\cf6 \strokec6 ):\
+        \cf8 \strokec8 if\cf6 \strokec6  \cf8 \strokec8 not\cf6 \strokec6  \cf8 \strokec8 self\cf6 \strokec6 .\cf8 \strokec8 _stack\cf6 \strokec6 :\
+            \cf8 \strokec8 raise\cf6 \strokec6  \cf8 \strokec8 StopIteration\cf6 \strokec6 \
+\
+        \cf8 \strokec8 next_node\cf6 \strokec6  = \cf8 \strokec8 self\cf6 \strokec6 .\cf8 \strokec8 _stack\cf6 \strokec6 .\cf8 \strokec8 pop\cf6 \strokec6 ()\
+\
+        \cf8 \strokec8 if\cf6 \strokec6  (\cf8 \strokec8 self\cf6 \strokec6 .\cf8 \strokec8 _stack\cf6 \strokec6  \cf8 \strokec8 and\cf6 \strokec6 \
+            \cf8 \strokec8 next_node\cf6 \strokec6  == \cf8 \strokec8 self\cf6 \strokec6 .\cf8 \strokec8 _stack\cf6 \strokec6 [-1].\cf8 \strokec8 l\cf6 \strokec6  \cf8 \strokec8 and\cf6 \strokec6 \
+            \cf8 \strokec8 self\cf6 \strokec6 .\cf8 \strokec8 _stack\cf6 \strokec6 [-1].\cf8 \strokec8 r\cf6 \strokec6 ):\
+           \cf8 \strokec8 self\cf6 \strokec6 .\cf8 \strokec8 _walk\cf6 \strokec6 (\cf8 \strokec8 self\cf6 \strokec6 .\cf8 \strokec8 _stack\cf6 \strokec6 [-1].\cf8 \strokec8 r\cf6 \strokec6 )\
+\
+        \cf8 \strokec8 return\cf6 \strokec6  \cf8 \strokec8 next_node\cf6 \strokec6 \
+\
+# -- \cf8 \strokec8 End\cf6 \strokec6  \cf8 \strokec8 Solution\cf6 \strokec6 \
+\
+\
+# \cf8 \strokec8 Test\cf6 \strokec6  \cf8 \strokec8 utilities\cf6 \strokec6 \
+\
+\pard\pardeftab720\sl480\partightenfactor0
+\cf8 \strokec8 def\cf6 \strokec6  \cf8 \strokec8 post_order_traversal\cf6 \strokec6 (\cf8 \strokec8 tree\cf6 \strokec6 ):\
+    \cf8 \strokec8 return\cf6 \strokec6  " ".\cf8 \strokec8 join\cf6 \strokec6 (\cf8 \strokec8 str\cf6 \strokec6 (\cf8 \strokec8 x\cf6 \strokec6 .\cf8 \strokec8 d\cf6 \strokec6 ) \cf8 \strokec8 for\cf6 \strokec6  \cf8 \strokec8 x\cf6 \strokec6  \cf8 \strokec8 in\cf6 \strokec6  \cf8 \strokec8 PostOrderIterator\cf6 \strokec6 (\cf8 \strokec8 tree\cf6 \strokec6 ))\
+\
+\
+\cf8 \strokec8 def\cf6 \strokec6  \cf8 \strokec8 create_tree\cf6 \strokec6 (\cf8 \strokec8 structure\cf6 \strokec6 ):\
+    """\cf8 \strokec8 Helper\cf6 \strokec6  \cf8 \strokec8 function\cf6 \strokec6  \cf8 \strokec8 to\cf6 \strokec6  \cf8 \strokec8 create\cf6 \strokec6  \cf8 \strokec8 trees\cf6 \strokec6 \
+    \cf8 \strokec8 Expects\cf6 \strokec6  \cf8 \strokec8 tuples\cf6 \strokec6  \cf8 \strokec8 of\cf6 \strokec6  \cf8 \strokec8 the\cf6 \strokec6  \cf8 \strokec8 form\cf6 \strokec6 \
+    - (\cf8 \strokec8 data\cf6 \strokec6 , \cf8 \strokec8 left\cf6 \strokec6 , \cf8 \strokec8 right\cf6 \strokec6 ) \cf8 \strokec8 or\cf6 \strokec6 \
+    - (\cf8 \strokec8 data\cf6 \strokec6 )\
+    """\
+    \cf8 \strokec8 if\cf6 \strokec6  \cf8 \strokec8 not\cf6 \strokec6  \cf8 \strokec8 structure\cf6 \strokec6 :\
+        \cf8 \strokec8 return\cf6 \strokec6  \cf8 \strokec8 None\cf6 \strokec6 \
+\
+    \cf8 \strokec8 if\cf6 \strokec6  \cf8 \strokec8 len\cf6 \strokec6 (\cf8 \strokec8 structure\cf6 \strokec6 ) == 1:\
+        \cf8 \strokec8 return\cf6 \strokec6  \cf8 \strokec8 Node\cf6 \strokec6 (\cf8 \strokec8 structure\cf6 \strokec6 , \cf8 \strokec8 None\cf6 \strokec6 , \cf8 \strokec8 None\cf6 \strokec6 )\
+\
+    (\cf8 \strokec8 d\cf6 \strokec6 , \cf8 \strokec8 l\cf6 \strokec6 , \cf8 \strokec8 r\cf6 \strokec6 ) = \cf8 \strokec8 structure\cf6 \strokec6 \
+    \cf8 \strokec8 return\cf6 \strokec6  \cf8 \strokec8 Node\cf6 \strokec6 (\cf8 \strokec8 d\cf6 \strokec6 , \cf8 \strokec8 create_tree\cf6 \strokec6 (\cf8 \strokec8 l\cf6 \strokec6 ), \cf8 \strokec8 create_tree\cf6 \strokec6 (\cf8 \strokec8 r\cf6 \strokec6 ))\
+\
+\
+\cf8 \strokec8 class\cf6 \strokec6  \cf8 \strokec8 PostOrderIteratorTests\cf6 \strokec6 (\cf8 \strokec8 unittest\cf6 \strokec6 .\cf8 \strokec8 TestCase\cf6 \strokec6 ):\
+\
+    \cf8 \strokec8 def\cf6 \strokec6  \cf8 \strokec8 test_simple\cf6 \strokec6 (\cf8 \strokec8 self\cf6 \strokec6 ):\
+        """\
+                 \cf8 \strokec8 A\cf6 \strokec6 \
+                / \\\
+               \cf8 \strokec8 B\cf6 \strokec6    \cf8 \strokec8 C\cf6 \strokec6 \
+              / \\ / \\\
+             \cf8 \strokec8 D\cf6 \strokec6    \cf8 \strokec8 EF\cf6 \strokec6   \cf8 \strokec8 G\cf6 \strokec6 \
+        """\
+        \cf8 \strokec8 tree\cf6 \strokec6  = \cf8 \strokec8 create_tree\cf6 \strokec6 (\
+            ('\cf8 \strokec8 A\cf6 \strokec6 ',\
+                ('\cf8 \strokec8 B\cf6 \strokec6 ', '\cf8 \strokec8 D\cf6 \strokec6 ', '\cf8 \strokec8 E\cf6 \strokec6 '),\
+                ('\cf8 \strokec8 C\cf6 \strokec6 ', '\cf8 \strokec8 F\cf6 \strokec6 ', '\cf8 \strokec8 G\cf6 \strokec6 ')))\
+\
+        \cf8 \strokec8 self\cf6 \strokec6 .\cf8 \strokec8 assertEquals\cf6 \strokec6 ("\cf8 \strokec8 D\cf6 \strokec6  \cf8 \strokec8 E\cf6 \strokec6  \cf8 \strokec8 B\cf6 \strokec6  \cf8 \strokec8 F\cf6 \strokec6  \cf8 \strokec8 G\cf6 \strokec6  \cf8 \strokec8 C\cf6 \strokec6  \cf8 \strokec8 A\cf6 \strokec6 ", \cf8 \strokec8 post_order_traversal\cf6 \strokec6 (\cf8 \strokec8 tree\cf6 \strokec6 ))\
+\
+\
+    \cf8 \strokec8 def\cf6 \strokec6  \cf8 \strokec8 test_ladder\cf6 \strokec6 (\cf8 \strokec8 self\cf6 \strokec6 ):\
+        """\
+          \cf8 \strokec8 A\cf6 \strokec6                 \cf8 \strokec8 A\cf6 \strokec6            \cf8 \strokec8 A\cf6 \strokec6 \
+           \\              /           /\
+            \cf8 \strokec8 B\cf6 \strokec6             \cf8 \strokec8 B\cf6 \strokec6            \cf8 \strokec8 B\cf6 \strokec6 \
+             \\          /             \\\
+              \cf8 \strokec8 C\cf6 \strokec6         \cf8 \strokec8 C\cf6 \strokec6                \cf8 \strokec8 C\cf6 \strokec6 \
+        """\
+        \cf8 \strokec8 right_tree\cf6 \strokec6  = \cf8 \strokec8 create_tree\cf6 \strokec6 (('\cf8 \strokec8 A\cf6 \strokec6 ', \cf8 \strokec8 None\cf6 \strokec6 , ('\cf8 \strokec8 B\cf6 \strokec6 ', \cf8 \strokec8 None\cf6 \strokec6 , '\cf8 \strokec8 C\cf6 \strokec6 ')))\
+        \cf8 \strokec8 self\cf6 \strokec6 .\cf8 \strokec8 assertEquals\cf6 \strokec6 ("\cf8 \strokec8 C\cf6 \strokec6  \cf8 \strokec8 B\cf6 \strokec6  \cf8 \strokec8 A\cf6 \strokec6 ", \cf8 \strokec8 post_order_traversal\cf6 \strokec6 (\cf8 \strokec8 right_tree\cf6 \strokec6 ))\
+\
+        \cf8 \strokec8 left_tree\cf6 \strokec6  = \cf8 \strokec8 create_tree\cf6 \strokec6 (('\cf8 \strokec8 A\cf6 \strokec6 ', ('\cf8 \strokec8 B\cf6 \strokec6 ', '\cf8 \strokec8 C\cf6 \strokec6 ', \cf8 \strokec8 None\cf6 \strokec6 ), \cf8 \strokec8 None\cf6 \strokec6 ))\
+        \cf8 \strokec8 self\cf6 \strokec6 .\cf8 \strokec8 assertEquals\cf6 \strokec6 ("\cf8 \strokec8 C\cf6 \strokec6  \cf8 \strokec8 B\cf6 \strokec6  \cf8 \strokec8 A\cf6 \strokec6 ", \cf8 \strokec8 post_order_traversal\cf6 \strokec6 (\cf8 \strokec8 left_tree\cf6 \strokec6 ))\
+\
+        \cf8 \strokec8 angle_tree\cf6 \strokec6  = \cf8 \strokec8 create_tree\cf6 \strokec6 (('\cf8 \strokec8 A\cf6 \strokec6 ', ('\cf8 \strokec8 B\cf6 \strokec6 ', \cf8 \strokec8 None\cf6 \strokec6 , '\cf8 \strokec8 C\cf6 \strokec6 '), \cf8 \strokec8 None\cf6 \strokec6 ))\
+        \cf8 \strokec8 self\cf6 \strokec6 .\cf8 \strokec8 assertEquals\cf6 \strokec6 ("\cf8 \strokec8 C\cf6 \strokec6  \cf8 \strokec8 B\cf6 \strokec6  \cf8 \strokec8 A\cf6 \strokec6 ", \cf8 \strokec8 post_order_traversal\cf6 \strokec6 (\cf8 \strokec8 left_tree\cf6 \strokec6 ))\
+\
+    \cf8 \strokec8 def\cf6 \strokec6  \cf8 \strokec8 test_empty\cf6 \strokec6 (\cf8 \strokec8 self\cf6 \strokec6 ):\
+        """ """\
+        \cf8 \strokec8 self\cf6 \strokec6 .\cf8 \strokec8 assertEquals\cf6 \strokec6 ("", \cf8 \strokec8 post_order_traversal\cf6 \strokec6 (\cf8 \strokec8 None\cf6 \strokec6 ))\
+\
+\cf8 \strokec8 if\cf6 \strokec6  \cf8 \strokec8 __name__\cf6 \strokec6  == "\cf8 \strokec8 __main__\cf6 \strokec6 ":\
+    \cf8 \strokec8 unittest\cf6 \strokec6 .\cf8 \strokec8 main\cf6 \strokec6 ()\
+}

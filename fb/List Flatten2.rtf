@@ -1,0 +1,199 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1671\cocoasubrtf200
+{\fonttbl\f0\fnil\fcharset0 HelveticaNeue-Bold;\f1\fnil\fcharset0 HelveticaNeue;\f2\fmodern\fcharset0 Courier;
+\f3\fmodern\fcharset0 Courier-Oblique;}
+{\colortbl;\red255\green255\blue255;\red22\green25\blue31;\red255\green255\blue255;\red249\green249\blue249;
+\red42\green44\blue51;\red143\green144\blue150;\red147\green0\blue147;\red178\green113\blue6;}
+{\*\expandedcolortbl;;\cssrgb\c11373\c12941\c16078;\cssrgb\c100000\c100000\c100000;\cssrgb\c98039\c98039\c98039;
+\cssrgb\c21961\c22745\c25882;\cssrgb\c62745\c63137\c65490;\cssrgb\c65098\c14902\c64314;\cssrgb\c75686\c51765\c392;}
+\margl1440\margr1440\vieww10800\viewh8400\viewkind0
+\deftab720
+\pard\pardeftab720\sl860\partightenfactor0
+
+\f0\b\fs72 \cf2 \cb3 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 List Flatten\
+\pard\pardeftab720\sl480\partightenfactor0
+
+\f1\b0\fs30 \cf2 The problem is to flatten a linked list where the elements can be either atomic types or other lists. In other words, the return value should be the atomic values found through a DFS traversal of the original list. I,\'a0
+\f2 \cb4 iproctor
+\f1 \cb3 , like to use this problem a lot. The standard problem is pretty simple, so I only ask for it verbally. I then ask them to do it in place, by manipulating pointers and not allocating new nodes. Intuitively it's obvious what to do but actually shuffling the data around to do it is tricky.\cb1 \
+\pard\pardeftab720\sl480\sa100\partightenfactor0
+
+\f0\b \cf2 \cb3 COMMON SOLUTION\cb1 \
+\pard\pardeftab720\sl480\partightenfactor0
+
+\f1\b0 \cf2 \cb3 This is the solution most candidates give. Maybe it's the most conceptually direct solution. The idea is to return the first and last element of the flattened list. It's usually not as clean as this, the append op may appear in both cases. Common errors are not getting the last element pointer from the recursion, not doing all the checks, not keeping a head pointer. I don't really like this solution since it's easy to get wrong. A candidate might pass around pairs instead of returning by reference, but I rarely see that.\cb1 \
+\pard\pardeftab720\sl480\partightenfactor0
+
+\f2 \cf5 \cb4 \strokec5 node *flatten(node *n, node *&last) \{\
+  
+\f3\i \cf6 \strokec6 // Head is set to the first int node found
+\f2\i0 \cf5 \strokec5 \
+  node *head = \cf7 \strokec7 NULL\cf5 \strokec5 ;\
+  
+\f3\i \cf6 \strokec6 // Prev is set to the last int node found
+\f2\i0 \cf5 \strokec5 \
+  node *prev = \cf7 \strokec7 NULL\cf5 \strokec5 ;\
+  \cf7 \strokec7 while\cf5 \strokec5  (n) \{\
+    
+\f3\i \cf6 \strokec6 // Idea is that in either case, there will be a first and last node to append to prev.
+\f2\i0 \cf5 \strokec5 \
+    node *out_first = \cf7 \strokec7 NULL\cf5 \strokec5 ;\
+    node *out_last = \cf7 \strokec7 NULL\cf5 \strokec5 ;\
+    \cf7 \strokec7 if\cf5 \strokec5  (n->isList) \{\
+      out_first = flatten(n->sub, out_last);\
+    \} \cf7 \strokec7 else\cf5 \strokec5  \{\
+      out_first = n;\
+      out_last = n;\
+    \}\
+    
+\f3\i \cf6 \strokec6 // Note that out_first/out_last could be NULL here due to empty sublist.
+\f2\i0 \cf5 \strokec5 \
+    \cf7 \strokec7 if\cf5 \strokec5  (!head) \{\
+     
+\f3\i \cf6 \strokec6 // First int node seen, set head. Makes no difference if it's really NULL.
+\f2\i0 \cf5 \strokec5 \
+     head = out_first;\
+    \}\
+    \cf7 \strokec7 if\cf5 \strokec5  (prev) \{\
+      
+\f3\i \cf6 \strokec6 // Append to prev. Still necessary to do if it's NULL because we need to overwrite prev->next.
+\f2\i0 \cf5 \strokec5 \
+      prev->next = out_first;\
+    \}\
+    \cf7 \strokec7 if\cf5 \strokec5  (out_first) \{\
+      
+\f3\i \cf6 \strokec6 // Set prev to last int node
+\f2\i0 \cf5 \strokec5 \
+      prev = out_last;\
+    \}\
+    n = n->next;\
+  \}\
+  last = prev;\
+  \cf7 \strokec7 return\cf5 \strokec5  head;\
+\}\
+\pard\pardeftab720\sl480\sa100\partightenfactor0
+
+\f0\b \cf2 \cb3 \strokec2 OO SOLUTION\cb1 \
+\pard\pardeftab720\sl480\partightenfactor0
+
+\f1\b0 \cf2 \cb3 This is a very easy to understand take on the common solution. For such a natural way of doing it, I don't see it very often. It moves the append operations into methods, making the body of flatten easy to understand. The only weird thing about this is that the tail node of the result List might not have a null next pointer during the iteration.\cb1 \
+\pard\pardeftab720\sl480\partightenfactor0
+
+\f2 \cf7 \cb4 \strokec7 class\cf5 \strokec5  \cf8 \strokec8 List\cf5 \strokec5  \{\
+\cf7 \strokec7 public\cf5 \strokec5 :\
+  \cf7 \strokec7 List\cf5 \strokec5 () : head(\cf7 \strokec7 NULL\cf5 \strokec5 ), tail(\cf7 \strokec7 NULL\cf5 \strokec5 ) \{\}\
+  void add(node *n) \{\
+    \cf7 \strokec7 if\cf5 \strokec5  (!tail) \{\
+      head = n;\
+    \} \cf7 \strokec7 else\cf5 \strokec5  \{\
+      tail->next = n;\
+    \}\
+    tail = n;\
+  \}\
+  void append(\cf7 \strokec7 List\cf5 \strokec5  \cf7 \strokec7 const\cf5 \strokec5 & l) \{\
+    \cf7 \strokec7 if\cf5 \strokec5  (!tail) \{\
+      head = l.head;\
+    \} \cf7 \strokec7 else\cf5 \strokec5  \{\
+      tail->next = l.head;\
+    \}\
+    \cf7 \strokec7 if\cf5 \strokec5  (l.tail) tail = l.tail;\
+  \}\
+\cf7 \strokec7 private\cf5 \strokec5 :\
+  node *head;\
+  node *tail;\
+\};\
+\
+\cf7 \strokec7 List\cf5 \strokec5  flatten(node *n) \{\
+  \cf7 \strokec7 List\cf5 \strokec5  res;\
+  \cf7 \strokec7 while\cf5 \strokec5  (n) \{\
+    \cf7 \strokec7 if\cf5 \strokec5  (n->isList) \{\
+      res.append(flatten(n->sub));\
+    \} \cf7 \strokec7 else\cf5 \strokec5  \{\
+      res.add(n);\
+    \}\
+    n = n->next;\
+  \}\
+  \cf7 \strokec7 return\cf5 \strokec5  res;\
+\}\
+\pard\pardeftab720\sl480\sa100\partightenfactor0
+
+\f0\b \cf2 \cb3 \strokec2 ELEGANT RECURSIVE SOLUTION\cb1 \
+\pard\pardeftab720\sl480\partightenfactor0
+
+\f1\b0 \cf2 \cb3 This solution returns the first element of the flattened list and takes an element to append to the end of the flattened list. The twist is that the recursive call is told what to append to the end rather than it telling the caller what the last element was. Sometimes I see candidates miss the recursive call on the next as well as the sub. Other candidates can't figure out how to set the last node the first time through, and so iterate through the flattened sublist again to find it. I don't approve of that solution. One criticism of the recursive solution is that while it doesn't allocate new nodes, it does use stack. I rarely ever see this solution, maybe because it's too much of a conceptual leap to recurse on the next pointer before the sublist pointer: nodes will not be visited in the order that they appear in the output.\cb1 \
+\pard\pardeftab720\sl480\partightenfactor0
+
+\f2 \cf5 \cb4 \strokec5 node *flatten(node *n, node *last) \{\
+  
+\f3\i \cf6 \strokec6 // List is empty, appending last to empty is last
+\f2\i0 \cf5 \strokec5 \
+  \cf7 \strokec7 if\cf5 \strokec5  (!n) \cf7 \strokec7 return\cf5 \strokec5  last;\
+  \cf7 \strokec7 if\cf5 \strokec5  (n->isList) \{\
+    
+\f3\i \cf6 \strokec6 // First flatten the rest on the same level, then prepend the flattened sublist to it.
+\f2\i0 \cf5 \strokec5 \
+    \cf7 \strokec7 return\cf5 \strokec5  flatten(n->sub, flatten(n->next, last));\
+  \} \cf7 \strokec7 else\cf5 \strokec5  \{\
+    
+\f3\i \cf6 \strokec6 // Next element is the flattened rest of the list
+\f2\i0 \cf5 \strokec5 \
+    n->next = flatten(n->next, last);\
+    \cf7 \strokec7 return\cf5 \strokec5  n;\
+  \}\
+\}\
+\pard\pardeftab720\sl480\partightenfactor0
+
+\f1 \cf2 \cb3 \strokec2 This is somewhat equivalent to this functional-style and obviously correct algorithm, except suitably imperative-ized:\
+\pard\pardeftab720\sl480\partightenfactor0
+
+\f2 \cf5 \cb4 \strokec5 flatten :: (NestedList a) -> [a]\
+flatten Nil = []\
+flatten (Primitive x ys) = x:(flatten ys)\
+flatten (Nested xs ys) = (flatten xs) ++ (flatten ys)\
+\pard\pardeftab720\sl480\sa100\partightenfactor0
+
+\f0\b \cf2 \cb3 \strokec2 ITERATIVE SOLUTION\cb1 \
+\pard\pardeftab720\sl480\partightenfactor0
+
+\f1\b0 \cf2 \cb3 With the insight that we can make a stack with the unused nodes, it's possible to write a good iterative solution by forming a stack of unvisited next pointers. It's possible of course to use conventional stack, but doing the trick means using constant extra space. I haven't seen this in the wild. Sometimes I ask if the candidate can figure out how to do it in constant space after they give one solution, but I don't usually have the time to see them put it in code.\cb1 \
+\pard\pardeftab720\sl480\partightenfactor0
+
+\f2 \cf5 \cb4 \strokec5 node *flatten(node *n) \{\
+  
+\f3\i \cf6 \strokec6 // Par is the stack
+\f2\i0 \cf5 \strokec5 \
+  node *par = \cf7 \strokec7 NULL\cf5 \strokec5 ;\
+  
+\f3\i \cf6 \strokec6 // First is the first atomic node found
+\f2\i0 \cf5 \strokec5 \
+  node *first = \cf7 \strokec7 NULL\cf5 \strokec5 ;\
+  
+\f3\i \cf6 \strokec6 // Prev is the last atomic node found
+\f2\i0 \cf5 \strokec5 \
+  node *prev = \cf7 \strokec7 NULL\cf5 \strokec5 ;\
+  \cf7 \strokec7 while\cf5 \strokec5  (n) \{\
+    \cf7 \strokec7 if\cf5 \strokec5  (!n->isList) \{\
+      \cf7 \strokec7 if\cf5 \strokec5  (prev) prev->next = n;\
+      \cf7 \strokec7 if\cf5 \strokec5  (!first) first = n;\
+      prev = n;\
+      n = n->next;\
+    \} \cf7 \strokec7 else\cf5 \strokec5  \{\
+      node *s = n->sub;\
+      
+\f3\i \cf6 \strokec6 // Push n on to stack, new n is the sublist
+\f2\i0 \cf5 \strokec5 \
+      n->sub = par;\
+      par = n;\
+      n = s;\
+    \}\
+    
+\f3\i \cf6 \strokec6 // n is null but there's something on the stack, pop until it finds something
+\f2\i0 \cf5 \strokec5 \
+    \cf7 \strokec7 while\cf5 \strokec5  (!n && par) \{\
+      n = par->next;\
+      par = par->sub;\
+    \}\
+  \}\
+  \cf7 \strokec7 return\cf5 \strokec5  first;\
+\}\
+}

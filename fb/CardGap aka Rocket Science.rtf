@@ -1,0 +1,149 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1671\cocoasubrtf200
+{\fonttbl\f0\fnil\fcharset0 HelveticaNeue-Bold;\f1\fnil\fcharset0 HelveticaNeue;\f2\fswiss\fcharset0 Helvetica-Oblique;
+\f3\fswiss\fcharset0 Helvetica;\f4\fnil\fcharset0 Monaco;}
+{\colortbl;\red255\green255\blue255;\red21\green23\blue25;\red255\green255\blue255;\red52\green56\blue63;
+\red78\green84\blue93;\red41\green67\blue135;\red22\green25\blue31;\red83\green83\blue83;\red252\green244\blue202;
+\red0\green0\blue0;\red0\green0\blue82;\red6\green50\blue15;\red152\green18\blue15;\red98\green83\blue14;
+\red152\green46\blue3;\red76\green12\blue1;}
+{\*\expandedcolortbl;;\cssrgb\c10980\c11765\c12941;\cssrgb\c100000\c100000\c100000;\cssrgb\c26667\c28627\c31373;
+\cssrgb\c37647\c40392\c43922;\cssrgb\c21176\c34510\c60000;\cssrgb\c11373\c12941\c16078;\cssrgb\c40000\c40000\c40000;\cssrgb\c99216\c96078\c83137;
+\cssrgb\c0\c0\c0;\cssrgb\c0\c3922\c39608;\cssrgb\c0\c25098\c7059;\cssrgb\c66667\c13333\c6667;\cssrgb\c46275\c39608\c6275;
+\cssrgb\c66667\c25098\c0;\cssrgb\c37647\c7059\c0;}
+\margl1440\margr1440\vieww10800\viewh8400\viewkind0
+\deftab720
+\pard\pardeftab720\sl560\partightenfactor0
+
+\f0\b\fs48 \cf2 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 CardGap aka Rocket Science\
+\pard\pardeftab720\sl520\qc\partightenfactor0
+
+\f1\i\fs24 \cf3 \strokec3 \
+\pard\pardeftab720\sl520\qc\partightenfactor0
+\cf4 \strokec4 \
+\pard\pardeftab720\sl520\qc\partightenfactor0
+
+\f0\i0 \cf4 More Items\
+\pard\pardeftab720\sl320\partightenfactor0
+
+\f1\b0 \cf5 \strokec5 Owner:\'a0{\field{\*\fldinst{HYPERLINK "https://our.internmc.facebook.com/intern/profile/?id=1464103231"}}{\fldrslt \cf6 \strokec6 Andrejs Krasilnikovs}}\
+\pard\pardeftab720\sl280\partightenfactor0
+
+\f2\i \cf7 \strokec7 \
+\pard\pardeftab720\sl320\partightenfactor0
+
+\f1\i0 \cf5 \strokec5 Medium\
+\pard\pardeftab720\sl280\partightenfactor0
+
+\f2\i \cf7 \strokec7 \
+\pard\pardeftab720\sl320\partightenfactor0
+
+\f1\i0 \cf5 \strokec5 Ninja\
+\pard\pardeftab720\sl280\partightenfactor0
+
+\f2\i \cf7 \strokec7 \
+\pard\pardeftab720\sl320\partightenfactor0
+
+\f1\i0 \cf5 \strokec5 Algorithm\
+\pard\pardeftab720\sl560\partightenfactor0
+
+\f0\b\fs48 \cf2 \strokec2 Description\
+\pard\pardeftab720\sl280\sa240\partightenfactor0
+
+\f3\b0\fs24 \cf7 \strokec7 Propulsion chemists test the sensitivity of their rocket fuels with a "cardgap rig": a sample is placed on a steel plate and covered with 0 to hundreds of pieces of cardboard. The pile is hit with a hammer of a specific weight and force. The "cardgap number" is the minimum number of cards it takes to prevent a particular chemical from exploding.\
+\pard\pardeftab720\sl280\partightenfactor0
+\cf7 Write an algorithm to determine the cardgap number of an unknown fuel, minimizing the number of tests and explosions.\
+\pard\pardeftab720\sl560\partightenfactor0
+
+\f0\b\fs48 \cf2 \strokec2 Question Statement\
+\pard\pardeftab720\sl280\sa240\partightenfactor0
+
+\f3\b0\fs24 \cf7 \strokec7 The first thing to do is get an upper bound. A piratey answer might be to set the bound by fiat. "If that stuff blows up after more than 100 cards, we probably don't care how many more." A ninja answer might be to expand exponentially: 2, 4, 8, 16, until the explosions stop.\
+Then you do a binary search in between the upper bound (whatever you discovered or set by fiat) and the lower bound (either 0 if set by fiat, or the previous value if you expanded exponentially).\
+Discovering a rough bound may result in a more explosions and tests. Without more information about the distribution of cardgap numbers it's difficult to choose the optimal strategy. As the candidate starts coding, they will realize they need some sort of arbitrary bound anyway, be it 100, 200, or MAXINT.\
+I prefer choosing a bound and testing that bound first. If it does not explode, do a binary search to find the target. The worst case is if you get lucky and chose or discover a bound that happens to be the exact cardgap number.\
+\pard\pardeftab720\sl280\partightenfactor0
+
+\f4\fs20 \cf8 \cb9 \strokec8 ## hammer(N) is a given. In this example, the cardgap number is 99.\cf10 \strokec10 \
+\pard\pardeftab720\sl280\partightenfactor0
+\cf11 \strokec11 def\cf10 \strokec10  \cf12 \strokec12 hammer\cf13 \strokec13 (\cf11 \strokec11 N\cf13 \strokec13 ):\cf10 \strokec10 \
+    \cf11 \strokec11 val\cf10 \strokec10  \cf13 \strokec13 =\cf10 \strokec10  \cf14 \strokec14 'OK'\cf10 \strokec10  \cf15 \strokec15 if\cf10 \strokec10  \cf11 \strokec11 N\cf10 \strokec10  \cf13 \strokec13 >\cf10 \strokec10  \cf16 \strokec16 99\cf10 \strokec10  \cf15 \strokec15 else\cf10 \strokec10  \cf14 \strokec14 'BOOM'\cf10 \strokec10 \
+    \cf11 \strokec11 print\cf10 \strokec10  \cf11 \strokec11 N\cf13 \strokec13 ,\cf10 \strokec10  \cf11 \strokec11 val\cf10 \strokec10 \
+    \cf15 \strokec15 return\cf10 \strokec10  \cf11 \strokec11 val\cf10 \strokec10 \
+\pard\pardeftab720\sl280\partightenfactor0
+\cf14 \strokec14 `\cf10 \strokec10 \
+\pard\pardeftab720\sl280\sa240\partightenfactor0
+
+\f3\fs24 \cf7 \cb1 \strokec7 The binary search is the same for both strategies. There is not an obvious test for whether you've found the right value; you have to infer it from the distance between hi and lo.\
+\pard\pardeftab720\sl280\partightenfactor0
+
+\f4\fs20 \cf11 \cb9 \strokec11 import\cf10 \strokec10  \cf11 \strokec11 math\cf10 \strokec10 \
+\cf11 \strokec11 def\cf10 \strokec10  \cf12 \strokec12 cardgap\cf13 \strokec13 (\cf11 \strokec11 lo\cf13 \strokec13 ,\cf10 \strokec10  \cf11 \strokec11 hi\cf13 \strokec13 ):\cf10 \strokec10 \
+    \cf15 \strokec15 if\cf10 \strokec10  \cf11 \strokec11 hi\cf10 \strokec10  \cf13 \strokec13 -\cf10 \strokec10  \cf11 \strokec11 lo\cf10 \strokec10  \cf13 \strokec13 <\cf10 \strokec10  \cf16 \strokec16 2\cf13 \strokec13 :\cf10 \strokec10 \
+        \cf15 \strokec15 return\cf10 \strokec10  \cf11 \strokec11 hi\cf10 \strokec10 \
+    \cf11 \strokec11 mid\cf10 \strokec10  \cf13 \strokec13 =\cf10 \strokec10  \cf11 \strokec11 math\cf13 \strokec13 .\cf12 \strokec12 ceil\cf13 \strokec13 ((\cf11 \strokec11 hi\cf10 \strokec10  \cf13 \strokec13 -\cf10 \strokec10  \cf11 \strokec11 lo\cf13 \strokec13 )\cf10 \strokec10  \cf13 \strokec13 /\cf10 \strokec10  \cf16 \strokec16 2\cf13 \strokec13 )\cf10 \strokec10  \cf13 \strokec13 +\cf10 \strokec10  \cf11 \strokec11 lo\cf10 \strokec10 \
+    \cf15 \strokec15 if\cf10 \strokec10  \cf12 \strokec12 hammer\cf13 \strokec13 (\cf11 \strokec11 mid\cf13 \strokec13 )\cf10 \strokec10  \cf13 \strokec13 ==\cf10 \strokec10  \cf14 \strokec14 'OK'\cf13 \strokec13 :\cf10 \strokec10 \
+        \cf15 \strokec15 return\cf10 \strokec10  \cf12 \strokec12 cardgap\cf13 \strokec13 (\cf11 \strokec11 lo\cf13 \strokec13 ,\cf10 \strokec10  \cf11 \strokec11 mid\cf13 \strokec13 )\cf10 \strokec10 \
+    \cf15 \strokec15 else\cf13 \strokec13 :\cf10 \strokec10 \
+        \cf15 \strokec15 return\cf10 \strokec10  \cf12 \strokec12 cardgap\cf13 \strokec13 (\cf11 \strokec11 mid\cf13 \strokec13 ,\cf10 \strokec10  \cf11 \strokec11 hi\cf13 \strokec13 )\cf10 \strokec10 \
+\pard\pardeftab720\sl280\sa240\partightenfactor0
+
+\f3\fs24 \cf7 \cb1 \strokec7 \
+\pard\pardeftab720\sl280\partightenfactor0
+
+\f4\fs20 \cf8 \cb9 \strokec8 # by fiat\cf10 \strokec10 \
+\pard\pardeftab720\sl280\partightenfactor0
+\cf15 \strokec15 if\cf10 \strokec10  \cf12 \strokec12 hammer\cf13 \strokec13 (\cf16 \strokec16 100\cf13 \strokec13 )\cf10 \strokec10  \cf13 \strokec13 ==\cf10 \strokec10  \cf14 \strokec14 'OK'\cf13 \strokec13 :\cf10 \strokec10 \
+    \cf11 \strokec11 print\cf10 \strokec10  \cf12 \strokec12 cardgap\cf13 \strokec13 (\cf16 \strokec16 0\cf13 \strokec13 ,\cf10 \strokec10  \cf16 \strokec16 100\cf13 \strokec13 )\cf10 \strokec10 \
+\cf15 \strokec15 else\cf13 \strokec13 :\cf10 \strokec10 \
+    \cf11 \strokec11 print\cf10 \strokec10  \cf16 \strokec16 100\cf10 \strokec10 \
+\pard\pardeftab720\sl280\sa240\partightenfactor0
+
+\f3\fs24 \cf7 \cb1 \strokec7 \
+\pard\pardeftab720\sl280\partightenfactor0
+
+\f4\fs20 \cf16 \cb9 \strokec16 100\cf10 \strokec10  \cf11 \strokec11 OK\cf10 \strokec10 \
+\cf16 \strokec16 50.0\cf10 \strokec10  \cf11 \strokec11 BOOM\cf10 \strokec10 \
+\cf16 \strokec16 75.0\cf10 \strokec10  \cf11 \strokec11 BOOM\cf10 \strokec10 \
+\cf16 \strokec16 88.0\cf10 \strokec10  \cf11 \strokec11 BOOM\cf10 \strokec10 \
+\cf16 \strokec16 94.0\cf10 \strokec10  \cf11 \strokec11 BOOM\cf10 \strokec10 \
+\cf16 \strokec16 97.0\cf10 \strokec10  \cf11 \strokec11 BOOM\cf10 \strokec10 \
+\cf16 \strokec16 99.0\cf10 \strokec10  \cf11 \strokec11 BOOM\cf10 \strokec10 \
+\cf16 \strokec16 100\cf10 \strokec10 \
+\pard\pardeftab720\sl280\sa240\partightenfactor0
+
+\f3\fs24 \cf7 \cb1 \strokec7 \
+\pard\pardeftab720\sl280\partightenfactor0
+
+\f4\fs20 \cf8 \cb9 \strokec8 # find the bound\cf10 \strokec10 \
+\pard\pardeftab720\sl280\partightenfactor0
+\cf11 \strokec11 def\cf10 \strokec10  \cf12 \strokec12 find_upper\cf13 \strokec13 ():\cf10 \strokec10 \
+    \cf15 \strokec15 for\cf10 \strokec10  \cf11 \strokec11 n\cf10 \strokec10  \cf11 \strokec11 in\cf10 \strokec10  \cf12 \strokec12 range\cf13 \strokec13 (\cf16 \strokec16 1\cf13 \strokec13 ,\cf10 \strokec10  \cf16 \strokec16 20\cf13 \strokec13 ):\cf10 \strokec10 \
+        \cf15 \strokec15 if\cf10 \strokec10  \cf12 \strokec12 hammer\cf13 \strokec13 (\cf11 \strokec11 n\cf13 \strokec13 **\cf16 \strokec16 2\cf13 \strokec13 )\cf10 \strokec10  \cf13 \strokec13 ==\cf10 \strokec10  \cf14 \strokec14 'OK'\cf13 \strokec13 :\cf10 \strokec10 \
+            \cf15 \strokec15 return\cf10 \strokec10  \cf11 \strokec11 n\cf13 \strokec13 **\cf16 \strokec16 2\cf10 \strokec10 \
+    \cf15 \strokec15 return\cf10 \strokec10  \cf16 \strokec16 20\cf13 \strokec13 **\cf16 \strokec16 2\cf10 \strokec10 \
+\
+\cf11 \strokec11 limit\cf10 \strokec10  \cf13 \strokec13 =\cf10 \strokec10  \cf12 \strokec12 find_upper\cf13 \strokec13 ()\cf10 \strokec10 \
+\cf11 \strokec11 print\cf10 \strokec10  \cf12 \strokec12 cardgap\cf13 \strokec13 (\cf11 \strokec11 limit\cf13 \strokec13 /\cf16 \strokec16 2\cf13 \strokec13 ,\cf10 \strokec10  \cf11 \strokec11 limit\cf13 \strokec13 )\cf10 \strokec10 \
+\pard\pardeftab720\sl280\sa240\partightenfactor0
+
+\f3\fs24 \cf7 \cb1 \strokec7 \
+\pard\pardeftab720\sl280\partightenfactor0
+
+\f4\fs20 \cf16 \cb9 \strokec16 2\cf10 \strokec10  \cf11 \strokec11 BOOM\cf10 \strokec10 \
+\cf16 \strokec16 4\cf10 \strokec10  \cf11 \strokec11 BOOM\cf10 \strokec10 \
+\cf16 \strokec16 8\cf10 \strokec10  \cf11 \strokec11 BOOM\cf10 \strokec10 \
+\cf16 \strokec16 16\cf10 \strokec10  \cf11 \strokec11 BOOM\cf10 \strokec10 \
+\cf16 \strokec16 32\cf10 \strokec10  \cf11 \strokec11 BOOM\cf10 \strokec10 \
+\cf16 \strokec16 64\cf10 \strokec10  \cf11 \strokec11 BOOM\cf10 \strokec10 \
+\cf16 \strokec16 128\cf10 \strokec10  \cf11 \strokec11 OK\cf10 \strokec10 \
+\cf16 \strokec16 96.0\cf10 \strokec10  \cf11 \strokec11 BOOM\cf10 \strokec10 \
+\cf16 \strokec16 112.0\cf10 \strokec10  \cf11 \strokec11 OK\cf10 \strokec10 \
+\cf16 \strokec16 104.0\cf10 \strokec10  \cf11 \strokec11 OK\cf10 \strokec10 \
+\cf16 \strokec16 100.0\cf10 \strokec10  \cf11 \strokec11 OK\cf10 \strokec10 \
+\cf16 \strokec16 98.0\cf10 \strokec10  \cf11 \strokec11 BOOM\cf10 \strokec10 \
+\cf16 \strokec16 99.0\cf10 \strokec10  \cf11 \strokec11 BOOM\cf10 \strokec10 \
+\cf16 \strokec16 100.0\cf10 \strokec10 \
+\pard\pardeftab720\sl280\partightenfactor0
+
+\f3\fs24 \cf7 \cb1 \strokec7 This question differs from the "egg-drop" or "bowling ball" question in that there is no initial upper bound, and you can have more than two failures. The failure mode is also reversed, which may sometimes trip people: the lower the number, the more likely you are to go BOOM.\
+}

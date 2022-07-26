@@ -1,0 +1,94 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1671\cocoasubrtf200
+{\fonttbl\f0\fnil\fcharset0 HelveticaNeue-Bold;\f1\fnil\fcharset0 HelveticaNeue;\f2\fmodern\fcharset0 Courier;
+\f3\fmodern\fcharset0 Courier-Oblique;}
+{\colortbl;\red255\green255\blue255;\red22\green25\blue31;\red255\green255\blue255;\red42\green44\blue51;
+\red249\green249\blue249;\red147\green0\blue147;\red133\green85\blue4;\red143\green144\blue150;}
+{\*\expandedcolortbl;;\cssrgb\c11373\c12941\c16078;\cssrgb\c100000\c100000\c100000;\cssrgb\c21961\c22745\c25882;
+\cssrgb\c98039\c98039\c98039;\cssrgb\c65098\c14902\c64314;\cssrgb\c59608\c40784\c392;\cssrgb\c62745\c63137\c65490;}
+{\*\listtable{\list\listtemplateid1\listhybrid{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{disc\}}{\leveltext\leveltemplateid1\'01\uc0\u8226 ;}{\levelnumbers;}\fi-360\li720\lin720 }{\listname ;}\listid1}
+{\list\listtemplateid2\listhybrid{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{disc\}}{\leveltext\leveltemplateid101\'01\uc0\u8226 ;}{\levelnumbers;}\fi-360\li720\lin720 }{\listname ;}\listid2}
+{\list\listtemplateid3\listhybrid{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{disc\}}{\leveltext\leveltemplateid201\'01\uc0\u8226 ;}{\levelnumbers;}\fi-360\li720\lin720 }{\listname ;}\listid3}}
+{\*\listoverridetable{\listoverride\listid1\listoverridecount0\ls1}{\listoverride\listid2\listoverridecount0\ls2}{\listoverride\listid3\listoverridecount0\ls3}}
+\margl1440\margr1440\vieww10800\viewh8400\viewkind0
+\deftab720
+\pard\pardeftab720\sl860\partightenfactor0
+
+\f0\b\fs72 \cf2 \cb3 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 Palindrome\
+\pard\pardeftab720\sl480\partightenfactor0
+
+\f1\b0\fs30 \cf2 Owner: Keith Adams\cb1 \
+\cb3 Return whether the given string, ignoring punctuation and capitalization, is a palindrome.\cb1 \
+\cb3 Consider the string: "A man, a plan, a canal, Panama!" It's a famous example of a\'a0
+\i palindrome
+\i0 , a chunk of text which is "the same" backward and forward. (I usually let the candidate reason from this example what I mean by "the same".)\cb1 \
+\cb3 Many candidates' instinct is to normalize the string: make a copy of it with punctuation removed and case normalized, then a single counter from 0 to len / 2. This is too easy; we really want to do it in place. Ask the candidate to imagine that the strings are really huge, and are almost never palindromes.\cb1 \
+\cb3 Here's a believed-perfect answer in C++:\cb1 \
+\pard\pardeftab720\sl480\partightenfactor0
+
+\f2 \cf4 \cb5 \strokec4 bool\
+palindrome(\cf6 \strokec6 const\cf4 \strokec4  string& s) \{\
+  ssize_t start = \cf7 \strokec7 0\cf4 \strokec4 ;\
+  ssize_t end = s.size() - \cf7 \strokec7 1\cf4 \strokec4 ;\
+\
+  \cf6 \strokec6 while\cf4 \strokec4  (start < end) \{\
+    \cf6 \strokec6 if\cf4 \strokec4  (!isalpha(s[start])) \{ 
+\f3\i \cf8 \strokec8 // :a:
+\f2\i0 \cf4 \strokec4 \
+      start++;\
+      \cf6 \strokec6 continue\cf4 \strokec4 ;\
+    \}\
+\
+    \cf6 \strokec6 if\cf4 \strokec4  (!isalpha(s[end])) \{ 
+\f3\i \cf8 \strokec8 // :b:
+\f2\i0 \cf4 \strokec4 \
+      end--;\
+      \cf6 \strokec6 continue\cf4 \strokec4 ;\
+    \}\
+\
+    \cf6 \strokec6 if\cf4 \strokec4  (tolower(s[start]) != tolower(s[end])) \{ 
+\f3\i \cf8 \strokec8 // :c:
+\f2\i0 \cf4 \strokec4 \
+      \cf6 \strokec6 return\cf4 \strokec4  \cf6 \strokec6 false\cf4 \strokec4 ;\
+    \}\
+\
+    start++; 
+\f3\i \cf8 \strokec8 // :d:
+\f2\i0 \cf4 \strokec4 \
+    end--;\
+  \}\
+  \cf6 \strokec6 return\cf4 \strokec4  \cf6 \strokec6 true\cf4 \strokec4 ;\
+\}\
+\pard\pardeftab720\sl480\partightenfactor0
+
+\f1 \cf2 \cb3 \strokec2 Typical errors:\cb1 \
+\pard\tx220\tx720\pardeftab720\li720\fi-720\sl480\partightenfactor0
+\ls1\ilvl0\cf2 \cb3 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\uc0\u8226 	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 Trying to handle more than one "garbage" character in a row, by writing "while" instead of "if" at lines :a: and :b:. This can be made to work, but you have to very carefully validate the bounds for cases where start and end cross in the innermost loop.\cb1 \
+\ls1\ilvl0\cb3 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\uc0\u8226 	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 Forgetting lines :d: and :d: + 1 entirely; it's tempting to forget to move the pointers after making a successful comparison.\cb1 \
+\ls1\ilvl0\cb3 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\uc0\u8226 	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 If a candidate handles the empty string or one-character strings with special one-off if's before the main loop, be suspicious. It's a form of stalling, and not realizing it's unnecessary is a real sign of weakness; it entails not realizing what the loop invariant really is.\cb1 \
+\ls1\ilvl0\cb3 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\uc0\u8226 	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 Foul-ups with signedness of types and the loop condition. E.g., if the candidate uses size_t's for the string indices, the test '(start <= end)' will be true for start == 0 and end == -1ull when processing the empty string.\cb1 \
+\pard\pardeftab720\sl480\partightenfactor0
+\cf2 \cb3 Even quite strong candidates usually make one or more of these errors, especially the nested loop one. If you get a perfect answer, you can go deeper in a couple of different dimensions:\cb1 \
+\pard\tx220\tx720\pardeftab720\li720\fi-720\sl480\partightenfactor0
+\ls2\ilvl0\cf2 \cb3 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\uc0\u8226 	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 Handle utf-8, or any other variable-length encoding scheme.\cb1 \
+\ls2\ilvl0\cb3 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\uc0\u8226 	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 Exploit parallelism. Straight divide-and-conquer won't work, because you don't know where to "divide" until you've detected punctuation. But it turns out the punctuation detection is parallelizable, too (hint).\cb1 \
+\pard\pardeftab720\sl480\sa100\partightenfactor0
+
+\f0\b\fs36 \cf2 \cb3 Extensions\cb1 \
+\pard\pardeftab720\sl480\partightenfactor0
+
+\f1\b0\fs30 \cf2 \cb3 These are a little bit far-fetched. Under most circumstances, I just ask a different, harder question after putting this one away. But they can be of use.\cb1 \
+\pard\tx220\tx720\pardeftab720\li720\fi-720\sl480\partightenfactor0
+\ls3\ilvl0\cf2 \cb3 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\uc0\u8226 	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 (For candidates who are SIMD experts). Imagine you're doing this on a GPU or with another SIMD machine. Then what? You need to build a map of punctuation, which is a nice SIMD process. Then you need to partition so that different threads are comparing distinct, same-size-minus-punctuation fragments from the beginning to the end. If all such fragments succeed, you have a winner.\cb1 \
+\ls3\ilvl0\cb3 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\uc0\u8226 	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 (For candidates who are distributed computing experts). You're doing the same thing with a *truly enormous* string, that must be spread across multiple machines' disks. The answer ends up being similar to the SIMD one.\cb1 \
+\ls3\ilvl0\cb3 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\uc0\u8226 	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 (From bolek@) If the candidate quickly finishes the main part I like to ask a follow-up where the string is too big to fit in memory and is accessible only via getSegment(start, end) calls. You cannot ask for segments larger than MAX_LEN and should minimize the number of calls (not ask for one char at a time). Strong candidates will abstract string access into a separate object and re-use almost all of their code to the main problem. Slightly weaker candidates will fetch new segments on demand and usually re-use large pieces of existing code. Weak candidates will start from scratch, keep track of 4+ indices and probably get lost half-way.\cb1 \
+}

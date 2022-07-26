@@ -24,6 +24,8 @@ def anagram_buckets(word_list):
             # else:
             #     maplist[key]=[word]
 
+        print(maplist.values())
+
         return [ j for i, j in maplist.items() ]
 
 

@@ -1,0 +1,44 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1671\cocoasubrtf200
+{\fonttbl\f0\fnil\fcharset0 HelveticaNeue-Bold;\f1\fnil\fcharset0 HelveticaNeue;\f2\fmodern\fcharset0 Courier-Oblique;
+\f3\fmodern\fcharset0 Courier;}
+{\colortbl;\red255\green255\blue255;\red22\green25\blue31;\red255\green255\blue255;\red143\green144\blue150;
+\red249\green249\blue249;\red42\green44\blue51;\red66\green147\blue62;}
+{\*\expandedcolortbl;;\cssrgb\c11373\c12941\c16078;\cssrgb\c100000\c100000\c100000;\cssrgb\c62745\c63137\c65490;
+\cssrgb\c98039\c98039\c98039;\cssrgb\c21961\c22745\c25882;\cssrgb\c31373\c63137\c30980;}
+\margl1440\margr1440\vieww10800\viewh8400\viewkind0
+\deftab720
+\pard\pardeftab720\sl860\partightenfactor0
+
+\f0\b\fs72 \cf2 \cb3 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 String Reverse Words\
+\pard\pardeftab720\sl480\sa200\partightenfactor0
+
+\fs42 \cf2 Question\cb1 \
+\pard\pardeftab720\sl480\partightenfactor0
+
+\f1\b0\fs30 \cf2 \cb3 Author: danielw\cb1 \
+\
+\cb3 Difficulty: Warmup or Medium, depending on candidate's language choice\cb1 \
+\cb3 Provide the following method headers, and ask the candidate to solve the problem in a language of their choice.\cb1 \
+\pard\pardeftab720\sl480\partightenfactor0
+
+\f2\i \cf4 \cb5 \strokec4 /**\
+ * Given a string, returns a string with the order of the words reversed.\
+ * For example, "dog bites man" becomes "man bites dog"\
+ */
+\f3\i0 \cf6 \strokec6 \
+reverse_words(string $input) \{ \}\
+char *reverse_words(char *input) \{ \}\
+std::string reverse_words(std::string input) \{ \}\
+\pard\pardeftab720\sl480\partightenfactor0
+
+\f1 \cf2 \cb3 \strokec2 This question can go one of two directions. For scripting oriented programmers, it should be very simple to split the words into an array, reverse them, and rejoin them. From here, you can ask what would make this routine more useful and see what answers the candidate can give you (handling punctuation and capitalization, for instance, to turn "Dog bites man." into "Man bites dog.")\cb1 \
+\cb3 Systems folks tend not to know that using a scripting language will make this easy, and instead focus on an ah-ha trick with a string buffer, reversing the entire string and then reversing each individual word in place. If the candidate doesn't know this trick already, hint them to it quickly so they can get coding. You'll expect to see a reverse subroutine, and need to watch out for off-by-one errors.\cb1 \
+\pard\pardeftab720\sl480\sa200\partightenfactor0
+
+\f0\b\fs42 \cf2 \cb3 Basic Solution\cb1 \
+\pard\pardeftab720\sl480\partightenfactor0
+
+\f3\b0\fs30 \cf6 \cb5 \strokec6 hphpd> =implode(\cf7 \strokec7 ' '\cf6 \strokec6 , array_reverse(explode(\cf7 \strokec7 ' '\cf6 \strokec6 , \cf7 \strokec7 'man bites dog'\cf6 \strokec6 )))\
+dog bites man\
+}

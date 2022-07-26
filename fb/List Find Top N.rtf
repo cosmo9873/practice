@@ -1,0 +1,86 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1671\cocoasubrtf200
+{\fonttbl\f0\fnil\fcharset0 HelveticaNeue-Bold;\f1\fnil\fcharset0 HelveticaNeue;\f2\fmodern\fcharset0 Courier;
+\f3\fmodern\fcharset0 Courier-Oblique;}
+{\colortbl;\red255\green255\blue255;\red22\green25\blue31;\red255\green255\blue255;\red41\green67\blue135;
+\red42\green44\blue51;\red249\green249\blue249;\red147\green0\blue147;\red133\green85\blue4;\red143\green144\blue150;
+}
+{\*\expandedcolortbl;;\cssrgb\c11373\c12941\c16078;\cssrgb\c100000\c100000\c100000;\cssrgb\c21176\c34510\c60000;
+\cssrgb\c21961\c22745\c25882;\cssrgb\c98039\c98039\c98039;\cssrgb\c65098\c14902\c64314;\cssrgb\c59608\c40784\c392;\cssrgb\c62745\c63137\c65490;
+}
+{\*\listtable{\list\listtemplateid1\listhybrid{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{disc\}}{\leveltext\leveltemplateid1\'01\uc0\u8226 ;}{\levelnumbers;}\fi-360\li720\lin720 }{\listname ;}\listid1}
+{\list\listtemplateid2\listhybrid{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{disc\}}{\leveltext\leveltemplateid101\'01\uc0\u8226 ;}{\levelnumbers;}\fi-360\li720\lin720 }{\listname ;}\listid2}
+{\list\listtemplateid3\listhybrid{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{disc\}}{\leveltext\leveltemplateid201\'01\uc0\u8226 ;}{\levelnumbers;}\fi-360\li720\lin720 }{\listname ;}\listid3}}
+{\*\listoverridetable{\listoverride\listid1\listoverridecount0\ls1}{\listoverride\listid2\listoverridecount0\ls2}{\listoverride\listid3\listoverridecount0\ls3}}
+\margl1440\margr1440\vieww10800\viewh8400\viewkind0
+\deftab720
+\pard\pardeftab720\sl860\partightenfactor0
+
+\f0\b\fs72 \cf2 \cb3 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 List Find Top N\
+\pard\pardeftab720\sl480\sa200\partightenfactor0
+
+\fs42 \cf2 Question\cb1 \
+\pard\pardeftab720\sl480\partightenfactor0
+
+\f1\b0\fs30 \cf2 \cb3 Author: eric\cb1 \
+\cb3 Difficulty: Easy/Medium\cb1 \
+\cb3 Another copy of this:\'a0{\field{\*\fldinst{HYPERLINK "https://our.internmc.facebook.com/intern/wiki/Engineering/Interviewing/Ninja/Points_Nearest/"}}{\fldrslt \cf4 \strokec4 Points Nearest}}\cb1 \
+\cb3 Given a list of n (where n \uc0\u8776  1,000,000) points in 3D space, return the k (where k \u8776  1,000) closest points to the origin.\cb1 \
+\cb3 There are several ways to ask this question. Another way: Write a function to find the 100 most popular names on Facebook. Optimize it for daily use, given that only N new accounts are added daily to the total of M accounts, N << M\cb1 \
+\pard\pardeftab720\sl480\sa100\partightenfactor0
+
+\f0\b\fs36 \cf2 \cb3 Solution\cb1 \
+\pard\pardeftab720\sl480\partightenfactor0
+
+\f1\b0\fs30 \cf2 \cb3 Maintain a max-heap of size k, using squared distances to the origin as keys, which will contain the k closest points. Here's some pseudocode:\cb1 \
+\pard\pardeftab720\sl480\partightenfactor0
+
+\f2 \cf5 \cb6 \strokec5 heap = \cf7 \strokec7 new\cf5 \strokec5  MaxHeap()\
+\pard\pardeftab720\sl480\partightenfactor0
+\cf7 \strokec7 foreach\cf5 \strokec5  point in input:\
+  d = point.x ^ \cf8 \strokec8 2\cf5 \strokec5  + point.y ^ \cf8 \strokec8 2\cf5 \strokec5  + point.z ^ \cf8 \strokec8 2\cf5 \strokec5     
+\f3\i \cf9 \strokec9 // don't need to sqrt()
+\f2\i0 \cf5 \strokec5 \
+  \cf7 \strokec7 if\cf5 \strokec5  heap.size() < k:\
+    heap.insert(d, point) \
+  \cf7 \strokec7 else\cf5 \strokec5  \cf7 \strokec7 if\cf5 \strokec5  d < heap.maxKey():  
+\f3\i \cf9 \strokec9 // O(1)
+\f2\i0 \cf5 \strokec5 \
+    heap.removeMax()          
+\f3\i \cf9 \strokec9 // O(log k)
+\f2\i0 \cf5 \strokec5 \
+    heap.insert(d, point)     
+\f3\i \cf9 \strokec9 // O(log k)
+\f2\i0 \cf5 \strokec5 \
+\
+\cf7 \strokec7 return\cf5 \strokec5  heap.elements()\
+\pard\pardeftab720\sl480\partightenfactor0
+
+\f1 \cf2 \cb3 \strokec2 This solution takes O (n log k)-time, and uses O(k) additional space. It does not require random access to the input, and does not require that the entire input can fit into memory.\cb1 \
+\pard\pardeftab720\sl480\sa100\partightenfactor0
+
+\f0\b\fs36 \cf2 \cb3 Alternate Solutions\cb1 \
+\pard\pardeftab720\sl480\partightenfactor0
+
+\f1\b0\fs30 \cf2 \cb3 There are a number of other potentially acceptable solutions to this.\cb1 \
+\pard\tx220\tx720\pardeftab720\li720\fi-720\sl480\partightenfactor0
+\ls1\ilvl0\cf2 \cb3 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\uc0\u8226 	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 Build a min-heap of the entire list of n points in O(n)-time (this is possible using bottom-up heap construction), and then pop off the top k elements. This takes O(n + k log n)-time, but requires O(n)-space.\cb1 \
+\pard\tx220\tx720\pardeftab720\li720\fi-720\sl480\partightenfactor0
+\ls2\ilvl0\cf2 \cb3 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\uc0\u8226 	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 Use the linear-time SELECT (aka "median of medians") algorithm to determine the kth closest point (and its distance), then iterate through the n points and keep track of every point that has a smaller distance than the kth closest one. This approach takes O(n)-time, but requires random access to the list of points.\cb1 \
+\pard\pardeftab720\sl480\partightenfactor0
+\cf2 \
+\cb3 Turns out, there's a Wikipedia page that describes this problem and offers several solutions:{\field{\*\fldinst{HYPERLINK "https://l.facebook.com/l.php?u=https%3A%2F%2Fen.wikipedia.org%2Fwiki%2FSelection_algorithm%23Selecting_k_smallest_or_largest_elements.&h=AT1nxWPYvcyP3KkffTzuRnjjerdwXBeSWMWj1z5I4Ii6XYgT-hE812Ht01MdwJX5yqjWZRNFRedGfoSJMxxwXOPdCjp5HHCpjY32xRiXahZ5xsLxsI2W56WfLTm-pdq0ctM8IkXkw2Bj7oWlHFWo0YQP"}}{\fldrslt \cf4 \strokec4 http://en.wikipedia.org/wiki/Selection_algorithm#Selecting_k_smallest_or_largest_elements.}}\'a0Maybe this means we shouldn't ask the question. :-/\cb1 \
+\pard\pardeftab720\sl480\sa100\partightenfactor0
+
+\f0\b\fs36 \cf2 \cb3 Things to look for\cb1 \
+\pard\tx220\tx720\pardeftab720\li720\fi-720\sl480\partightenfactor0
+\ls3\ilvl0
+\f1\b0\fs30 \cf2 \cb3 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\uc0\u8226 	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 It's fine if a candidate initially presents the trivial solution - sorting the entire list and popping off the top k entries, but he or she should immediately identify that this O(n log n)-time, O(n)-space approach can be improved.\cb1 \
+\ls3\ilvl0\cb3 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\uc0\u8226 	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 It's not necessary to use a heap. Any data structure that supports the three necessary operations (i.e., check whether the point should be included, insert the point, eject the maximum) in O(log k)-time (e.g. balanced binary search tree) is fine.\cb1 \
+\ls3\ilvl0\cb3 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\uc0\u8226 	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 If a candidate instead uses a sorted or unsorted list or array of size k, the overall running time is O(nk) (because either the insert or removal will take O(k)). This is on the right track, but it should be improved.\cb1 \
+}

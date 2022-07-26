@@ -1,0 +1,237 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1671\cocoasubrtf200
+{\fonttbl\f0\fnil\fcharset0 HelveticaNeue-Bold;\f1\fnil\fcharset0 HelveticaNeue;\f2\fmodern\fcharset0 Courier-Oblique;
+\f3\fmodern\fcharset0 Courier;}
+{\colortbl;\red255\green255\blue255;\red22\green25\blue31;\red255\green255\blue255;\red41\green67\blue135;
+\red143\green144\blue150;\red249\green249\blue249;\red42\green44\blue51;\red147\green0\blue147;\red50\green94\blue238;
+\red133\green85\blue4;\red66\green147\blue62;\red178\green113\blue6;}
+{\*\expandedcolortbl;;\cssrgb\c11373\c12941\c16078;\cssrgb\c100000\c100000\c100000;\cssrgb\c21176\c34510\c60000;
+\cssrgb\c62745\c63137\c65490;\cssrgb\c98039\c98039\c98039;\cssrgb\c21961\c22745\c25882;\cssrgb\c65098\c14902\c64314;\cssrgb\c25098\c47059\c94902;
+\cssrgb\c59608\c40784\c392;\cssrgb\c31373\c63137\c30980;\cssrgb\c75686\c51765\c392;}
+{\*\listtable{\list\listtemplateid1\listhybrid{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{disc\}}{\leveltext\leveltemplateid1\'01\uc0\u8226 ;}{\levelnumbers;}\fi-360\li720\lin720 }{\listname ;}\listid1}}
+{\*\listoverridetable{\listoverride\listid1\listoverridecount0\ls1}}
+\margl1440\margr1440\vieww10800\viewh8400\viewkind0
+\deftab720
+\pard\pardeftab720\sl860\partightenfactor0
+
+\f0\b\fs72 \cf2 \cb3 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 PalindromeGenerator\
+\pard\pardeftab720\sl480\partightenfactor0
+
+\f1\b0\fs30 \cf2 Owner:\'a0{\field{\*\fldinst{HYPERLINK "https://our.internmc.facebook.com/intern/profile/?id=530929372"}}{\fldrslt \cf4 \strokec4 Keith Adams}}\cb1 \
+\pard\pardeftab720\sl480\partightenfactor0
+
+\i \cf2 \cb3 Please note: this is a tricky question. Even strong candidates will usually need some hinting and discussion to get through it. I use it mostly as a "topper" for candidates that have very convincingly trounced a normal ninja question and have a lot of time left. I would recommend against it for new interviewers.
+\i0 \cb1 \
+\pard\pardeftab720\sl480\partightenfactor0
+\cf2 \cb3 Given a dictionary, find all pairs of words that, when concatenated together, form a palindrome. For instance, in English we would be looking for pairs like (slangish, signals); (cigar, tragic); (none, xenon); (warrener, raw); (rotatively, levitator); (redrawer; rewarder). Etc. Note that these are super-hard to come up with on the spot, so be sure to have some examples memorized. Here's all 37981 pairs from the 479829 line /usr/share/dict/words on my dev server:\'a0{\field{\*\fldinst{HYPERLINK "https://l.facebook.com/l.php?u=https%3A%2F%2Fphabricator.fb.com%2FP19954500.&h=AT32tKbaqfMfrillbptt2ty3iD7gX00s0OxO_Gt53PF1_L7JBBEBofqFeKNY4HBhcO6OVbmIyPUMf5iFi7bpLlbXaJnriCGMNZkC6VKheZuUkMDEah7Z5_kppruhNB5wx0UggHHagbi13cuy0G__piZe"}}{\fldrslt \cf4 \strokec4 https://phabricator.fb.com/P19954500.}}\cb1 \
+\cb3 Most candidates will see the n^2 solution immediately. It really is unacceptable in practice; it takes a very long time to produce an answer on my dev server. Some candidates will reach for tries, but tries turn out to be a pretty unwieldy way to go. I suggest hinting away if they spend too much time on them.\cb1 \
+\cb3 One nice constant-time win comes from noticing that if the first word starts with 'a', you only need to consider the words that end in 'a'. This leads to making a hashmap organized by last letter, yielding something like n * n /26 runtime. Still O(n^2), but at least practically tolerable to watch run.\cb1 \
+\cb3 If you assume the maximum word length is a constant (effectively true for realistic languages), linear time is possible. First, you realize that all of the completed palindromes that we will find this way have the structure w1 + pal + reverse(w1), where "pal" is a possibly non-word that is palindromic, i.e., pal == reverse(pal). So instead of looking at pairs of words, you look at each individual word, and see if you can split it into head and tail such that a) tail-reverse(head) is palindromic, and b) reverse(head) is a word. Here's a C++ implementation. It chews through the >235,000 word /usr/share/dict/words on my laptop in 2.5 seconds. The runtime is O(|N| |w|^2), where N is the dictionary length and w is the length of the longest string. Since, in practical languages, w is constant, this is linear under reasonable assumptions.\cb1 \
+\pard\pardeftab720\sl480\partightenfactor0
+
+\f2\i \cf5 \cb6 \strokec5 #include <iostream>
+\f3\i0 \cf7 \strokec7 \
+
+\f2\i \cf5 \strokec5 #include <string>
+\f3\i0 \cf7 \strokec7 \
+
+\f2\i \cf5 \strokec5 #include <unordered_set>
+\f3\i0 \cf7 \strokec7 \
+
+\f2\i \cf5 \strokec5 #include <algorithm>
+\f3\i0 \cf7 \strokec7 \
+\
+using std::unordered_set;\
+using std::string;\
+\
+template<typename Yielder>\
+void findPalPairs(\cf8 \strokec8 const\cf7 \strokec7  unordered_set<string>& dict, Yielder yieldAnswer) \{\
+  using \cf8 \strokec8 namespace\cf7 \strokec7  \cf9 \strokec9 std\cf7 \strokec7 ;\
+\
+  auto isAWord = [&](\cf8 \strokec8 const\cf7 \strokec7  string& w) \{\
+    \cf8 \strokec8 return\cf7 \strokec7  w.size() == \cf10 \strokec10 0\cf7 \strokec7  || dict.count(w) != \cf10 \strokec10 0\cf7 \strokec7 ;\
+  \};\
+\
+  auto isAPal = [&](\cf8 \strokec8 const\cf7 \strokec7  string& w) \{\
+    \cf8 \strokec8 for\cf7 \strokec7  (size_t i = \cf10 \strokec10 0\cf7 \strokec7 ; i <= w.size() / \cf10 \strokec10 2\cf7 \strokec7 ; i++) \{\
+      auto l = w[i];\
+      auto r = w[w.size() - i - \cf10 \strokec10 1\cf7 \strokec7 ];\
+      \cf8 \strokec8 if\cf7 \strokec7  (l != r) \cf8 \strokec8 return\cf7 \strokec7  \cf8 \strokec8 false\cf7 \strokec7 ;\
+    \}\
+    \cf8 \strokec8 return\cf7 \strokec7  \cf8 \strokec8 true\cf7 \strokec7 ;\
+  \};\
+\
+  auto rev = [&](\cf8 \strokec8 const\cf7 \strokec7  string& w) \{\
+    string r(w);\
+    reverse(r.begin(), r.end());\
+    \cf8 \strokec8 return\cf7 \strokec7  r;\
+  \};\
+\
+  \cf8 \strokec8 for\cf7 \strokec7  (\cf8 \strokec8 const\cf7 \strokec7  auto& str : dict) \{\
+    \cf8 \strokec8 for\cf7 \strokec7  (size_t i = \cf10 \strokec10 0\cf7 \strokec7 ; i < str.size(); i++) \{\
+      
+\f2\i \cf5 \strokec5 // For every possible split, is the left-hand side wordy
+\f3\i0 \cf7 \strokec7 \
+      
+\f2\i \cf5 \strokec5 // and the right-hand side palindromic?
+\f3\i0 \cf7 \strokec7 \
+      auto left = str.substr(\cf10 \strokec10 0\cf7 \strokec7 , i);\
+      auto right = str.substr(i, str.size());\
+      auto rleft = rev(left);\
+      auto rright = rev(right);\
+      \cf8 \strokec8 if\cf7 \strokec7  (isAWord(rleft) && isAPal(right)) \{\
+        yieldAnswer(str, rleft);\
+      \}\
+      \cf8 \strokec8 if\cf7 \strokec7  (isAPal(left) && isAWord(rright)) \{\
+        yieldAnswer(rright, str);\
+      \}\
+    \}\
+  \}\
+\}\
+\
+int main(int argc, char** argv) \{\
+  unordered_set<string> dict;\
+  string w;\
+  \cf8 \strokec8 while\cf7 \strokec7  (std::cin >> w) \{\
+    dict.insert(w);\
+  \}\
+\
+  auto yieldAnswer = [&](\cf8 \strokec8 const\cf7 \strokec7  string& s1, \cf8 \strokec8 const\cf7 \strokec7  string& s2) \{\
+    std::cout << \cf11 \strokec11 "("\cf7 \strokec7  << s1 << \cf11 \strokec11 ","\cf7 \strokec7  << s2 << \cf11 \strokec11 ")\\n"\cf7 \strokec7 ;\
+  \};\
+  findPalPairs(dict, yieldAnswer);\
+  \cf8 \strokec8 return\cf7 \strokec7  \cf10 \strokec10 0\cf7 \strokec7 ;\
+\}\
+\pard\pardeftab720\sl480\partightenfactor0
+
+\f1 \cf2 \cb3 \strokec2 I [georgeb] think there are some unhandled edge cases in previous code here is my implementation that is more accurate in terms of:\cb1 \
+\pard\tx220\tx720\pardeftab720\li720\fi-720\sl480\partightenfactor0
+\ls1\ilvl0\cf2 \cb3 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\uc0\u8226 	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 It does not consider a single palindrome dictionary word part of the solution (as problem staits to look for pair of words)\cb1 \
+\ls1\ilvl0\cb3 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\uc0\u8226 	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 It considers the case where the word and its complete reverse are dictionary words (like "abc", "cba") which is missed by previous implementation\cb1 \
+\pard\pardeftab720\sl480\partightenfactor0
+\cf2 \cb3 this is demonstrated by diff between output of both programs\'a0{\field{\*\fldinst{HYPERLINK "https://phabricator.intern.facebook.com/differential/diff/16100358/"}}{\fldrslt \cf4 \strokec4 here}}\'a0(left pane is my output and right one is the output of previous implementation)\
+\pard\pardeftab720\sl480\partightenfactor0
+
+\f2\i \cf5 \cb6 \strokec5 #include <iostream>
+\f3\i0 \cf7 \strokec7 \
+
+\f2\i \cf5 \strokec5 #include <vector>
+\f3\i0 \cf7 \strokec7 \
+
+\f2\i \cf5 \strokec5 #include <memory>
+\f3\i0 \cf7 \strokec7 \
+
+\f2\i \cf5 \strokec5 #include <fstream>
+\f3\i0 \cf7 \strokec7 \
+
+\f2\i \cf5 \strokec5 #include <unordered_set>
+\f3\i0 \cf7 \strokec7 \
+\
+using \cf8 \strokec8 namespace\cf7 \strokec7  \cf9 \strokec9 std\cf7 \strokec7 ;\
+\
+using SType = string::size_type;\
+\
+
+\f2\i \cf5 \strokec5 /*\
+ * would return index of all palindromes starting with first letter\
+ * so "ababadef" should return 0, 2, 4\
+ * as one letter is always a palindrom\
+ * "aba" is a palindrome\
+ * "ababa" is a palindrome\
+ */
+\f3\i0 \cf7 \strokec7 \
+template<\cf8 \strokec8 class\cf7 \strokec7  \cf12 \strokec12 T\cf7 \strokec7 >\
+\pard\pardeftab720\sl480\partightenfactor0
+\cf12 \strokec12 unique_ptr\cf7 \strokec7 <\cf12 \strokec12 vector\cf7 \strokec7 <\cf12 \strokec12 SType\cf7 \strokec7 >> \cf12 \strokec12 getEdgePalindrome\cf7 \strokec7 (\
+    \cf12 \strokec12 T\cf7 \strokec7  \cf12 \strokec12 start\cf7 \strokec7 , \cf12 \strokec12 T\cf7 \strokec7  \cf12 \strokec12 end\cf7 \strokec7 ) \{\
+  unique_ptr<vector<SType>> r(\cf8 \strokec8 new\cf7 \strokec7  vector<SType>);\
+  auto pEnd = end;\
+  \cf8 \strokec8 while\cf7 \strokec7  (pEnd >= start) \{\
+    \cf8 \strokec8 if\cf7 \strokec7  (*pEnd == *start) \{\
+      
+\f2\i \cf5 \strokec5 // potential palidrome
+\f3\i0 \cf7 \strokec7 \
+      auto e = pEnd;\
+      auto s = start;\
+      \cf8 \strokec8 while\cf7 \strokec7  (e >= s) \{\
+        \cf8 \strokec8 if\cf7 \strokec7  (*e == *s) \{\
+          --e;\
+          ++s;\
+        \} \cf8 \strokec8 else\cf7 \strokec7  \{\
+          \cf8 \strokec8 break\cf7 \strokec7 ;\
+        \}\
+      \}\
+      \cf8 \strokec8 if\cf7 \strokec7  (! (e > s)) \{\
+        r->push_back(pEnd-start);\
+      \}\
+    \}\
+    --pEnd;\
+  \}\
+  \cf8 \strokec8 return\cf7 \strokec7  r;\
+\}\
+\
+void generateP (unique_ptr<unordered_set<string>> dict) \{\
+  \cf8 \strokec8 for\cf7 \strokec7  (auto& word : *dict) \{\
+    \cf8 \strokec8 if\cf7 \strokec7  (word.size() > \cf10 \strokec10 0\cf7 \strokec7 ) \{\
+      string rword(word.rbegin(), word.rend());\
+      
+\f2\i \cf5 \strokec5 /*\
+       * check if reverse word exists in dictionary\
+       * making sure that reverse word is not the same word\
+       * meaning that word is not a palindrom\
+       * as problem states that we need to find all pairs\
+       * and by definition concatinating palindrome 2 times would\
+       * result a new palindrom\
+       * "abaaba"\
+       */
+\f3\i0 \cf7 \strokec7 \
+      \cf8 \strokec8 if\cf7 \strokec7  ((word!= rword) && dict->count(rword) > \cf10 \strokec10 0\cf7 \strokec7 ) \{\
+        std::cout << word << \cf11 \strokec11 ":"\cf7 \strokec7  << rword << std::endl;\
+      \}\
+      
+\f2\i \cf5 \strokec5 /*\
+       * Check if partial word exists meaning if word start with a palindrome\
+       * check if reverse of remaining word exists\
+       * if word is "abadef" check if "fedab" or "fed" exists\
+       * if either exists then "fedab:abadef" is a palindrome\
+       * and "fed:abadef" is a palindrom\
+       */
+\f3\i0 \cf7 \strokec7 \
+      auto pLocation = getEdgePalindrome(word.begin(), word.end());\
+      \cf8 \strokec8 for\cf7 \strokec7  (auto& l : *pLocation) \{\
+        string pWord(word.rbegin(), word.rend() - (l+\cf10 \strokec10 1\cf7 \strokec7 ));\
+        \cf8 \strokec8 if\cf7 \strokec7  (pWord.size() > \cf10 \strokec10 0\cf7 \strokec7  && dict->count(pWord) > \cf10 \strokec10 0\cf7 \strokec7 ) \{\
+          std::cout << pWord << \cf11 \strokec11 ":"\cf7 \strokec7  << word << std::endl;\
+        \}\
+      \}\
+      
+\f2\i \cf5 \strokec5 /*\
+       * do the same with reverse word\
+       */
+\f3\i0 \cf7 \strokec7 \
+      auto rpLocation = getEdgePalindrome(word.rbegin(), word.rend());\
+      \cf8 \strokec8 for\cf7 \strokec7  (auto& l : *rpLocation) \{\
+        string pWord(word.rbegin() + (l+\cf10 \strokec10 1\cf7 \strokec7 ), word.rend());\
+        \cf8 \strokec8 if\cf7 \strokec7  (pWord.size() > \cf10 \strokec10 0\cf7 \strokec7  && dict->count(pWord) > \cf10 \strokec10 0\cf7 \strokec7 ) \{\
+          std::cout << word << \cf11 \strokec11 ":"\cf7 \strokec7  << pWord << std::endl;\
+        \}\
+      \}\
+    \}\
+  \}\
+\}\
+\
+int main(int argc, char** argv) \{\
+  std::unique_ptr<unordered_set<string>> dict (\cf8 \strokec8 new\cf7 \strokec7  unordered_set<string>());\
+  string w;\
+  \cf8 \strokec8 while\cf7 \strokec7  (std::cin >> w) \{\
+    dict->insert(w);\
+  \}\
+  generateP(move(dict));\
+  \cf8 \strokec8 return\cf7 \strokec7  \cf10 \strokec10 0\cf7 \strokec7 ;\
+\}\
+\pard\pardeftab720\sl480\partightenfactor0
+
+\f1 \cf2 \cb3 \strokec2 I used my laptop /usr/share/dict/words all lower case and sorted\'a0{\field{\*\fldinst{HYPERLINK "https://phabricator.intern.facebook.com/P56465638"}}{\fldrslt \cf4 \strokec4 here}}\'a0it contains 234371 distinct word and would produce 11176 distinct palindrome also sorted\'a0{\field{\*\fldinst{HYPERLINK "https://phabricator.intern.facebook.com/P56465688"}}{\fldrslt \cf4 \strokec4 here}}\'a0One note about runtime complexity, worst case complexity would be O(n^2) yet in practice average runtime complexity should be close to O(n) as english words do not tend to have that many repeated characters so getEdgePalindrome should find few letters in word matching the first one (n being the number of letters in all words).\cb1 \
+}

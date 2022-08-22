@@ -1,62 +1,65 @@
 
-# # import subprocess
 
-# def swap(array, current):
-#     if current == 0:
-#         print("no-op because index is 0")
-#         return
+f=open("dataset1.csv", "w")
+f.write("NAME,LEG_LENGTH,DIET\n")
+f.write("Hadrosaurus,1.4,herbivore\n")
+f.write("Struthiomimus,0.72,omnivore\n")
+f.write("Velociraptor,1.8,carnivore\n")
+f.write("Triceratops,0.47,herbivore\n")
+f.write("Euoplocephalus,2.6,herbivore\n")
+f.write("Stegosaurus,1.50,herbivore\n")
+f.write("Tyrannosaurus Rex,6.5,carnivore\n")
+f.close()
 
-#     n=int((current-1)/2)
+f=open("dataset2.csv", "w")
+f.write("NAME,STRIDE_LENGTH,STANCE\n")
+f.write("Euoplocephalus,1.97,quadrupedal\n")
+f.write("Stegosaurus,1.70,quadrupedal\n")
+f.write("Tyrannosaurus Rex,4.76,bipedal\n")
+f.write("Hadrosaurus,1.3,bipedal\n")
+f.write("Deinonychus,1.11,bipedal\n")
+f.write("Struthiomimus,1.24,bipedal\n")
+f.write("Velociraptor,2.62,bipedal\n")
+f.close()
 
-#     if array[current] < array[n]:
-#         temp=array[current]
-#         array[current]=array[n]
-#         array[n]=temp
-#         swap(array, n)
+# You will be supplied with two data files in CSV format .
+# The first file contains statistics about various dinosaurs. The second file contains additional data.
+# Given the following formula, speed = ((STRIDE_LENGTH / LEG_LENGTH) - 1) * SQRT(LEG_LENGTH * g)
+# Where g = 9.8 m/s^2 (gravitational constant)
 
-        
-# #myFile=open('test.txt', 'r')
-# #line="10 100 32 48 7 62 11 30"
-# #line=myFile.read(100)
+# Write a program to read in the data files from disk, it must then print the names of only the bipedal dinosaurs from fastest to slowest.
+# Do not print any other information.
 
-# #line = os.system("cat test.txt")
-# line = subprocess.check_output("cat test.txt", shell=True).decode()
+import math
 
-# #line=out.decode()
+G=9.8
 
-# mylist=line.split(" ")
-# mylist = [int(i) for i in mylist]
-# print(mylist)
+stride_length={}
+leg_length={}
+speed_map={}
 
-# for i in range(0, len(mylist)):
-#     swap(mylist, i)
+f=open("dataset2.csv", 'r')
+lines=f.readlines()
 
-# #print(sorted(mylist))
-# #mylist.sort()
-# print(mylist)
+for i in range(1,len(lines)):
+  dino,stride,stance=lines[i].strip().split(',')
+  if stance == "bipedal":
+    stride_length[dino]=float(stride)
 
-# matrix=[[1,2], [3,4]]
-# print(matrix[1][1])
+f=open("dataset1.csv", 'r')
+lines=f.readlines()
+for i in range(1,len(lines)):
+  dino,leg,diet=lines[i].strip().split(',')
+  if dino in stride_length:
+    leg_length[dino]=float(leg)
 
-# import http.client
-# import mimetypes
-# conn = http.client.HTTPSConnection("us-central1-driven-pillar-474.cloudfunctions.net")
-# payload = "Sean Xie"
-# headers = {
-#   'Content-Type': 'text/html'
-# }
-# conn.request("POST", "/function-1", payload, headers)
-# res = conn.getresponse()
-# data = res.read()
-# print(data.decode("utf-8"))
+for dino in stride_length:
+  if dino in leg_length:
+    speed_map[dino]=(stride_length[dino]/leg_length[dino]-1)*math.sqrt(leg_length[dino]*G)
 
-# s='hello'
-# print(s.upper())
+print([sorted(speed_map.items(), key=lambda kv:kv[1], reverse=True)])
 
-person = {
-  'name': 'John Doe',
-  'age': 30
-}
 
-print(person.get('name'))
+
+
 

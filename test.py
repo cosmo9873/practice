@@ -1,84 +1,35 @@
-# x=1
-# y=2
-# a=str(x)
-# # print (x, y, a)
-# # print(type(x), type(a), a)
+# Input: 
+# [3, 4, 5] -> 345
+# [9, 4] -> 94
+# Output: 
+# [4, 3, 9] -> 439
+
+def addTwo(a,b):
+
+    res=[]
+    sum=0
+    carry=0
+    
+    while a or b:
+        d1=a.pop(-1) if a else 0
+        d2=b.pop(-1) if b else 0
+        carry,sum=divmod(d1+d2+carry,10)
+        res.insert(0,sum)
+
+    print(res)
 
 
-# # list=[1,2,3,4, 4,"adsb"]
-# # list2=list.copy()
-# # list.pop(2)
-# # print(list, list2)
+a=[3,4,5], [3,4],[3],[]
+b=[9,4], [9],[],[]
+res=[], [9],[3,9],[4,3,9]
+sum=0,9,3,4,
+carry=0,0,1,0
+
+d1=5,4,3
+d2=4,9,0
 
 
+a=[3,4,5]
+b=[9,4]
 
-# # list.insert(2, "test")
-
-# # print(myyyyylist)
-
-
-
-
-# # person = {
-# #     'last': 'xie',
-# #     'first': 'Sean'
-# # }
-
-# # print(person)
-
-# # person2=person.copy()
-# # print(person2)
-
-# # person['first']='Xi'
-# # person.pop('first')
-
-
-# # print(person)
-# # print(person2)
-
-# # def sayHello(name):
-# #     print(f'Hello {name}')
-
-# # sayHello('sean')
-
-# # def getSum(num1, num2):
-# #     return num1+num2
-
-# # print(getSum(23, 2))
-
-# # from camelcase import CamelCase
-
-# # c = CamelCase()
-# # print(c.hump("sean xie"))
-
-# line="10 100 32 48 7 62 11 29"
-
-# print(''.join(reversed(line)))
-
-# mylist=line.split(" ")
-# print(mylist)
-
-# mylist = [int(i) for i in mylist]
-# print(mylist)
-# import operator
-# import decimal
-
-# decimal.getcontext().prec = 150
-# e_from_decimal = decimal.Decimal(1).exp().to_eng_string()[2:]
-# for i in range(len(e_from_decimal)-10):
-#     x = int(reduce(operator.add,e_from_decimal[i:i+10]))
-#     if isprime(x):
-#         print (x)
-#         print (i)
-#         break  
-
-# s="abcdefghi"
-# new_s=""
-# for i in range(len(s)-1,-1,-1):
-#     new_s+=s[i]
-# print(new_s)
-
-nums = [1,1,1,2,2,5,5,3,5,5,5]
-k = 2
-a=Solution()
-print(a.topk(nums,k))
+addTwo(a,b)
